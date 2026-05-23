@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Emmanuel & Swellbridge Digital</title>
+<meta name="description" content="Swellbridge Digital is a Nigerian marketing agency founded by Emmanuel Uzoma Anofienem. Built for businesses that sell things people think carefully about.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .ab-hero { padding: 5rem 0 4rem; }
+  .ab-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center;
+  }
+  @media (max-width: 900px) { .ab-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  .ab-hero h1 { font-size: clamp(2.4rem, 5vw, 4.5rem); margin: 1.5rem 0; }
+  .ab-hero p.lead { max-width: 580px; }
+
+  .ab-photo {
+    aspect-ratio: 4/5;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    background-color: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .ab-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .ab-photo-tag {
+    position: absolute; bottom: 1.5rem; left: 1.5rem;
+    background: rgba(10,31,68,0.9); backdrop-filter: blur(10px);
+    color: #fff; padding: 0.75rem 1.25rem;
+    border-radius: 100px; font-size: 0.85rem;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .ab-photo-tag em { color: var(--amber); font-style: italic; }
+
+  /* Story */
+  .story-block {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .story-block p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+  }
+  .story-block p strong { color: var(--ink); font-weight: 600; }
+  .story-block p em { font-style: italic; color: var(--electric); font-family: var(--font-display); font-size: 1.2em; }
+
+  .pullout {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.3;
+    color: var(--ink);
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin: 2.5rem 0;
+  }
+
+  /* Values */
+  .values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  @media (max-width: 700px) { .values { grid-template-columns: 1fr; } }
+  .value {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+  .value-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--electric);
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .value h4 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+  .value p { font-size: 0.97rem; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="meta-ads.html">Meta Ads</a>
+      <a href="funnels.html">Funnels</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="automation.html">Automation</a>
+      <a href="case-studies.html">Results</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html" class="active">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20talk." class="btn btn-primary nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="real-estate.html">Real Estate</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="funnels.html">Funnels</a>
+    <a href="web-design.html">Web Design</a>
+    <a href="automation.html">Automation</a>
+    <a href="case-studies.html">Results</a>
+    <a href="blog.html">Insights</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<section class="ab-hero">
+  <div class="container">
+    <div class="ab-grid">
+      <div class="reveal">
+        <span class="eyebrow">About</span>
+        <h1>I'm <em>Emmanuel</em>. Welcome to Swellbridge.</h1>
+        <p class="lead">I've spent years quietly building marketing systems that actually move revenue — for real estate developers in Lagos, Benin, Abuja; for consultants; for service businesses across Nigeria. This is where I share what I do, and how to work with me.</p>
+      </div>
+      <div class="reveal">
+        <div class="ab-photo">
+          <img src="https://swellbridge.netlify.app/emmanuel.jpg" alt="Emmanuel Uzoma Anofienem" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg, var(--navy) 0%, var(--electric) 100%)';">
+          <div class="ab-photo-tag">Emmanuel Uzoma Anofienem · <em>Founder</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad section-warm">
+  <div class="container">
+    <div class="story-block reveal">
+      <span class="eyebrow">The story</span>
+      <h2 class="mt-sm mb-md">Why this <em>exists.</em></h2>
+
+      <p>I started Swellbridge Digital because I was tired of watching good Nigerian businesses pay marketers who didn't understand them. The agency would deliver "impressions" and "reach" — buzzwords designed to obscure the fact that nothing was selling.</p>
+
+      <p>The businesses I work with sell things people think carefully about — property, premium services, expertise, healthcare, design. These are <strong>considered purchases</strong>. They require trust. They take time. They don't respond to "Click here to buy now!" because the buyer isn't ready to buy now. They're ready to learn now. To trust now. To <em>maybe</em> buy in 90 days.</p>
+
+      <p>Most agencies don't know how to market that. They run the same playbook for every business: pretty visuals, motivational copy, vanity metrics. It doesn't work for the kinds of businesses I serve. So I built something that does.</p>
+
+      <p class="pullout">"You don't sell properties. You sell the end of paying rent forever. The legacy your children inherit. The peace of mind of finally owning land."</p>
+
+      <p>That principle — selling the transformation, not the product — runs through everything we do here. From the ad copy to the email sequences. From the website design to the realtor recruitment scripts. Every piece of the system speaks to the buyer's deeper motivation, not their surface request.</p>
+
+      <p>Today, Swellbridge Digital works with a handful of clients at a time — by design. I want to know your business intimately. I want to be in your strategy meetings. I want to take it personally when your campaigns underperform. That's only possible at this scale.</p>
+
+      <p>If you're a serious Nigerian business owner with a real offer and a real budget — and you're tired of marketing that doesn't sell — let's talk.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal text-center" style="max-width: 700px; margin: 0 auto;">
+      <span class="eyebrow center">How We Work</span>
+      <h2 class="mt-sm">Six things we <em>care about</em> more than anything else.</h2>
+    </div>
+
+    <div class="values">
+      <div class="value reveal">
+        <div class="value-num">01</div>
+        <h4>Revenue, not vanity</h4>
+        <p>We don't celebrate impressions. We celebrate sales. Every campaign is measured in money, not metrics that don't pay bills.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value-num">02</div>
+        <h4>Few clients, deep work</h4>
+        <p>We take a maximum of 1–2 new clients per month, per tier. By design. Real results require real attention.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value-num">03</div>
+        <h4>You own everything</h4>
+        <p>Pixels, websites, email lists, ad accounts, communities. All in your name. Even if we part ways, it all stays with you.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value-num">04</div>
+        <h4>Honest, even when it stings</h4>
+        <p>We'll tell you when your product needs work, your pricing is wrong, or your sales team is the bottleneck. Diplomacy second, truth first.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value-num">05</div>
+        <h4>Built for Nigeria</h4>
+        <p>WhatsApp-first follow-ups. Paystack and Flutterwave native. Mobile-first design. We know the buyer because we are the buyer.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value-num">06</div>
+        <h4>Initiative, not orders</h4>
+        <p>You don't have to brief us on every campaign. We see opportunities. We propose them. We treat your business like ours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad section-cream">
+  <div class="container-narrow text-center reveal">
+    <h2>Let's see if we're <em>a fit.</em></h2>
+    <p class="lead mt-sm">If anything on this page resonates — book a discovery call. One short conversation. No pitch, no pressure.</p>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20a%20discovery%20call." class="btn btn-primary btn-lg mt-md">Book a Discovery Call →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div><h4>Services</h4><div class="footer-links"><a href="real-estate.html">Real Estate</a><a href="meta-ads.html">Meta Ads</a><a href="funnels.html">Funnels</a><a href="web-design.html">Web Design</a><a href="automation.html">Automation</a></div></div>
+      <div><h4>Company</h4><div class="footer-links"><a href="about.html">About</a><a href="case-studies.html">Results</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Talk to us</h4><div class="footer-links"><a href="https://wa.me/2348064158087">WhatsApp</a><a href="mailto:hello@swellbridgedigital.com">Email</a><a href="contact.html">Book a call</a></div></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div><div>Nigeria · Worldwide</div></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

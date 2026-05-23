@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Estates Lagos — Own A Piece of Lekki</title>
+<meta name="description" content="Premium serviced plots and homes in Lekki Phase 2. Flexible payment plans. Verified titles. Built for families building generational wealth.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --gold: #C9A961;
+    --gold-light: #E5D5A8;
+    --charcoal: #1A1612;
+    --cream: #FAF6EE;
+    --stone: #6B6358;
+    --ivory: #F5F0E5;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--charcoal);
+    background: var(--cream);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .container-narrow { max-width: 880px; margin: 0 auto; padding: 0 2rem; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--charcoal);
+    letter-spacing: -0.01em;
+  }
+  h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+  h2 { font-size: clamp(2rem, 4.5vw, 3.75rem); }
+  h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+  em { font-style: italic; color: var(--gold); }
+  p { color: var(--stone); }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 246, 238, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+  }
+  .nav-inner {
+    max-width: 1300px; margin: 0 auto; padding: 1.25rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    color: var(--charcoal);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    color: var(--charcoal); text-decoration: none;
+    font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .nav-cta {
+    background: var(--charcoal); color: var(--cream);
+    padding: 0.7rem 1.5rem; border-radius: 0;
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 600; text-decoration: none;
+  }
+  @media (max-width: 800px) { .nav-links { display: none; } }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 5rem 0 6rem;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  .hero-eyebrow {
+    font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--gold); }
+  .hero h1 { margin-bottom: 1.75rem; }
+  .hero-sub { font-size: 1.15rem; max-width: 480px; margin-bottom: 2.5rem; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-gold {
+    background: var(--charcoal); color: var(--cream);
+    padding: 1.1rem 2rem; border-radius: 0; text-decoration: none;
+    font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 600; display: inline-flex; align-items: center; gap: 0.6rem;
+    transition: all 0.3s; border: 1px solid var(--charcoal);
+  }
+  .btn-gold:hover { background: var(--gold); border-color: var(--gold); color: var(--charcoal); }
+  .btn-outline {
+    background: transparent; color: var(--charcoal);
+    padding: 1.1rem 2rem; text-decoration: none;
+    font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 600; border: 1px solid var(--charcoal);
+  }
+  .btn-outline:hover { background: var(--charcoal); color: var(--cream); }
+
+  .hero-img {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, #2A2520 0%, #1A1612 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-img-overlay {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(201,169,97,0.2) 0%, transparent 50%),
+      linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%);
+  }
+  .hero-img::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(90deg, rgba(201,169,97,0.1) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(201,169,97,0.1) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-img-label {
+    position: absolute; bottom: 2rem; left: 2rem; right: 2rem;
+    color: var(--cream);
+  }
+  .hero-img-label .tag {
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .hero-img-label h3 { color: var(--cream); font-size: 2rem; }
+
+  /* Stats strip */
+  .stats {
+    background: var(--charcoal); color: var(--cream);
+    padding: 3rem 0;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  }
+  @media (max-width: 800px) { .stats-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+  .stat { text-align: center; padding: 0 1rem; border-right: 1px solid rgba(201,169,97,0.2); }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-lbl {
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(245,240,229,0.7);
+  }
+
+  /* Section */
+  section { padding: clamp(4rem, 8vw, 6rem) 0; }
+  .section-cream { background: var(--ivory); }
+  .section-dark { background: var(--charcoal); color: var(--cream); }
+  .section-dark h2, .section-dark h3 { color: var(--cream); }
+  .section-dark p { color: rgba(245,240,229,0.75); }
+  .eyebrow {
+    font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .section-head { max-width: 700px; margin-bottom: 4rem; }
+  .section-head .eyebrow { margin-bottom: 1rem; display: inline-block; }
+  .section-head p { font-size: 1.1rem; margin-top: 1.5rem; }
+
+  /* Properties grid */
+  .props {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  }
+  @media (max-width: 900px) { .props { grid-template-columns: 1fr; } }
+  .prop {
+    background: var(--cream); border: 1px solid rgba(201,169,97,0.2);
+    overflow: hidden; transition: all 0.4s;
+  }
+  .prop:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .prop-img {
+    aspect-ratio: 4/3; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #3A332B 0%, #1A1612 100%);
+  }
+  .prop-img::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 70% 30%, rgba(201,169,97,0.25) 0%, transparent 50%),
+      linear-gradient(45deg, transparent 40%, rgba(0,0,0,0.3) 100%);
+  }
+  .prop-img-2 { background: linear-gradient(135deg, #4A3F33 0%, #2A2520 100%); }
+  .prop-img-3 { background: linear-gradient(135deg, #2A2520 0%, #3A332B 100%); }
+  .prop-img-tag {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--gold); color: var(--charcoal);
+    padding: 0.35rem 0.85rem;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .prop-img-label {
+    position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; line-height: 1;
+  }
+  .prop-body { padding: 1.75rem; }
+  .prop-loc { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; font-weight: 600; }
+  .prop-body h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .prop-body p { font-size: 0.92rem; line-height: 1.5; margin-bottom: 1.25rem; }
+  .prop-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 1rem; border-top: 1px solid rgba(201,169,97,0.2);
+  }
+  .prop-price { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--charcoal); font-weight: 500; }
+  .prop-price span { color: var(--stone); font-size: 0.8rem; font-family: 'Montserrat', sans-serif; }
+  .prop-foot a { color: var(--charcoal); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+
+  /* Why us */
+  .reasons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; align-items: start; }
+  @media (max-width: 800px) { .reasons { grid-template-columns: 1fr; gap: 2rem; } }
+  .reason-list li {
+    list-style: none; padding: 1.5rem 0; border-bottom: 1px solid rgba(201,169,97,0.2);
+    display: flex; gap: 1.25rem;
+  }
+  .reason-num {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    color: var(--gold); font-size: 1.5rem; min-width: 40px;
+  }
+  .reason-list h4 { font-family: 'Montserrat'; font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .reason-list p { font-size: 0.95rem; }
+
+  /* Testimonial */
+  .testimonial-block {
+    background: var(--cream); padding: 4rem 3rem;
+    border-left: 4px solid var(--gold);
+    max-width: 850px; margin: 0 auto;
+  }
+  @media (max-width: 700px) { .testimonial-block { padding: 2rem 1.5rem; } }
+  .testimonial-block .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.3;
+    font-style: italic;
+    color: var(--charcoal);
+    margin-bottom: 1.75rem;
+  }
+  .testimonial-block .author { font-size: 0.95rem; color: var(--stone); }
+  .testimonial-block .author strong { color: var(--charcoal); font-weight: 600; }
+
+  /* CTA */
+  .cta {
+    background: var(--charcoal); padding: 6rem 0;
+    text-align: center; color: var(--cream);
+    position: relative; overflow: hidden;
+  }
+  .cta::before {
+    content: ""; position: absolute; top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,169,97,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cta h2 { color: var(--cream); margin-bottom: 1rem; }
+  .cta em { color: var(--gold); }
+  .cta p { color: rgba(245,240,229,0.75); font-size: 1.15rem; max-width: 580px; margin: 0 auto 2.5rem; }
+  .cta .btn-gold { background: var(--gold); color: var(--charcoal); border-color: var(--gold); }
+  .cta .btn-gold:hover { background: var(--cream); border-color: var(--cream); }
+
+  /* Footer */
+  footer {
+    background: var(--charcoal); color: rgba(245,240,229,0.5);
+    padding: 3rem 0 2rem; border-top: 1px solid rgba(201,169,97,0.15);
+    text-align: center; font-size: 0.85rem; letter-spacing: 0.05em;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Luxury <span>Estates</span></div>
+    <div class="nav-links">
+      <a href="#properties">Properties</a>
+      <a href="#why">Why Us</a>
+      <a href="#testimonials">Stories</a>
+      <a href="#contact">Visit</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20a%20site%20inspection." class="nav-cta">Book Inspection</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Lekki Phase 2 · Lagos</div>
+        <h1>Own a <em>piece of Lagos</em> built to last generations.</h1>
+        <p class="hero-sub">Premium serviced plots in one of the fastest-growing corridors of Lagos. Flexible payment plans, verified titles, and properties that appreciate while you sleep.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20a%20site%20inspection." class="btn-gold">Book a Site Visit →</a>
+          <a href="#properties" class="btn-outline">View Properties</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <div class="hero-img-overlay"></div>
+        <div class="hero-img-label">
+          <div class="tag">Featured Estate</div>
+          <h3>The Heritage Gardens, Lekki</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" style="padding: 3rem 0;">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">₦1.2B</div>
+        <div class="stat-lbl">In Properties Sold</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">348</div>
+        <div class="stat-lbl">Happy Families</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">39.5%</div>
+        <div class="stat-lbl">Lagos Property Surge</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">12 yrs</div>
+        <div class="stat-lbl">Track Record</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section id="properties">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Featured Estates</div>
+      <h2 class="mt-sm" style="margin-top:1rem;">Three estates. <em>One vision.</em></h2>
+      <p>Every one of our developments is held to the same standards: verified titles, premium infrastructure, and locations that quietly appreciate every quarter.</p>
+    </div>
+
+    <div class="props">
+      <div class="prop">
+        <div class="prop-img">
+          <span class="prop-img-tag">Selling Fast</span>
+          <div class="prop-img-label">Heritage<br>Gardens</div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">Lekki Phase 2</div>
+          <h3>The Heritage Gardens</h3>
+          <p>Fully serviced plots from 500sqm. Gated community, 24/7 security, paved access roads, underground drainage.</p>
+          <div class="prop-foot">
+            <div class="prop-price">₦18M <span>/ plot</span></div>
+            <a href="https://wa.me/2348064158087?text=I%27d%20like%20info%20on%20Heritage%20Gardens.">Enquire →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop">
+        <div class="prop-img prop-img-2">
+          <span class="prop-img-tag">New</span>
+          <div class="prop-img-label">The Crown<br>Residences</div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">Ibeju-Lekki</div>
+          <h3>The Crown Residences</h3>
+          <p>4-bedroom duplexes, contemporary architecture, in an estate planned for 60 families maximum.</p>
+          <div class="prop-foot">
+            <div class="prop-price">₦95M <span>/ duplex</span></div>
+            <a href="https://wa.me/2348064158087?text=I%27d%20like%20info%20on%20Crown%20Residences.">Enquire →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop">
+        <div class="prop-img prop-img-3">
+          <span class="prop-img-tag">Premium</span>
+          <div class="prop-img-label">Amber<br>Villas</div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">Sangotedo</div>
+          <h3>Amber Villas</h3>
+          <p>Family terraces in a green estate with a clubhouse, swimming pool, and on-site primary school.</p>
+          <div class="prop-foot">
+            <div class="prop-price">₦62M <span>/ terrace</span></div>
+            <a href="https://wa.me/2348064158087?text=I%27d%20like%20info%20on%20Amber%20Villas.">Enquire →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" class="section-cream">
+  <div class="container">
+    <div class="reasons">
+      <div>
+        <div class="eyebrow">Why Luxury Estates</div>
+        <h2 style="margin-top:1rem;">Five reasons families <em>choose us</em> when they could choose anyone.</h2>
+        <p style="margin-top:1.5rem; font-size: 1.05rem;">When you're investing tens of millions, you want certainty. Here's what we built our business on.</p>
+        <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20learn%20more%20about%20Luxury%20Estates." class="btn-gold" style="margin-top: 2rem;">Talk to Our Team →</a>
+      </div>
+
+      <ul class="reason-list">
+        <li>
+          <div class="reason-num">01</div>
+          <div>
+            <h4>Verified C of O Titles</h4>
+            <p>Every plot we sell comes with a verified Certificate of Occupancy or registered Deed of Assignment. We don't sell anything we wouldn't buy ourselves.</p>
+          </div>
+        </li>
+        <li>
+          <div class="reason-num">02</div>
+          <div>
+            <h4>12-Month Payment Plans</h4>
+            <p>Spread your investment over 12 months at no extra cost. Pay your initial deposit, take possession, and pay the balance monthly.</p>
+          </div>
+        </li>
+        <li>
+          <div class="reason-num">03</div>
+          <div>
+            <h4>Properties That Appreciate</h4>
+            <p>We only develop in corridors where infrastructure is already underway. Lekki, Sangotedo, Ibeju-Lekki — areas appreciating 30%+ per year.</p>
+          </div>
+        </li>
+        <li>
+          <div class="reason-num">04</div>
+          <div>
+            <h4>Full Infrastructure From Day One</h4>
+            <p>Paved roads, drainage, perimeter fencing, 24-hour security, and metered power. Your investment is move-in ready, not abandoned land.</p>
+          </div>
+        </li>
+        <li>
+          <div class="reason-num">05</div>
+          <div>
+            <h4>Your Family. Generationally.</h4>
+            <p>We don't sell land. We help families build legacy assets that their children will inherit and their grandchildren will be grateful for.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="section-dark" id="testimonials">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 3rem;">
+      <div class="eyebrow">Owner Stories</div>
+      <h2 style="margin-top: 1rem;">From <em>real families.</em></h2>
+    </div>
+    <div class="testimonial-block" style="background: rgba(255,255,255,0.04); color: var(--cream);">
+      <p class="quote" style="color: var(--cream);">"I paid rent in Lekki for nine years. Then I bought a plot from this team. Within 18 months, my plot had appreciated more than my entire annual rent. I should have stopped paying rent years ago."</p>
+      <p class="author" style="color: rgba(245,240,229,0.7);"><strong style="color: var(--gold);">Adaobi N.</strong> — Banker · Bought Heritage Gardens 2024</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="container-narrow">
+    <div class="eyebrow" style="text-align:center; display:block; margin-bottom: 1rem;">Schedule Your Visit</div>
+    <h2>Come see it <em>for yourself.</em></h2>
+    <p>The best way to understand our estates is to stand inside them. Tell us which property interests you, and we'll arrange a free guided site inspection — any day, any time.</p>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20a%20site%20inspection." class="btn-gold">Book Inspection on WhatsApp →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Luxury Estates Lagos · Sample site built by <a href="../../index.html">Swellbridge Digital</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

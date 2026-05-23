@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Funnels & Landing Pages — Swellbridge Digital</title>
+<meta name="description" content="High-converting landing pages, sales funnels, and email sequences built for Nigerian businesses. Turn clicks into customers with infrastructure designed by direct-response copywriters and conversion-focused designers.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .fn-hero { padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+  .fn-hero-bg {
+    position: absolute;
+    top: -200px; left: -100px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--amber-soft) 0%, transparent 60%);
+    border-radius: 50%;
+  }
+  .fn-hero-inner { position: relative; z-index: 1; }
+  .fn-hero h1 { font-size: clamp(2.5rem, 5.5vw, 5rem); margin: 1.5rem 0 1.75rem; max-width: 1000px; }
+  .fn-hero-sub { font-size: 1.2rem; max-width: 700px; color: var(--ink-soft); margin-bottom: 2rem; }
+
+  /* Funnel diagram */
+  .funnel-visual {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 3rem;
+    margin-top: 4rem;
+    box-shadow: var(--shadow-md);
+  }
+  .funnel-stages {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+  @media (max-width: 900px) { .funnel-stages { grid-template-columns: 1fr; gap: 1rem; } }
+  .funnel-stage {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    position: relative;
+    border-right: 1px solid var(--line);
+  }
+  .funnel-stage:last-child { border-right: none; }
+  @media (max-width: 900px) { .funnel-stage { border-right: none; border-bottom: 1px solid var(--line); } .funnel-stage:last-child { border-bottom: none; } }
+  .funnel-num {
+    width: 36px; height: 36px;
+    margin: 0 auto 0.75rem;
+    background: var(--navy);
+    color: var(--amber);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .funnel-stage h4 { font-size: 1rem; margin-bottom: 0.4rem; font-family: var(--font-body); font-weight: 600; letter-spacing: 0; }
+  .funnel-stage p { font-size: 0.82rem; line-height: 1.45; }
+
+  /* Feature blocks */
+  .feature-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin: 5rem 0;
+  }
+  @media (max-width: 900px) { .feature-block { grid-template-columns: 1fr; gap: 2rem; } }
+  .feature-block.reverse > div:first-child { order: 2; }
+  @media (max-width: 900px) { .feature-block.reverse > div:first-child { order: 0; } }
+  .feature-visual {
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-lg);
+    background: var(--bg-warm);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  .lp-mockup { background: #fff; padding: 1.5rem; height: 100%; display: flex; flex-direction: column; }
+  .lp-bar { display: flex; gap: 0.4rem; margin-bottom: 1rem; }
+  .lp-bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--line-strong); }
+  .lp-content { background: var(--bg-warm); border-radius: 6px; padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.75rem; }
+  .lp-bar-block { height: 8px; background: var(--ink); border-radius: 4px; }
+  .lp-bar-block.short { width: 60%; }
+  .lp-bar-block.long { width: 80%; height: 16px; background: var(--navy); }
+  .lp-bar-block.cta { background: var(--electric); width: 40%; height: 24px; border-radius: 6px; margin-top: auto; }
+
+  .email-mockup { background: #fff; padding: 1.25rem; height: 100%; overflow: hidden; }
+  .email-row {
+    display: flex; gap: 0.75rem; padding: 0.85rem; border-bottom: 1px solid var(--line);
+    transition: background 0.2s;
+  }
+  .email-row:hover { background: var(--bg-warm); }
+  .email-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); flex-shrink: 0; }
+  .email-row:nth-child(2) .email-avatar { background: var(--electric); }
+  .email-row:nth-child(3) .email-avatar { background: var(--amber); }
+  .email-row:nth-child(4) .email-avatar { background: #2D5F4E; }
+  .email-row:nth-child(5) .email-avatar { background: #8B6914; }
+  .email-content { flex-grow: 1; min-width: 0; }
+  .email-subject { font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .email-preview { font-size: 0.78rem; color: var(--ink-mute); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .feature-body h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 1rem; }
+  .feature-body p { font-size: 1.05rem; line-height: 1.65; }
+  .feature-list { margin-top: 1.5rem; }
+  .feature-list li {
+    padding: 0.5rem 0;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.97rem;
+  }
+  .feature-list li::before { content: "→"; color: var(--electric); font-weight: 700; }
+
+  /* Pricing */
+  .pricing-rows {
+    margin-top: 3rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+  .pricing-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1.5fr 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.75rem 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .pricing-row:last-child { border-bottom: none; }
+  @media (max-width: 800px) {
+    .pricing-row { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem; }
+  }
+  .pricing-row h4 { font-size: 1.25rem; }
+  .pricing-row p { font-size: 0.93rem; }
+  .pricing-row-price {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--navy);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .pricing-row-price em { font-style: italic; color: var(--electric); font-weight: 400; }
+  .pricing-row .btn-ghost { padding: 0.7rem 1.2rem; font-size: 0.88rem; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="meta-ads.html">Meta Ads</a>
+      <a href="funnels.html" class="active">Funnels</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="automation.html">Automation</a>
+      <a href="case-studies.html">Results</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%20want%20to%20discuss%20a%20funnel." class="btn btn-primary nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="real-estate.html">Real Estate</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="funnels.html">Funnels</a>
+    <a href="web-design.html">Web Design</a>
+    <a href="automation.html">Automation</a>
+    <a href="case-studies.html">Results</a>
+    <a href="blog.html">Insights</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="fn-hero">
+  <div class="fn-hero-bg"></div>
+  <div class="container fn-hero-inner">
+    <div class="reveal">
+      <span class="eyebrow amber">Sales Funnels & Landing Pages</span>
+      <h1>The page <em>that closes</em>. The follow-ups that turn maybes into buyers.</h1>
+      <p class="fn-hero-sub">Most websites are brochures. We build sales funnels — landing pages, opt-ins, sales pages, email sequences, lead routing — engineered to convert traffic into revenue, not just admire-and-leave.</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="#pricing" class="btn btn-primary btn-lg">See Pricing</a>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%20want%20to%20discuss%20building%20a%20funnel." class="btn btn-ghost btn-lg">Talk on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Funnel visual -->
+    <div class="funnel-visual reveal">
+      <div style="text-align:center;">
+        <span class="eyebrow center">Anatomy of a Funnel</span>
+      </div>
+      <div class="funnel-stages">
+        <div class="funnel-stage">
+          <div class="funnel-num">i</div>
+          <h4>Traffic Source</h4>
+          <p>Meta, Google, organic, referrals — whoever lands first.</p>
+        </div>
+        <div class="funnel-stage">
+          <div class="funnel-num">ii</div>
+          <h4>Landing Page</h4>
+          <p>Capture interest. Earn the click. Get the email.</p>
+        </div>
+        <div class="funnel-stage">
+          <div class="funnel-num">iii</div>
+          <h4>Email Nurture</h4>
+          <p>Build trust. Educate. Address objections. 5–7 emails.</p>
+        </div>
+        <div class="funnel-stage">
+          <div class="funnel-num">iv</div>
+          <h4>Sales Page</h4>
+          <p>Long-form. Direct response. Designed to close.</p>
+        </div>
+        <div class="funnel-stage">
+          <div class="funnel-num">v</div>
+          <h4>Buy / Book</h4>
+          <p>Frictionless conversion. WhatsApp, payment, or call.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANDING PAGES -->
+<section class="section-pad">
+  <div class="container">
+    <div class="feature-block">
+      <div class="reveal">
+        <div class="feature-visual">
+          <div class="lp-mockup">
+            <div class="lp-bar"><span></span><span></span><span></span></div>
+            <div class="lp-content">
+              <div class="lp-bar-block long"></div>
+              <div class="lp-bar-block"></div>
+              <div class="lp-bar-block short"></div>
+              <div class="lp-bar-block"></div>
+              <div class="lp-bar-block short"></div>
+              <div class="lp-bar-block cta"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-body reveal">
+        <span class="eyebrow">01 · Landing Pages</span>
+        <h3 class="mt-sm">Pages built to <em>convert</em> — not just to exist.</h3>
+        <p>A landing page is a sales conversation in HTML. We write the copy, design the layout, choose the proof, and structure the CTAs based on direct-response principles tested by Eugene Schwartz, Sabri Suby, Russell Brunson, and Frank Kern — adapted for the Nigerian buyer.</p>
+        <ul class="feature-list">
+          <li>Hero section that earns the next scroll</li>
+          <li>Pre-framing your offer so price feels small</li>
+          <li>Proof stack: testimonials, results, case studies</li>
+          <li>Objection-handling copy built into the page</li>
+          <li>Frictionless CTA: WhatsApp, form, or instant booking</li>
+          <li>Mobile-first design — because that's where Nigerians live</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature-block reverse">
+      <div class="reveal">
+        <div class="feature-visual">
+          <div class="email-mockup">
+            <div class="email-row">
+              <div class="email-avatar"></div>
+              <div class="email-content">
+                <div class="email-subject">Day 1: The honest truth about land in Lagos</div>
+                <div class="email-preview">If you're thinking of buying — read this first…</div>
+              </div>
+            </div>
+            <div class="email-row">
+              <div class="email-avatar"></div>
+              <div class="email-content">
+                <div class="email-subject">Day 3: Why most people overpay (and how to not)</div>
+                <div class="email-preview">There are 3 things every buyer should check before signing…</div>
+              </div>
+            </div>
+            <div class="email-row">
+              <div class="email-avatar"></div>
+              <div class="email-content">
+                <div class="email-subject">Day 5: My biggest fear when I bought my first property</div>
+                <div class="email-preview">Here's what I wish someone told me back then…</div>
+              </div>
+            </div>
+            <div class="email-row">
+              <div class="email-avatar"></div>
+              <div class="email-content">
+                <div class="email-subject">Day 7: Ready to see what we're working on?</div>
+                <div class="email-preview">Two estates left in this phase. Want to book a viewing?</div>
+              </div>
+            </div>
+            <div class="email-row">
+              <div class="email-avatar"></div>
+              <div class="email-content">
+                <div class="email-subject">Day 10: Quick check-in</div>
+                <div class="email-preview">Did you get a chance to look at the inspection slots?</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-body reveal">
+        <span class="eyebrow">02 · Email Sequences</span>
+        <h3 class="mt-sm">The follow-up <em>most businesses never do.</em></h3>
+        <p>In Nigeria, buyers need to trust you before they pay you. That trust is built between the moment they land on your page and the moment they pay — and 80% of it happens through email. We write nurture sequences that warm cold leads, address fears, and lead them to a confident decision.</p>
+        <ul class="feature-list">
+          <li>5–10 email welcome sequence for new leads</li>
+          <li>Storytelling emails (Frank Kern method) — not "blast" emails</li>
+          <li>Objection-handling sequences for cold prospects</li>
+          <li>Re-engagement campaigns to revive dead lists</li>
+          <li>Behavioural triggers (opens, clicks, page visits)</li>
+          <li>Setup on Mailchimp, ConvertKit, Brevo, or your preferred platform</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature-block">
+      <div class="reveal">
+        <div class="feature-visual" style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%); display:flex; align-items:center; justify-content:center; padding:2rem;">
+          <div style="text-align:center; color:#fff;">
+            <div style="font-family: var(--font-display); font-style: italic; font-size: 4rem; color: var(--amber); line-height: 1;">3,247</div>
+            <div style="font-size: 0.95rem; opacity: 0.7; margin-top: 0.5rem;">Visitors</div>
+            <div style="width: 80%; height: 1px; background: rgba(255,255,255,0.15); margin: 1.5rem auto;"></div>
+            <div style="font-family: var(--font-display); font-style: italic; font-size: 2rem; color: #fff;">412 leads · 38 bookings</div>
+            <div style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase;">Funnel performance · live dashboard</div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-body reveal">
+        <span class="eyebrow">03 · Lead Routing & Tracking</span>
+        <h3 class="mt-sm">Know exactly <em>where every naira</em> is going.</h3>
+        <p>A funnel without analytics is a wish. We wire up the tracking — Meta pixel, Google Analytics, conversion events, UTMs — so you can see precisely how every lead arrived, what they cost, and where in the funnel they dropped off.</p>
+        <ul class="feature-list">
+          <li>Pixel + GA4 setup with proper event tracking</li>
+          <li>UTM parameter strategy for every campaign</li>
+          <li>Lead routing logic (qualified vs unqualified)</li>
+          <li>WhatsApp integration with pre-filled messages</li>
+          <li>Dashboards in Google Sheets or Looker Studio</li>
+          <li>Weekly performance reports — no fluff, just numbers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-pad section-warm" id="pricing">
+  <div class="container">
+    <div class="reveal text-center" style="max-width: 700px; margin: 0 auto;">
+      <span class="eyebrow center">Pricing</span>
+      <h2 class="mt-sm">Built piece by piece — or as a <em>complete system.</em></h2>
+      <p class="lead mt-md">All prices are starting points. Custom scopes adjust based on complexity, copywriting depth, and platform requirements.</p>
+    </div>
+
+    <div class="pricing-rows reveal">
+      <div class="pricing-row">
+        <div>
+          <h4>Landing Page</h4>
+          <p>Single high-conversion landing page with copywriting, design, and analytics setup.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦250k</em></div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20a%20landing%20page%20%28from%20%E2%82%A6250k%29." class="btn btn-ghost">Start →</a>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <h4>Long-Form Sales Page</h4>
+          <p>Direct-response sales page with full storytelling, proof, objections, multiple CTAs.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦450k</em></div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20a%20long-form%20sales%20page%20%28from%20%E2%82%A6450k%29." class="btn btn-ghost">Start →</a>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <h4>Email Sequence</h4>
+          <p>5–10 email nurture or sales sequence, written and set up on your platform.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦200k</em></div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20an%20email%20sequence%20%28from%20%E2%82%A6200k%29." class="btn btn-ghost">Start →</a>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <h4>Complete Funnel</h4>
+          <p>Landing page + sales page + 7-email nurture + tracking + lead routing. Full system.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦850k</em></div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20a%20complete%20funnel%20%28from%20%E2%82%A6850k%29." class="btn btn-ghost">Start →</a>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <h4>Funnel Audit & Strategy</h4>
+          <p>Have an existing funnel that's underperforming? We audit, identify leaks, and write a fix list.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦150k</em></div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20a%20funnel%20audit%20%28from%20%E2%82%A6150k%29." class="btn btn-ghost">Start →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <div class="footer-links">
+          <a href="real-estate.html">Real Estate</a>
+          <a href="meta-ads.html">Meta Ads</a>
+          <a href="funnels.html">Funnels</a>
+          <a href="web-design.html">Web Design</a>
+          <a href="automation.html">Automation</a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="case-studies.html">Results</a>
+          <a href="blog.html">Insights</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <div class="footer-links">
+          <a href="https://wa.me/2348064158087">WhatsApp</a>
+          <a href="mailto:hello@swellbridgedigital.com">Email</a>
+          <a href="contact.html">Book a call</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div>
+      <div>Nigeria · Worldwide</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

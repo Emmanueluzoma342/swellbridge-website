@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serene Family Clinic — Healthcare Without The Wait</title>
+<meta name="description" content="Same-day family healthcare in Port Harcourt. Online booking, gentle doctors, transparent pricing. Care for families who don't have time to spend three hours in a waiting room.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --green: #2D5F4E;
+    --green-deep: #1E3A2F;
+    --green-light: #E8F0EC;
+    --sage: #B8C9C0;
+    --cream: #FBF8F2;
+    --warm: #F5EFDC;
+    --text: #2A3530;
+    --soft: #5D6962;
+    --coral: #E89B7A;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.7;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+
+  h1, h2, h3, h4 { font-family: 'Lora', serif; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; color: var(--green-deep); }
+  h1 { font-size: clamp(2.4rem, 5.5vw, 4.5rem); }
+  h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+  h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+  em { font-style: italic; color: var(--green); }
+  p { color: var(--soft); }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(251, 248, 242, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(45,95,78,0.08);
+  }
+  .nav-inner {
+    max-width: 1300px; margin: 0 auto; padding: 1.2rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: 'Lora', serif;
+    font-size: 1.45rem; font-weight: 600;
+    color: var(--green-deep);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .logo-leaf {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--green); color: #fff;
+    font-size: 0.9rem; font-style: italic;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; }
+  .nav-cta {
+    background: var(--green); color: #fff;
+    padding: 0.7rem 1.5rem; border-radius: 100px;
+    font-size: 0.92rem; font-weight: 600; text-decoration: none;
+    transition: all 0.25s;
+  }
+  .nav-cta:hover { background: var(--green-deep); }
+  @media (max-width: 800px) { .nav-links { display: none; } }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(180deg, var(--green-light) 0%, var(--cream) 100%);
+    padding: 5rem 0 6rem;
+    position: relative;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: #fff; color: var(--green);
+    padding: 0.5rem 1rem; border-radius: 100px;
+    font-size: 0.88rem; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(45,95,78,0.08);
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag::before { content: "●"; color: var(--coral); }
+  .hero h1 { margin-bottom: 1.5rem; }
+  .hero-sub { font-size: 1.2rem; max-width: 540px; margin-bottom: 2rem; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--green); color: #fff;
+    padding: 1.1rem 2rem; border-radius: 100px; text-decoration: none;
+    font-size: 1rem; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--green-deep); transform: translateY(-2px); }
+  .btn-outline {
+    color: var(--green-deep); text-decoration: none;
+    padding: 1.1rem 1.5rem;
+    font-size: 1rem; font-weight: 600;
+    border-bottom: 2px solid var(--green);
+  }
+
+  .hero-img {
+    aspect-ratio: 1;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-img::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(232,155,122,0.2) 0%, transparent 50%);
+  }
+  .hero-img-text {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--cream); text-align: center; padding: 2rem;
+  }
+  .hero-img-text .num { font-family: 'Lora', serif; font-size: 4rem; color: var(--warm); font-style: italic; line-height: 1; }
+  .hero-img-text .lbl { font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.75rem; opacity: 0.85; }
+
+  /* Sections */
+  section { padding: clamp(4rem, 8vw, 6rem) 0; }
+  .section-green { background: var(--green-deep); color: var(--cream); }
+  .section-green h2, .section-green h3 { color: #fff; }
+  .section-green p { color: rgba(251,248,242,0.78); }
+  .section-warm { background: var(--warm); }
+  .section-head { max-width: 700px; margin-bottom: 4rem; text-align: center; margin-left: auto; margin-right: auto; }
+  .eyebrow {
+    font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--green); font-weight: 600;
+  }
+  .section-head .eyebrow { margin-bottom: 1rem; display: inline-block; }
+  .section-head p { font-size: 1.1rem; margin-top: 1.5rem; }
+
+  /* Services */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 900px) { .services { grid-template-columns: 1fr; } }
+  .service {
+    background: #fff; border-radius: 20px; padding: 2.25rem 2rem;
+    transition: all 0.3s; border: 1px solid rgba(45,95,78,0.08);
+  }
+  .service:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(45,95,78,0.08); }
+  .service-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: var(--green-light); color: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-family: 'Lora', serif; font-style: italic; font-size: 1.6rem;
+    font-weight: 500;
+  }
+  .service h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+  .service p { font-size: 0.95rem; margin-bottom: 1.25rem; }
+  .service-price {
+    font-size: 0.92rem; color: var(--green); font-weight: 600;
+    padding-top: 1rem; border-top: 1px solid rgba(45,95,78,0.08);
+  }
+
+  /* Doctors */
+  .docs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 900px) { .docs { grid-template-columns: 1fr; } }
+  .doc {
+    background: var(--cream); border-radius: 20px; padding: 2rem; text-align: center;
+    border: 1px solid rgba(45,95,78,0.1);
+  }
+  .doc-avatar {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: var(--green); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Lora', serif; font-size: 2.4rem; font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .doc:nth-child(2) .doc-avatar { background: var(--coral); }
+  .doc:nth-child(3) .doc-avatar { background: var(--green-deep); }
+  .doc h3 { font-size: 1.4rem; margin-bottom: 0.25rem; }
+  .doc-role { font-size: 0.92rem; color: var(--green); font-weight: 600; margin-bottom: 1rem; }
+  .doc p { font-size: 0.95rem; line-height: 1.6; }
+
+  /* Why */
+  .reasons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+  @media (max-width: 900px) { .reasons { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .reasons { grid-template-columns: 1fr; } }
+  .reason { text-align: center; }
+  .reason-num {
+    font-family: 'Lora', serif; font-style: italic;
+    color: var(--coral); font-size: 2.2rem; line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .reason h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: #fff; font-weight: 600; font-family: 'Source Sans 3', sans-serif; letter-spacing: 0; }
+  .reason p { font-size: 0.92rem; }
+
+  /* Booking */
+  .booking-card {
+    background: #fff; border-radius: 24px; padding: 3rem;
+    max-width: 700px; margin: 0 auto;
+    box-shadow: 0 20px 50px rgba(45,95,78,0.08);
+    border: 1px solid rgba(45,95,78,0.06);
+  }
+  @media (max-width: 700px) { .booking-card { padding: 2rem 1.5rem; } }
+  .booking-card .head { text-align: center; margin-bottom: 2rem; }
+  .booking-card h2 { margin-bottom: 0.5rem; }
+  .booking-options {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  @media (max-width: 600px) { .booking-options { grid-template-columns: 1fr; } }
+  .booking-opt {
+    padding: 1.5rem; border-radius: 16px; border: 2px solid rgba(45,95,78,0.1);
+    text-align: left;
+    transition: all 0.25s; text-decoration: none; color: var(--text); display: block;
+  }
+  .booking-opt:hover { border-color: var(--green); background: var(--green-light); }
+  .booking-opt .icon {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: var(--green); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.85rem; font-size: 1.1rem;
+  }
+  .booking-opt h4 { font-family: 'Source Sans 3'; font-size: 1.05rem; font-weight: 700; color: var(--green-deep); margin-bottom: 0.35rem; letter-spacing: 0; }
+  .booking-opt p { font-size: 0.88rem; margin: 0; }
+
+  /* Testimonial */
+  .testimonial-block {
+    background: var(--green-light); border-radius: 20px;
+    padding: 3rem; max-width: 800px; margin: 0 auto;
+    border-left: 4px solid var(--green);
+  }
+  @media (max-width: 600px) { .testimonial-block { padding: 2rem 1.5rem; } }
+  .testimonial-block .quote {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem); line-height: 1.4;
+    color: var(--green-deep); margin-bottom: 1.5rem;
+  }
+  .testimonial-block .author { font-size: 0.95rem; color: var(--soft); }
+  .testimonial-block .author strong { color: var(--green-deep); display: block; font-weight: 700; }
+
+  footer {
+    background: var(--green-deep); color: rgba(251,248,242,0.55);
+    padding: 3rem 0; text-align: center; font-size: 0.9rem;
+  }
+  footer a { color: var(--warm); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-leaf">S</span> Serene Clinic
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#doctors">Our Doctors</a>
+      <a href="#why">Why Us</a>
+      <a href="#book">Book a Visit</a>
+    </div>
+    <a href="#book" class="nav-cta">Book Appointment →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">Open Today · Same-day appointments available</div>
+        <h1>Family healthcare. <em>Without the three-hour wait.</em></h1>
+        <p class="hero-sub">A modern family clinic in Port Harcourt for parents who don't have time to spend the whole day at a hospital. Book online, see a doctor today, get back to your life.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20an%20appointment%20at%20Serene%20Clinic." class="btn-primary">Book Same-Day Visit →</a>
+          <a href="#services" class="btn-outline">See Services</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <div class="hero-img-text">
+          <div class="num">15 min</div>
+          <div class="lbl">Average wait time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our Services</span>
+      <h2 style="margin-top: 1rem;">Care your <em>whole family</em> can rely on.</h2>
+      <p>Primary care, prevention, pediatrics, and women's health — all under one roof, all in one trip.</p>
+    </div>
+
+    <div class="services">
+      <div class="service">
+        <div class="service-icon">f</div>
+        <h3>Family Consultation</h3>
+        <p>General check-ups, illness management, prescriptions, and referrals. The everyday care your family needs.</p>
+        <div class="service-price">From ₦15,000 / visit</div>
+      </div>
+      <div class="service">
+        <div class="service-icon">p</div>
+        <h3>Paediatric Care</h3>
+        <p>Children's check-ups, immunisations, growth monitoring, and treatment for common childhood illnesses.</p>
+        <div class="service-price">From ₦18,000 / visit</div>
+      </div>
+      <div class="service">
+        <div class="service-icon">w</div>
+        <h3>Women's Health</h3>
+        <p>Annual exams, family planning consultations, prenatal care referrals, and gynaecological screenings.</p>
+        <div class="service-price">From ₦25,000 / visit</div>
+      </div>
+      <div class="service">
+        <div class="service-icon">v</div>
+        <h3>Vaccinations</h3>
+        <p>Childhood immunisations, adult boosters, travel vaccines, and flu shots — all stored properly, all in stock.</p>
+        <div class="service-price">From ₦8,000 / dose</div>
+      </div>
+      <div class="service">
+        <div class="service-icon">l</div>
+        <h3>Lab Tests</h3>
+        <p>Routine bloodwork, infections, hormones, and full health screenings. Results within 24 hours.</p>
+        <div class="service-price">From ₦5,000 / test</div>
+      </div>
+      <div class="service">
+        <div class="service-icon">s</div>
+        <h3>Senior Care</h3>
+        <p>Diabetes, hypertension, and chronic condition management. Compassionate, unhurried appointments for parents and grandparents.</p>
+        <div class="service-price">From ₦20,000 / visit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section-green" id="why">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="color: var(--coral);">Why Families Choose Us</span>
+      <h2 style="margin-top: 1rem;">A different kind of clinic. <em>By design.</em></h2>
+    </div>
+
+    <div class="reasons">
+      <div class="reason">
+        <div class="reason-num">i</div>
+        <h3>Online booking</h3>
+        <p>Book your visit on WhatsApp. We confirm in minutes. No phone tag, no queues.</p>
+      </div>
+      <div class="reason">
+        <div class="reason-num">ii</div>
+        <h3>Transparent prices</h3>
+        <p>You always know what a visit costs before you walk in. No surprises, no upselling.</p>
+      </div>
+      <div class="reason">
+        <div class="reason-num">iii</div>
+        <h3>Gentle doctors</h3>
+        <p>Our doctors listen first, prescribe second. Long, unhurried appointments are the norm.</p>
+      </div>
+      <div class="reason">
+        <div class="reason-num">iv</div>
+        <h3>Real medications</h3>
+        <p>NAFDAC-verified prescriptions only. Our pharmacy is stocked with real, traceable medicines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors" class="section-warm">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Meet The Team</span>
+      <h2 style="margin-top: 1rem;">The doctors who'll <em>actually listen.</em></h2>
+    </div>
+
+    <div class="docs">
+      <div class="doc">
+        <div class="doc-avatar">A</div>
+        <h3>Dr. Adaobi N.</h3>
+        <div class="doc-role">Family Physician</div>
+        <p>15 years of experience in primary care. Specialises in chronic condition management for adults and seniors.</p>
+      </div>
+      <div class="doc">
+        <div class="doc-avatar">C</div>
+        <h3>Dr. Chinyere O.</h3>
+        <div class="doc-role">Paediatrician</div>
+        <p>Trained at Lagos University Teaching Hospital. Mother of two. Has the gentlest hands in Port Harcourt.</p>
+      </div>
+      <div class="doc">
+        <div class="doc-avatar">E</div>
+        <h3>Dr. Emeka U.</h3>
+        <div class="doc-role">General Practitioner</div>
+        <p>Special interest in men's health and lifestyle medicine. Helps patients build sustainable health habits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section>
+  <div class="container">
+    <div class="testimonial-block">
+      <p class="quote">"My son had a fever at 8am. I sent a WhatsApp message at 8:05. We were seen by Dr. Chinyere at 9:30, prescribed at 9:45, and back home by 10. I never imagined healthcare in Port Harcourt could feel like this."</p>
+      <div class="author">
+        <strong>Esther M.</strong> — Mother of two, regular patient since 2024
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="book" class="section-warm">
+  <div class="container">
+    <div class="booking-card">
+      <div class="head">
+        <span class="eyebrow">Book A Visit</span>
+        <h2 style="margin-top: 1rem;">Two easy ways to <em>book.</em></h2>
+        <p style="margin-top: 1rem;">Same-day appointments available. We confirm within 15 minutes.</p>
+      </div>
+
+      <div class="booking-options">
+        <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20an%20appointment%20at%20Serene%20Clinic." class="booking-opt">
+          <div class="icon">w</div>
+          <h4>Book on WhatsApp</h4>
+          <p>Fastest. Send a quick message — we reply with available times today.</p>
+        </a>
+        <a href="tel:+2348064158087" class="booking-opt">
+          <div class="icon">📞</div>
+          <h4>Call Us</h4>
+          <p>Prefer to talk? Our team picks up within 3 rings, every time.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Serene Family Clinic, Port Harcourt · Sample site built by <a href="../../index.html">Swellbridge Digital</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

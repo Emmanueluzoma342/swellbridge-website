@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empire Consulting — Help Coaches & Consultants Hit ₦10M Months</title>
+<meta name="description" content="The business coach for Nigerian coaches and consultants who want to scale to ₦10M+ months without becoming content creators. Watch the free training.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ink: #14110D;
+    --paper: #F7F3EC;
+    --paper-2: #EFE9DD;
+    --orange: #E55934;
+    --mustard: #F2A516;
+    --ash: #6B6258;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.65;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.5rem, 6vw, 5.5rem); }
+  h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); }
+  h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+  em { font-style: italic; color: var(--orange); }
+  p { color: var(--ash); }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247, 243, 236, 0.92);
+    backdrop-filter: blur(20px);
+  }
+  .nav-inner {
+    max-width: 1300px; margin: 0 auto; padding: 1.25rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-style: italic; font-weight: 700;
+    color: var(--ink);
+  }
+  .logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.92rem; font-weight: 500; }
+  .nav-cta {
+    background: var(--ink); color: var(--paper);
+    padding: 0.65rem 1.4rem; border-radius: 100px;
+    font-size: 0.88rem; font-weight: 600; text-decoration: none;
+  }
+  @media (max-width: 800px) { .nav-links { display: none; } }
+
+  /* Hero */
+  .hero { padding: 4rem 0 6rem; position: relative; overflow: hidden; }
+  .hero-bg {
+    position: absolute; top: 0; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(229,89,52,0.12) 0%, transparent 60%);
+    border-radius: 50%;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem;
+    position: relative; z-index: 1; align-items: center;
+  }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  .badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(229,89,52,0.1); color: var(--orange);
+    padding: 0.5rem 1rem; border-radius: 100px;
+    font-size: 0.82rem; font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 { margin-bottom: 1.5rem; }
+  .hero-sub { font-size: 1.2rem; max-width: 540px; margin-bottom: 2rem; color: var(--ash); }
+  .hero-ctas { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--orange); color: #fff;
+    padding: 1.1rem 2rem; border-radius: 100px; text-decoration: none;
+    font-size: 1rem; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: all 0.25s;
+    box-shadow: 0 8px 20px rgba(229,89,52,0.25);
+  }
+  .btn-primary:hover { background: #D14B27; transform: translateY(-2px); }
+  .hero-stats { display: flex; gap: 1.5rem; align-items: center; }
+  .hero-stats > div { font-size: 0.85rem; color: var(--ash); }
+  .hero-stats strong { color: var(--ink); font-size: 1.1rem; display: block; font-weight: 700; }
+
+  /* Founder card */
+  .founder-card {
+    background: var(--ink); color: var(--paper);
+    border-radius: 24px; padding: 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .founder-card::before {
+    content: ""; position: absolute; top: -100px; right: -100px;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(229,89,52,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .founder-avatar {
+    width: 90px; height: 90px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--mustard));
+    margin-bottom: 1.25rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display'; font-size: 2.4rem; color: #fff;
+    font-style: italic; font-weight: 700;
+  }
+  .founder-card h3 { color: #fff; font-size: 1.7rem; margin-bottom: 0.25rem; }
+  .founder-card .role { color: rgba(247,243,236,0.7); font-size: 0.92rem; margin-bottom: 1.5rem; font-weight: 500; }
+  .founder-quote {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 1.1rem; line-height: 1.5; color: rgba(247,243,236,0.92);
+    padding-top: 1rem; border-top: 1px solid rgba(247,243,236,0.15);
+    position: relative; z-index: 1;
+  }
+
+  /* Sections */
+  section { padding: clamp(4rem, 8vw, 6rem) 0; }
+  .section-paper-2 { background: var(--paper-2); }
+  .section-dark { background: var(--ink); color: var(--paper); }
+  .section-dark h2, .section-dark h3 { color: #fff; }
+  .section-dark p { color: rgba(247,243,236,0.75); }
+
+  /* Problem */
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 800px) { .problem-grid { grid-template-columns: 1fr; } }
+  .problem-list li {
+    list-style: none; padding: 1rem 0;
+    display: flex; gap: 0.85rem; align-items: flex-start;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 1.05rem;
+  }
+  .problem-list li::before {
+    content: "✕"; color: var(--orange); font-weight: 700; flex-shrink: 0;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(229,89,52,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; margin-top: 0.25rem;
+  }
+
+  /* Method */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  @media (max-width: 900px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar {
+    background: var(--paper); color: var(--ink);
+    border-radius: 16px; padding: 2rem;
+    transition: all 0.3s;
+  }
+  .pillar:hover { transform: translateY(-4px); }
+  .pillar-num {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: var(--orange); font-size: 1.4rem;
+    margin-bottom: 0.85rem;
+  }
+  .pillar h3 { font-size: 1.4rem; margin-bottom: 0.75rem; color: var(--ink); }
+  .pillar p { font-size: 0.95rem; color: var(--ash); }
+
+  /* Testimonials */
+  .quotes {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 800px) { .quotes { grid-template-columns: 1fr; } }
+  .quote-card {
+    background: var(--paper); border-radius: 16px; padding: 2rem;
+    border-left: 4px solid var(--orange);
+  }
+  .quote-card .text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem; line-height: 1.4;
+    color: var(--ink); margin-bottom: 1.5rem;
+  }
+  .quote-card .author {
+    font-size: 0.92rem; color: var(--ash);
+    padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .quote-card .author strong { color: var(--ink); display: block; margin-bottom: 0.15rem; font-weight: 700; }
+
+  /* CTA */
+  .cta-final {
+    background: var(--ink); color: #fff;
+    border-radius: 32px; padding: 5rem 3rem;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-final::before, .cta-final::after {
+    content: ""; position: absolute; border-radius: 50%;
+  }
+  .cta-final::before { top: -150px; right: -150px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(229,89,52,0.2) 0%, transparent 70%); }
+  .cta-final::after { bottom: -100px; left: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(242,165,22,0.15) 0%, transparent 70%); }
+  .cta-final > * { position: relative; z-index: 1; }
+  .cta-final h2 { color: #fff; }
+  .cta-final p { color: rgba(247,243,236,0.8); font-size: 1.15rem; max-width: 580px; margin: 1.25rem auto 2.5rem; }
+
+  /* Footer */
+  footer {
+    background: var(--ink); color: rgba(247,243,236,0.5);
+    padding: 3rem 0; text-align: center; font-size: 0.88rem;
+    border-top: 1px solid rgba(247,243,236,0.1);
+  }
+  footer a { color: var(--mustard); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Empire <span>Consulting</span></div>
+    <div class="nav-links">
+      <a href="#method">The Method</a>
+      <a href="#proof">Client Results</a>
+      <a href="#about">About Tobi</a>
+    </div>
+    <a href="#training" class="nav-cta">Watch Training →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="badge">★ For Coaches & Consultants Earning ₦500k–₦3M/mo</div>
+        <h1>How <em>7 of my clients</em> went from ₦500k to ₦10M months — without becoming content creators.</h1>
+        <p class="hero-sub">Watch the free 32-minute training where I break down the exact 3-pillar system my clients use to scale their coaching businesses without 9-5 content grind.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20watch%20the%20training." class="btn-primary">▶ Watch the Free Training</a>
+          <div class="hero-stats">
+            <div><strong>2,400+</strong>Coaches helped</div>
+            <div><strong>₦4.2B+</strong>Client revenue</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="founder-card">
+        <div class="founder-avatar">T</div>
+        <h3>Tobi Akande</h3>
+        <div class="role">Business Strategist & Founder, Empire Consulting</div>
+        <p class="founder-quote">"I built a 7-figure consulting business in Nigeria without posting daily on Instagram or running 'manifestation' workshops. There's a real way to do this — and I'll show you."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section-paper-2">
+  <div class="container">
+    <div class="problem-grid">
+      <div>
+        <span style="font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); font-weight: 600;">The Truth Nobody Tells You</span>
+        <h2 style="margin-top: 1rem;">If you've ever <em>felt this</em>, the problem isn't you.</h2>
+        <p style="margin-top: 1.5rem; font-size: 1.05rem;">Nigerian coaches and consultants are stuck in a content-creation hamster wheel that was never designed to make them money. It was designed to make Meta money.</p>
+      </div>
+
+      <ul class="problem-list">
+        <li>You post daily on Instagram. Engagement is dropping. Clients still aren't booking.</li>
+        <li>You spend more time editing reels than serving paying clients.</li>
+        <li>Your DMs are full of "how much" tyre-kickers who never close.</li>
+        <li>You can't take a 2-week break without your business collapsing.</li>
+        <li>You're earning more than your friends but somehow always broke at month-end.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section id="method" class="section-dark">
+  <div class="container">
+    <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+      <span style="font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mustard); font-weight: 600;">The 3-Pillar Method</span>
+      <h2 style="margin-top: 1rem; color: #fff;">The system that <em>actually scales</em> a coaching business.</h2>
+      <p style="margin-top: 1.5rem; color: rgba(247,243,236,0.75);">Forget viral content. Forget chasing followers. There are exactly three things you need — and once they're in place, the rest is just execution.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">Pillar 01</div>
+        <h3>Premium Offer Architecture</h3>
+        <p>Stop selling ₦50k programmes. We rebuild your offer so the same effort generates 10x revenue per client — at a price that pre-qualifies serious people.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 02</div>
+        <h3>Predictable Lead Flow</h3>
+        <p>One simple ad funnel that brings 30–80 qualified prospects every month — without you ever opening Instagram. We set it up. You take calls.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 03</div>
+        <h3>The Closing Conversation</h3>
+        <p>The exact 7-question call structure that turns "let me think about it" into "where do I pay?" — no pushy selling, no scripts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="proof">
+  <div class="container">
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 0;">
+      <span style="font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); font-weight: 600;">Client Wins</span>
+      <h2 style="margin-top: 1rem;">From <em>my actual clients.</em></h2>
+    </div>
+
+    <div class="quotes">
+      <div class="quote-card">
+        <p class="text">"I went from ₦650k months to ₦8.4M in 90 days. The crazy part — I'm posting less content than ever before. Tobi's method works."</p>
+        <div class="author">
+          <strong>Chioma O.</strong>
+          Mindset Coach · Lagos
+        </div>
+      </div>
+      <div class="quote-card">
+        <p class="text">"My first ₦15M month happened in week 11 of the program. I had to call my husband and cry — happy tears. I finally believed it was possible."</p>
+        <div class="author">
+          <strong>Adaeze K.</strong>
+          Career Coach · Abuja
+        </div>
+      </div>
+      <div class="quote-card">
+        <p class="text">"Empire is for coaches who are tired of pretending. No motivation, no fluff. Just the system. I'm at ₦12M months now, 8 months in."</p>
+        <div class="author">
+          <strong>Ibrahim B.</strong>
+          Business Mentor · Port Harcourt
+        </div>
+      </div>
+      <div class="quote-card">
+        <p class="text">"Tobi pushed me to stop doing the dance for clients and start setting the standard. My business changed in 60 days."</p>
+        <div class="author">
+          <strong>Yetunde A.</strong>
+          Brand Strategist · Lagos
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="training" class="section-paper-2">
+  <div class="container">
+    <div class="cta-final">
+      <span style="font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mustard); font-weight: 600;">Your Next Step</span>
+      <h2 style="margin-top: 1rem;">Ready to see <em>the full system?</em></h2>
+      <p>Watch the free 32-minute training where I walk through all three pillars in detail. No opt-in, no fluff, no upsell at the end. Just the method.</p>
+      <a href="https://wa.me/2348064158087?text=I%27d%20like%20access%20to%20the%20Empire%20Consulting%20training." class="btn-primary" style="background: var(--mustard); color: var(--ink); box-shadow: 0 8px 24px rgba(242,165,22,0.3);">▶ Watch the Free Training</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Empire Consulting · Sample site built by <a href="../../index.html">Swellbridge Digital</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

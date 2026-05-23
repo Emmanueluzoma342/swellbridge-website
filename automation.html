@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Automation — Swellbridge Digital</title>
+<meta name="description" content="Automation systems for Nigerian businesses. We connect your CRM, WhatsApp, email, payments, and lead routing — so your business runs while you sleep.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .au-hero { padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+  .au-hero-bg {
+    position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 500px;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(46,107,255,0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 50%, rgba(212,162,76,0.1) 0%, transparent 50%);
+  }
+  .au-hero-inner { position: relative; z-index: 1; max-width: 920px; }
+  .au-hero h1 { font-size: clamp(2.5rem, 5.5vw, 5rem); margin: 1.5rem 0 1.75rem; }
+  .au-hero-sub { font-size: 1.2rem; color: var(--ink-soft); margin-bottom: 2rem; max-width: 720px; }
+
+  /* Use cases */
+  .uc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  @media (max-width: 800px) { .uc-grid { grid-template-columns: 1fr; } }
+  .uc {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: 2.25rem; transition: all 0.3s;
+  }
+  .uc:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--electric-soft); }
+  .uc-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--electric-soft); color: var(--electric);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-style: italic; font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+  .uc h3 { font-size: 1.35rem; margin-bottom: 0.6rem; }
+  .uc p { font-size: 0.95rem; margin-bottom: 1rem; }
+  .uc-result {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--bg-warm); color: var(--ink);
+    padding: 0.5rem 0.85rem; border-radius: 6px;
+    font-size: 0.85rem; font-weight: 600;
+  }
+  .uc-result::before { content: "→"; color: var(--electric); }
+
+  /* Stack */
+  .stack-block {
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius-xl); padding: 4rem 3rem; margin: 3rem 0;
+  }
+  .stack-block h2 { color: #fff; margin-bottom: 1rem; }
+  .stack-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  @media (max-width: 800px) { .stack-grid { grid-template-columns: 1fr 1fr; } }
+  .stack-item {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-md); padding: 1.5rem; text-align: center;
+  }
+  .stack-item .name {
+    font-family: var(--font-display); font-size: 1.5rem;
+    color: var(--amber); font-style: italic;
+    margin-bottom: 0.4rem; line-height: 1;
+  }
+  .stack-item .desc { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
+
+  /* Pricing */
+  .pricing-rows {
+    margin-top: 3rem; background: #fff; border: 1px solid var(--line);
+    border-radius: var(--radius-xl); overflow: hidden;
+  }
+  .pricing-row {
+    display: grid; grid-template-columns: 1.2fr 1.5fr 1fr auto;
+    align-items: center; gap: 2rem; padding: 1.75rem 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .pricing-row:last-child { border-bottom: none; }
+  @media (max-width: 800px) { .pricing-row { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem; } }
+  .pricing-row h4 { font-size: 1.2rem; }
+  .pricing-row p { font-size: 0.92rem; }
+  .pricing-row-price {
+    font-family: var(--font-display); font-size: 1.6rem;
+    color: var(--navy); letter-spacing: -0.02em;
+  }
+  .pricing-row-price em { font-style: italic; color: var(--electric); }
+  .pricing-row .btn-ghost { padding: 0.7rem 1.2rem; font-size: 0.88rem; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="meta-ads.html">Meta Ads</a>
+      <a href="funnels.html">Funnels</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="automation.html" class="active">Automation</a>
+      <a href="case-studies.html">Results</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20discuss%20automation." class="btn btn-primary nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="real-estate.html">Real Estate</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="funnels.html">Funnels</a>
+    <a href="web-design.html">Web Design</a>
+    <a href="automation.html">Automation</a>
+    <a href="case-studies.html">Results</a>
+    <a href="blog.html">Insights</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<section class="au-hero">
+  <div class="au-hero-bg"></div>
+  <div class="container">
+    <div class="au-hero-inner reveal">
+      <span class="eyebrow">Business Automation</span>
+      <h1>Stop doing <em>manually</em> what should run by itself.</h1>
+      <p class="au-hero-sub">We connect your CRM, WhatsApp, email, payments, calendars, and ads — so leads flow, follow-ups happen, and reports write themselves. Your team gets back to selling, not data entry.</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="#pricing" class="btn btn-primary btn-lg">See Pricing</a>
+        <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20discuss%20automating%20my%20business." class="btn btn-ghost btn-lg">Book a Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal" style="max-width: 720px;">
+      <span class="eyebrow">What We Automate</span>
+      <h2 class="mt-sm">Six things every business <em>should already</em> have running automatically.</h2>
+      <p class="lead mt-md">If you're still doing any of these by hand, you're paying your team to do work a robot can do better, faster, and at 3am.</p>
+    </div>
+
+    <div class="uc-grid">
+      <div class="uc reveal">
+        <div class="uc-icon">i</div>
+        <h3>Lead Capture → CRM</h3>
+        <p>The second a Facebook lead form is submitted, the lead lands in your CRM, gets tagged, assigned to a salesperson, and triggers a WhatsApp greeting.</p>
+        <span class="uc-result">No more lost leads</span>
+      </div>
+      <div class="uc reveal">
+        <div class="uc-icon">ii</div>
+        <h3>WhatsApp Follow-ups</h3>
+        <p>Scheduled follow-up messages sent automatically: day 1, day 3, day 7. Reminder nudges to leads that went silent. All from your business number.</p>
+        <span class="uc-result">3x more responses</span>
+      </div>
+      <div class="uc reveal">
+        <div class="uc-icon">iii</div>
+        <h3>Email Sequences</h3>
+        <p>Nurture sequences triggered by buyer behaviour: visited pricing page, downloaded brochure, attended a webinar. Right message, right moment.</p>
+        <span class="uc-result">Convert sleeping leads</span>
+      </div>
+      <div class="uc reveal">
+        <div class="uc-icon">iv</div>
+        <h3>Payment Notifications</h3>
+        <p>When a customer pays via Paystack or Flutterwave, your team gets a Slack ping, the CRM marks "paid", a receipt is emailed, and access is granted.</p>
+        <span class="uc-result">Cut admin by 80%</span>
+      </div>
+      <div class="uc reveal">
+        <div class="uc-icon">v</div>
+        <h3>Reporting Dashboards</h3>
+        <p>Live numbers from Meta, Google, your CRM, and bank — all rolled into one Looker Studio or Google Sheets dashboard. Updated hourly.</p>
+        <span class="uc-result">Instant visibility</span>
+      </div>
+      <div class="uc reveal">
+        <div class="uc-icon">vi</div>
+        <h3>Ad Account Monitoring</h3>
+        <p>Alerts when ad spend spikes, CPL crosses a threshold, or a campaign breaks. You hear about it before it costs you money.</p>
+        <span class="uc-result">Catch issues fast</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="stack-block reveal">
+      <span class="eyebrow amber">Our Stack</span>
+      <h2 class="mt-sm">We work with <em>tools you already use.</em></h2>
+      <p style="font-size:1.05rem; color:rgba(255,255,255,0.78); max-width:600px;">No proprietary platforms. No lock-in. Just the same tools your business already runs on — connected properly.</p>
+
+      <div class="stack-grid">
+        <div class="stack-item"><div class="name">Zapier</div><div class="desc">Workflow automation</div></div>
+        <div class="stack-item"><div class="name">Make</div><div class="desc">Visual scenarios</div></div>
+        <div class="stack-item"><div class="name">n8n</div><div class="desc">Self-hosted automation</div></div>
+        <div class="stack-item"><div class="name">Paystack</div><div class="desc">Payments</div></div>
+        <div class="stack-item"><div class="name">Flutterwave</div><div class="desc">Payments</div></div>
+        <div class="stack-item"><div class="name">WhatsApp API</div><div class="desc">Messaging</div></div>
+        <div class="stack-item"><div class="name">HubSpot / Pipedrive</div><div class="desc">CRM</div></div>
+        <div class="stack-item"><div class="name">OpenAI · Claude</div><div class="desc">AI workflows</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad section-warm" id="pricing">
+  <div class="container">
+    <div class="reveal text-center" style="max-width: 700px; margin: 0 auto;">
+      <span class="eyebrow center">Pricing</span>
+      <h2 class="mt-sm">Built piece by piece, <em>or as a system.</em></h2>
+      <p class="lead mt-md">Each automation project starts with a free 30-minute scoping call to understand your current workflow.</p>
+    </div>
+
+    <div class="pricing-rows reveal">
+      <div class="pricing-row">
+        <div>
+          <h4>Single Automation</h4>
+          <p>One specific workflow: lead → CRM → WhatsApp greeting. Or: payment → receipt → access. Scoped, built, tested.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦150k</em></div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20a%20single%20automation%20%28from%20%E2%82%A6150k%29." class="btn btn-ghost">Start →</a>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <h4>Automation Bundle</h4>
+          <p>5–7 connected workflows. Full lead-to-customer journey automated: capture, nurture, follow-up, conversion, retention.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦600k</em></div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20an%20automation%20bundle%20%28from%20%E2%82%A6600k%29." class="btn btn-ghost">Start →</a>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <h4>Reporting Dashboard</h4>
+          <p>Live dashboard pulling data from your ads, CRM, payments, and website. Looker Studio or Google Sheets.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦200k</em></div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20a%20reporting%20dashboard%20%28from%20%E2%82%A6200k%29." class="btn btn-ghost">Start →</a>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <h4>Automation Audit + Roadmap</h4>
+          <p>We map your current workflow, identify the highest-leverage automations, and deliver a written 90-day implementation plan.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦120k</em></div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20an%20automation%20audit%20%28from%20%E2%82%A6120k%29." class="btn btn-ghost">Start →</a>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <h4>Ongoing Automation Partner</h4>
+          <p>Monthly retainer for businesses that want continuous improvement to their automations. Includes monitoring, fixes, new builds.</p>
+        </div>
+        <div></div>
+        <div class="pricing-row-price">From <em>₦250k</em>/mo</div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20the%20automation%20retainer%20%28from%20%E2%82%A6250k%2Fmo%29." class="btn btn-ghost">Start →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div><h4>Services</h4><div class="footer-links"><a href="real-estate.html">Real Estate</a><a href="meta-ads.html">Meta Ads</a><a href="funnels.html">Funnels</a><a href="web-design.html">Web Design</a><a href="automation.html">Automation</a></div></div>
+      <div><h4>Company</h4><div class="footer-links"><a href="about.html">About</a><a href="case-studies.html">Results</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Talk to us</h4><div class="footer-links"><a href="https://wa.me/2348064158087">WhatsApp</a><a href="mailto:hello@swellbridgedigital.com">Email</a><a href="contact.html">Book a call</a></div></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div><div>Nigeria · Worldwide</div></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swellbridge Digital — Strategic Marketing Partner For Growing Businesses</title>
+<meta name="description" content="We are the digital growth partner for Nigerian real estate developers, consultants, and service businesses. Ads, web, funnels, automation — built to produce real revenue, not vanity metrics.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  /* Homepage-specific */
+  .hero-home {
+    padding: 5rem 0 6rem;
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+  .hero-title {
+    font-size: clamp(2.75rem, 6vw, 5.5rem);
+    margin: 1.5rem 0 1.75rem;
+  }
+  .hero-title .accent {
+    display: inline-block;
+    position: relative;
+  }
+  .hero-title .accent::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 4%;
+    height: 12px;
+    background: var(--electric-soft);
+    z-index: -1;
+    border-radius: 2px;
+  }
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 540px;
+    margin-bottom: 2.25rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  /* Stat collage in hero right */
+  .hero-collage {
+    position: relative;
+    aspect-ratio: 4/5;
+  }
+  .collage-card {
+    position: absolute;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+  .collage-card.c1 {
+    top: 0; left: 0;
+    width: 60%;
+    aspect-ratio: 1;
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    transform: rotate(-2deg);
+  }
+  .collage-card.c1 .big {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 0.9;
+    color: var(--amber);
+    font-style: italic;
+  }
+  .collage-card.c1 .lbl {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.02em;
+  }
+  .collage-card.c2 {
+    top: 35%; right: 0;
+    width: 55%;
+    background: #fff;
+    transform: rotate(3deg);
+  }
+  .collage-card.c2 .quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: var(--ink);
+    margin-bottom: 0.85rem;
+  }
+  .collage-card.c2 .attr {
+    font-size: 0.78rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .collage-card.c3 {
+    bottom: 0; left: 10%;
+    width: 55%;
+    background: var(--electric-soft);
+    border-color: transparent;
+    transform: rotate(-1deg);
+  }
+  .collage-card.c3 .pill {
+    margin-bottom: 0.6rem;
+    background: var(--electric);
+    color: white;
+  }
+  .collage-card.c3 .big {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  @media (max-width: 900px) {
+    .hero-collage { aspect-ratio: 16/11; max-width: 460px; margin: 0 auto; }
+  }
+
+  /* Trust strip */
+  .trust-strip {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 1.5rem 0;
+    background: rgba(245, 241, 232, 0.4);
+  }
+  .trust-inner {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .trust-inner span {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .trust-inner span::before { content: "✦"; color: var(--amber); margin-right: 0.5rem; }
+
+  /* Section: Two outcomes */
+  .outcomes-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 4rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: #fff;
+  }
+  @media (max-width: 800px) { .outcomes-wrap { grid-template-columns: 1fr; } }
+  .outcome {
+    padding: 3rem 2.5rem;
+    position: relative;
+  }
+  .outcome + .outcome { border-left: 1px solid var(--line); }
+  @media (max-width: 800px) {
+    .outcome + .outcome { border-left: none; border-top: 1px solid var(--line); }
+  }
+  .outcome-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--electric);
+    margin-bottom: 1rem;
+  }
+  .outcome h3 {
+    font-size: 1.65rem;
+    margin-bottom: 0.85rem;
+  }
+  .outcome p { font-size: 1rem; }
+
+  /* Services overview cards */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+  }
+  .service-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--electric), var(--amber));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--electric-soft);
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--electric-soft);
+    color: var(--electric);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+  .service-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.015em;
+  }
+  .service-card p {
+    font-size: 0.95rem;
+    flex-grow: 1;
+    margin-bottom: 1.25rem;
+  }
+  .service-card-link {
+    color: var(--ink);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .service-card-link:hover { color: var(--electric); }
+  .service-card-link::after {
+    content: "→";
+    transition: transform 0.2s;
+  }
+  .service-card-link:hover::after { transform: translateX(4px); }
+
+  /* How we work — 3 step process */
+  .process {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+    position: relative;
+  }
+  @media (max-width: 800px) { .process { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .process-line {
+    position: absolute;
+    top: 24px;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--line-strong) 0 8px, transparent 8px 14px);
+    z-index: 0;
+  }
+  @media (max-width: 800px) { .process-line { display: none; } }
+  .process-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .process-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--amber);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 4px solid var(--bg);
+  }
+  .process-step h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.65rem;
+  }
+  .process-step p { font-size: 0.95rem; }
+
+  /* Big testimonial */
+  .testimonial-feature {
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius-xl);
+    padding: 4.5rem 3.5rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    position: relative;
+    overflow: hidden;
+  }
+  .testimonial-feature::before {
+    content: "“";
+    position: absolute;
+    top: -50px; left: 30px;
+    font-family: var(--font-display);
+    font-size: 14rem;
+    color: var(--amber);
+    opacity: 0.3;
+    line-height: 1;
+  }
+  .testimonial-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.35;
+    color: #fff;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .testimonial-attr {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 1.5rem;
+  }
+  .testimonial-attr-name {
+    font-weight: 600;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.15rem;
+  }
+  .testimonial-attr-role {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.88rem;
+  }
+  .testimonial-badge {
+    margin-left: auto;
+    background: rgba(212, 162, 76, 0.15);
+    color: var(--amber);
+    padding: 0.4rem 0.85rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(212, 162, 76, 0.3);
+  }
+  @media (max-width: 700px) {
+    .testimonial-feature { padding: 3rem 1.75rem; }
+    .testimonial-badge { display: none; }
+  }
+
+  /* Results strip */
+  .results-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 800px) { .results-strip { grid-template-columns: 1fr 1fr; } }
+  .result-item {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .result-item:last-child { border-right: none; }
+  @media (max-width: 800px) {
+    .result-item:nth-child(2n) { border-right: none; }
+    .result-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  }
+  .result-big {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .result-big em {
+    font-style: italic;
+    color: var(--electric);
+    font-weight: 400;
+  }
+  .result-lbl {
+    font-size: 0.82rem;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* Who it's for */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 900px) { .who-grid { grid-template-columns: 1fr; } }
+  .who-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .who-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .who-image {
+    aspect-ratio: 16/9;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .who-rd { background: linear-gradient(135deg, var(--navy) 0%, var(--electric) 100%); }
+  .who-consultants { background: linear-gradient(135deg, #2C3E50 0%, var(--amber) 100%); }
+  .who-services { background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, var(--electric) 100%); }
+  .who-image-mark {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.85);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+  .who-body { padding: 1.75rem; }
+  .who-body h4 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+  .who-body p { font-size: 0.95rem; margin-bottom: 1.25rem; }
+  .who-body a {
+    color: var(--electric);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .who-body a::after { content: "→"; transition: transform 0.2s; }
+  .who-body a:hover::after { transform: translateX(4px); }
+
+  /* CTA section */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+    border-radius: var(--radius-xl);
+    padding: 5rem 3rem;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: "";
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(46,107,255,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-section::after {
+    content: "";
+    position: absolute;
+    bottom: -150px; left: -150px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(212,162,76,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-section > * { position: relative; z-index: 1; }
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+  }
+  .cta-section p {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+  }
+  .cta-section .btn { background: var(--amber); color: var(--navy-deep); }
+  .cta-section .btn:hover { background: #E8B85F; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="meta-ads.html">Meta Ads</a>
+      <a href="funnels.html">Funnels</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="automation.html">Automation</a>
+      <a href="case-studies.html">Results</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%20visited%20Swellbridge%20Digital%20and%20I%27d%20like%20to%20talk." class="btn btn-primary nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="real-estate.html">Real Estate</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="funnels.html">Funnels</a>
+    <a href="web-design.html">Web Design</a>
+    <a href="automation.html">Automation</a>
+    <a href="case-studies.html">Results</a>
+    <a href="blog.html">Insights</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Strategic Growth Partner · Nigeria</span>
+        <h1 class="hero-title">We don't run ads. We build <span class="accent">businesses that <em>sell</em>.</span></h1>
+        <p class="hero-sub">Swellbridge Digital is the marketing partner for developers, consultants, and service businesses who are tired of vanity metrics and want a system that produces real revenue every month.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20to%20talk%20about%20working%20together." class="btn btn-primary btn-lg">Book a Discovery Call <span class="btn-arrow">→</span></a>
+          <a href="case-studies.html" class="btn btn-ghost btn-lg">See Our Results</a>
+        </div>
+      </div>
+
+      <div class="hero-collage reveal">
+        <div class="collage-card c1">
+          <span class="pill" style="background:rgba(212,162,76,0.15);color:var(--amber);border:1px solid rgba(212,162,76,0.3);align-self:flex-start;">Featured Result</span>
+          <div>
+            <div class="big">₦40M</div>
+            <div class="lbl">duplex deal closed · Natweng Realtors</div>
+          </div>
+        </div>
+        <div class="collage-card c2">
+          <p class="quote">"Emmanuel understands the market — and it shows in the results he got for us."</p>
+          <p class="attr">— Iyabode Abiola, Natweng Realtors</p>
+        </div>
+        <div class="collage-card c3">
+          <span class="pill">2,000+ realtors</span>
+          <p class="big">Built a realtor army for a major Lagos developer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="container trust-inner">
+    <span>Lagos</span>
+    <span>Benin City</span>
+    <span>Asaba</span>
+    <span>Port Harcourt</span>
+    <span>Abuja</span>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal" style="max-width:760px;">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="mt-sm">Two outcomes. <em>Everything else is machinery.</em></h2>
+      <p class="lead mt-md">Most agencies sell you services — Facebook ads, email, content, websites — like a menu. We sell results. The services are just the parts we assemble to deliver them.</p>
+    </div>
+
+    <div class="outcomes-wrap reveal">
+      <div class="outcome">
+        <div class="outcome-num">Outcome 01</div>
+        <h3>A consistent flow of qualified buyers</h3>
+        <p>Quality leads that are pre-filtered, ready to talk, and walk into inspections expecting to buy. Not vanity metrics, not WhatsApp lookers — real revenue.</p>
+      </div>
+      <div class="outcome">
+        <div class="outcome-num">Outcome 02</div>
+        <h3>A team & community that sells for you</h3>
+        <p>Whether that's a realtor army, a referral network, or a trained sales team — we build the distribution that compounds month after month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-pad section-warm">
+  <div class="container">
+    <div class="reveal" style="max-width:680px;">
+      <span class="eyebrow">Services</span>
+      <h2 class="mt-sm">Every piece of the growth machine, <em>under one roof.</em></h2>
+      <p class="lead mt-md">Pick what you need or let us build the whole system. Each service is its own discipline — but they're far more powerful when they work together.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">M</div>
+        <h4>Meta & Google Ads</h4>
+        <p>Lead generation, retargeting, brand awareness. Real audience research, real creative, real optimisation — not boosted posts.</p>
+        <a href="meta-ads.html" class="service-card-link">Explore</a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">F</div>
+        <h4>Sales Funnels</h4>
+        <p>Landing pages, sales pages, email sequences, lead routing. The infrastructure that turns clicks into customers.</p>
+        <a href="funnels.html" class="service-card-link">Explore</a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">W</div>
+        <h4>Web Design</h4>
+        <p>Beautiful, fast, conversion-focused websites. Built like sales tools, not brochures. See real samples we've built.</p>
+        <a href="web-design.html" class="service-card-link">Explore</a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">A</div>
+        <h4>Automation</h4>
+        <p>Zapier, Make, n8n, CRM integrations. Stop doing manually what should run by itself — and free up real selling time.</p>
+        <a href="automation.html" class="service-card-link">Explore</a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">R</div>
+        <h4>Real Estate Partnerships</h4>
+        <p>Built for Nigerian developers. Buyer acquisition + realtor army recruitment + sales team enablement, end-to-end.</p>
+        <a href="real-estate.html" class="service-card-link">Explore</a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">C</div>
+        <h4>Content & Branding</h4>
+        <p>Brand identity, video, social content, storytelling. The reason buyers trust you before they ever speak to your team.</p>
+        <a href="meta-ads.html#content" class="service-card-link">Explore</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal text-center" style="max-width:680px;margin:0 auto;">
+      <span class="eyebrow center">How We Work</span>
+      <h2 class="mt-sm">Three steps. <em>No fluff.</em></h2>
+    </div>
+
+    <div class="process">
+      <div class="process-line"></div>
+      <div class="process-step reveal">
+        <div class="process-num">i</div>
+        <h4>Discovery Call</h4>
+        <p>One short conversation. We learn your business, your numbers, what's broken, what's working. No pressure.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">ii</div>
+        <h4>Strategy & Setup</h4>
+        <p>We map the system you need, agree on scope, then build the machinery. Week 1 you're live.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">iii</div>
+        <h4>Run, Optimise, Scale</h4>
+        <p>We run the system, you see weekly reports, and we adjust based on real data — not guesses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL FEATURE -->
+<section class="section-pad section-cream">
+  <div class="container">
+    <div class="testimonial-feature reveal">
+      <p class="testimonial-text">Working with Emmanuel was a game-changer. The expert guidance and well-structured ads brought in the right leads. With consistent follow-ups, we closed a ₦40 million deal. Real estate business owners who want real results should definitely connect with him.</p>
+      <div class="testimonial-attr">
+        <div>
+          <div class="testimonial-attr-name">Iyabode Abiola</div>
+          <div class="testimonial-attr-role">CEO · Natweng Realtors, Lagos</div>
+        </div>
+        <span class="testimonial-badge">✓ Verified · Public</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS STRIP -->
+<section class="section-pad-sm">
+  <div class="container">
+    <div class="reveal text-center" style="max-width:600px;margin:0 auto;">
+      <span class="eyebrow center">Numbers That Matter</span>
+      <h2 class="mt-sm">Real businesses. <em>Real revenue.</em></h2>
+    </div>
+
+    <div class="results-strip reveal">
+      <div class="result-item">
+        <div class="result-big">2,000<em>+</em></div>
+        <div class="result-lbl">Realtors recruited for one Lagos developer</div>
+      </div>
+      <div class="result-item">
+        <div class="result-big">₦40M<em>+</em></div>
+        <div class="result-lbl">Duplex sale closed via our system</div>
+      </div>
+      <div class="result-item">
+        <div class="result-big">10<em>acres</em></div>
+        <div class="result-lbl">Of land sold through the realtor network</div>
+      </div>
+      <div class="result-item">
+        <div class="result-big">100s<em> of ₦M</em></div>
+        <div class="result-lbl">In sales for a Benin City developer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section-pad section-warm">
+  <div class="container">
+    <div class="reveal" style="max-width:680px;">
+      <span class="eyebrow">Who We Serve</span>
+      <h2 class="mt-sm">We don't work with everyone. <em>By design.</em></h2>
+      <p class="lead mt-md">Our system is built for businesses where one sale matters — high-ticket, long-cycle, trust-driven. If that's you, we should talk.</p>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-card reveal">
+        <div class="who-image who-rd">
+          <div class="who-image-mark">Real Estate</div>
+        </div>
+        <div class="who-body">
+          <h4>Real Estate Developers</h4>
+          <p>You sell land, homes, or off-plan units. You need buyers and you need a realtor army. We've done it. Multiple times.</p>
+          <a href="real-estate.html">See the partnership</a>
+        </div>
+      </div>
+
+      <div class="who-card reveal">
+        <div class="who-image who-consultants">
+          <div class="who-image-mark">Consultants</div>
+        </div>
+        <div class="who-body">
+          <h4>Consultants & Coaches</h4>
+          <p>You sell expertise. Premium services. You need a way to attract qualified clients without becoming a content creator.</p>
+          <a href="funnels.html">See the system</a>
+        </div>
+      </div>
+
+      <div class="who-card reveal">
+        <div class="who-image who-services">
+          <div class="who-image-mark">Service Businesses</div>
+        </div>
+        <div class="who-body">
+          <h4>Service Businesses</h4>
+          <p>Solar, healthcare, professional services, B2B. You need consistent inbound and a website that closes — not just displays.</p>
+          <a href="meta-ads.html">See the approach</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section-pad">
+  <div class="container">
+    <div class="cta-section reveal">
+      <span class="eyebrow center amber">Ready to talk?</span>
+      <h2 class="mt-sm">Let's see if we're <em>a fit.</em></h2>
+      <p>One short call. No pitch decks. We learn your business, you ask us anything. If it's a fit, we begin. If not, you walk away with insights worth more than most marketing courses sold in Nigeria.</p>
+      <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%20visited%20Swellbridge%20Digital%20and%20I%27d%20like%20to%20book%20a%20discovery%20call." class="btn btn-lg">Book a Discovery Call →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <div class="footer-links">
+          <a href="real-estate.html">Real Estate</a>
+          <a href="meta-ads.html">Meta Ads</a>
+          <a href="funnels.html">Funnels</a>
+          <a href="web-design.html">Web Design</a>
+          <a href="automation.html">Automation</a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="case-studies.html">Results</a>
+          <a href="blog.html">Insights</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <div class="footer-links">
+          <a href="https://wa.me/2348064158087">WhatsApp</a>
+          <a href="mailto:hello@swellbridgedigital.com">Email</a>
+          <a href="contact.html">Book a call</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div>
+      <div>Nigeria · Worldwide</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

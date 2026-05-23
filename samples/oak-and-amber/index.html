@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oak & Amber Studio — Interior Design For Considered Homes</title>
+<meta name="description" content="A Lagos-based interior design studio for homeowners who want spaces that feel quietly luxurious — not loud, not trendy, not generic.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --oak: #8B6F47;
+    --oak-deep: #6B5436;
+    --amber: #C4923C;
+    --bone: #F2EBDD;
+    --paper: #FAF6EE;
+    --charcoal: #2A2620;
+    --ink: #3D372E;
+    --mist: #DDD4C2;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.7;
+    font-weight: 400;
+  }
+  .container { max-width: 1300px; margin: 0 auto; padding: 0 2.5rem; }
+  @media (max-width: 700px) { .container { padding: 0 1.5rem; } }
+  .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400; line-height: 1; letter-spacing: -0.025em;
+    color: var(--charcoal);
+  }
+  h1 { font-size: clamp(3rem, 8vw, 7rem); }
+  h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
+  h3 { font-size: clamp(1.5rem, 3vw, 2.4rem); }
+  em { font-style: italic; color: var(--amber); }
+  p { color: var(--ink); opacity: 0.78; font-weight: 400; }
+
+  /* Nav */
+  nav {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--mist);
+  }
+  .nav-inner {
+    display: flex; justify-content: space-between; align-items: baseline;
+    max-width: 1300px; margin: 0 auto; padding: 0 2.5rem;
+  }
+  @media (max-width: 700px) { .nav-inner { padding: 0 1.5rem; } }
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.7rem; letter-spacing: -0.02em;
+    color: var(--charcoal);
+  }
+  .logo span { color: var(--amber); font-style: italic; }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    color: var(--ink); text-decoration: none;
+    font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  @media (max-width: 800px) { .nav-links { display: none; } }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 0 7rem;
+    border-bottom: 1px solid var(--mist);
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: end;
+  }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  .hero-meta {
+    font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--oak); margin-bottom: 3rem;
+    display: flex; gap: 2rem; flex-wrap: wrap;
+  }
+  .hero-meta span::before { content: "·"; margin-right: 0.5rem; color: var(--amber); }
+  .hero-meta span:first-child::before { display: none; }
+  .hero h1 { margin-bottom: 0; }
+
+  .hero-right p {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: 2rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    background: var(--charcoal); color: var(--bone);
+    padding: 1.1rem 2rem; text-decoration: none;
+    font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 500; transition: all 0.3s;
+  }
+  .hero-cta:hover { background: var(--amber); color: var(--charcoal); }
+
+  /* Marquee strip */
+  .strip {
+    background: var(--charcoal); color: var(--bone);
+    padding: 1.25rem 0; overflow: hidden;
+    border-bottom: 1px solid var(--ink);
+  }
+  .strip-inner {
+    display: flex; gap: 4rem; white-space: nowrap;
+    animation: marq 30s linear infinite;
+  }
+  .strip-inner span {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 1.3rem;
+  }
+  .strip-inner span::after { content: "✦"; margin-left: 4rem; color: var(--amber); font-style: normal; }
+  @keyframes marq {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Section base */
+  section { padding: clamp(5rem, 9vw, 8rem) 0; }
+  .section-bone { background: var(--bone); }
+  .section-dark { background: var(--charcoal); color: var(--bone); }
+  .section-dark h2, .section-dark h3 { color: var(--bone); }
+  .section-dark p { color: rgba(242,235,221,0.78); }
+  .eyebrow {
+    font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--oak); font-weight: 600;
+  }
+
+  /* Projects */
+  .projects {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem;
+  }
+  @media (max-width: 900px) { .projects { grid-template-columns: repeat(2, 1fr); } }
+  .project { position: relative; overflow: hidden; cursor: pointer; }
+  .project-1 { grid-column: span 4; aspect-ratio: 16/10; }
+  .project-2 { grid-column: span 2; aspect-ratio: 4/5; }
+  .project-3 { grid-column: span 2; aspect-ratio: 4/5; }
+  .project-4 { grid-column: span 4; aspect-ratio: 16/10; }
+  @media (max-width: 900px) {
+    .project-1, .project-2, .project-3, .project-4 { grid-column: span 2; aspect-ratio: 4/3; }
+  }
+  .project-bg {
+    width: 100%; height: 100%;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .project:hover .project-bg { transform: scale(1.05); }
+  .pbg-1 {
+    background:
+      radial-gradient(circle at 30% 70%, rgba(196,146,60,0.3) 0%, transparent 50%),
+      linear-gradient(135deg, #5C4A35 0%, #2A2620 100%);
+  }
+  .pbg-2 {
+    background:
+      radial-gradient(circle at 70% 30%, rgba(196,146,60,0.25) 0%, transparent 60%),
+      linear-gradient(135deg, #8B6F47 0%, #6B5436 100%);
+  }
+  .pbg-3 {
+    background:
+      radial-gradient(circle at 50% 50%, rgba(242,235,221,0.15) 0%, transparent 60%),
+      linear-gradient(135deg, #3D372E 0%, #2A2620 100%);
+  }
+  .pbg-4 {
+    background:
+      radial-gradient(ellipse at 60% 40%, rgba(196,146,60,0.4) 0%, transparent 60%),
+      linear-gradient(135deg, #6B5436 0%, #3D372E 100%);
+  }
+  .project-label {
+    position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+    color: var(--bone);
+  }
+  .project-label .num { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
+  .project-label h3 { font-family: 'DM Serif Display', serif; color: var(--bone); }
+  .project-label .meta { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,235,221,0.7); margin-top: 0.4rem; }
+
+  /* Philosophy */
+  .philo {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center;
+  }
+  @media (max-width: 900px) { .philo { grid-template-columns: 1fr; gap: 2rem; } }
+  .philo-title-block h2 { margin-bottom: 1.5rem; }
+  .philo-list { margin-top: 2rem; list-style: none; }
+  .philo-list li {
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    display: grid; grid-template-columns: 60px 1fr;
+    gap: 1.5rem; align-items: baseline;
+  }
+  .philo-list li:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .philo-num {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    color: var(--amber); font-size: 1.5rem;
+  }
+  .philo-list h4 {
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.05rem;
+    color: var(--bone); margin-bottom: 0.5rem; letter-spacing: 0;
+  }
+  .philo-list p { font-size: 0.95rem; color: rgba(242,235,221,0.72); }
+
+  /* Services */
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+  @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; } }
+  .svc {
+    border-top: 2px solid var(--charcoal);
+    padding-top: 1.5rem;
+  }
+  .svc .num {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    color: var(--amber); font-size: 1rem; margin-bottom: 1rem;
+  }
+  .svc h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .svc p { font-size: 1rem; margin-bottom: 1.25rem; }
+  .svc .price {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    color: var(--oak); font-size: 1.1rem;
+    padding-top: 1rem; border-top: 1px solid var(--mist);
+  }
+
+  /* Testimonial */
+  .pull-quote {
+    max-width: 900px; margin: 0 auto;
+    text-align: center;
+  }
+  .pull-quote p {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem); line-height: 1.3;
+    color: var(--charcoal); margin-bottom: 2rem;
+  }
+  .pull-quote .author { font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--oak); }
+
+  /* CTA */
+  .cta-block {
+    background: var(--charcoal); color: var(--bone);
+    padding: 6rem 3rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-block::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(196,146,60,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(139,111,71,0.1) 0%, transparent 50%);
+  }
+  .cta-block > * { position: relative; z-index: 1; }
+  .cta-block h2 { color: var(--bone); }
+  .cta-block p { color: rgba(242,235,221,0.75); font-size: 1.15rem; max-width: 600px; margin: 1.5rem auto 2.5rem; }
+  .cta-block .hero-cta { background: var(--amber); color: var(--charcoal); }
+  .cta-block .hero-cta:hover { background: var(--bone); }
+
+  footer {
+    background: var(--charcoal); color: rgba(242,235,221,0.5);
+    padding: 3rem 0; text-align: center; font-size: 0.85rem;
+    border-top: 1px solid rgba(242,235,221,0.08);
+    letter-spacing: 0.05em;
+  }
+  footer a { color: var(--amber); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Oak <span>&amp;</span> Amber</div>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#services">Services</a>
+      <a href="#book">Book</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-meta">
+          <span>Interior Design Studio</span>
+          <span>Lagos · Est. 2021</span>
+        </div>
+        <h1>Quiet <em>luxury</em> for considered homes.</h1>
+      </div>
+      <div class="hero-right">
+        <p>We design rooms that feel like the people who live in them — calm, warm, intentional. Not loud. Not trendy. Not borrowed from a Pinterest board.</p>
+        <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20an%20Oak%20%26%20Amber%20consultation." class="hero-cta">Book a Consultation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="strip">
+  <div class="strip-inner">
+    <span>Considered design</span>
+    <span>Lagos studio</span>
+    <span>Family-led homes</span>
+    <span>Honest materials</span>
+    <span>Quiet luxury</span>
+    <span>Considered design</span>
+    <span>Lagos studio</span>
+    <span>Family-led homes</span>
+    <span>Honest materials</span>
+    <span>Quiet luxury</span>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div style="margin-bottom: 3rem;">
+      <span class="eyebrow">Selected Work · 2023–2026</span>
+      <h2 style="margin-top: 1rem; max-width: 700px;">Four <em>recent projects.</em></h2>
+    </div>
+
+    <div class="projects">
+      <div class="project project-1">
+        <div class="project-bg pbg-1"></div>
+        <div class="project-label">
+          <div class="num">Project 01</div>
+          <h3>The Awosika Residence</h3>
+          <div class="meta">Lekki · Family Home · 2024</div>
+        </div>
+      </div>
+      <div class="project project-2">
+        <div class="project-bg pbg-2"></div>
+        <div class="project-label">
+          <div class="num">Project 02</div>
+          <h3>Penthouse 14</h3>
+          <div class="meta">Ikoyi · 2024</div>
+        </div>
+      </div>
+      <div class="project project-3">
+        <div class="project-bg pbg-3"></div>
+        <div class="project-label">
+          <div class="num">Project 03</div>
+          <h3>The Reading Room</h3>
+          <div class="meta">Maitama, Abuja · 2025</div>
+        </div>
+      </div>
+      <div class="project project-4">
+        <div class="project-bg pbg-4"></div>
+        <div class="project-label">
+          <div class="num">Project 04</div>
+          <h3>The Cocoa Loft</h3>
+          <div class="meta">Banana Island · 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section-dark" id="philosophy">
+  <div class="container">
+    <div class="philo">
+      <div class="philo-title-block">
+        <span class="eyebrow" style="color: var(--amber);">Our Approach</span>
+        <h2 style="margin-top: 1rem;">Four principles. <em>One philosophy.</em></h2>
+        <p style="margin-top: 1.5rem; max-width: 500px;">We don't follow trends. We follow how you actually want to live. Then we design rooms that feel like that — for thirty years, not three.</p>
+      </div>
+
+      <ul class="philo-list">
+        <li>
+          <div class="philo-num">i</div>
+          <div>
+            <h4>Conversation before sketch</h4>
+            <p>We spend hours with you before we ever pull out a swatch. We need to know how you wake up, eat, host, rest.</p>
+          </div>
+        </li>
+        <li>
+          <div class="philo-num">ii</div>
+          <div>
+            <h4>Honest materials</h4>
+            <p>Real wood. Real stone. Real brass. No plastic pretending. Materials that age into character.</p>
+          </div>
+        </li>
+        <li>
+          <div class="philo-num">iii</div>
+          <div>
+            <h4>Restraint over excess</h4>
+            <p>One beautiful object beats ten okay ones. We leave breathing room — for light, for thought, for the people who live there.</p>
+          </div>
+        </li>
+        <li>
+          <div class="philo-num">iv</div>
+          <div>
+            <h4>Built to be lived in</h4>
+            <p>Designed for actual life: spilling, hosting, raising children, working from home. Not for the photograph.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section-bone">
+  <div class="container">
+    <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+      <span class="eyebrow">Services</span>
+      <h2 style="margin-top: 1rem;">Three ways to <em>work with us.</em></h2>
+      <p style="margin-top: 1.5rem; font-size: 1.1rem;">From a single room refresh to a complete home design, we meet you where you are.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="num">Service 01</div>
+        <h3>Single Room Design</h3>
+        <p>One room, fully designed. Layout, palette, furniture sourcing, and installation. Ideal for kitchens, living rooms, or primary bedrooms.</p>
+        <div class="price">From ₦1.5M</div>
+      </div>
+      <div class="svc">
+        <div class="num">Service 02</div>
+        <h3>Full Home Design</h3>
+        <p>Every room of your home, considered as one. From floor plan adjustments to the final styling. Typically 3–6 month engagement.</p>
+        <div class="price">From ₦12M</div>
+      </div>
+      <div class="svc">
+        <div class="num">Service 03</div>
+        <h3>Design Consultation</h3>
+        <p>A focused 90-minute session in your space. We walk through, listen, and leave you with a written direction document. No commitment.</p>
+        <div class="price">₦250k</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section>
+  <div class="container-narrow">
+    <div class="pull-quote">
+      <p>"We've lived in our home for two years now. People still walk in and go quiet. Oak & Amber didn't decorate our house — they understood it."</p>
+      <div class="author">— The Awosika Family, Lekki</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="book">
+  <div class="container">
+    <div class="cta-block">
+      <span class="eyebrow" style="color: var(--amber);">Book A Consultation</span>
+      <h2 style="margin-top: 1rem;">Let's design something <em>you'll love for thirty years.</em></h2>
+      <p>We take on a limited number of projects each quarter. The conversation starts here — tell us about your home and what you're hoping for.</p>
+      <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20an%20Oak%20%26%20Amber%20consultation." class="hero-cta">Book a Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Oak &amp; Amber Studio · Sample site built by <a href="../../index.html">Swellbridge Digital</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

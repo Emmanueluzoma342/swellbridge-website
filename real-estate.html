@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Estate Marketing Partnership — Swellbridge Digital</title>
+<meta name="description" content="For Nigerian real estate developers: a marketing partnership that generates qualified buyers, recruits realtor armies, and closes monthly sales. Three tiers — choose the level of partnership you need.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .re-hero {
+    padding: 5rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .re-hero-bg {
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--electric-soft) 0%, transparent 60%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .re-hero-inner { position: relative; z-index: 1; }
+  .re-hero h1 {
+    font-size: clamp(2.5rem, 5.5vw, 4.75rem);
+    max-width: 1000px;
+    margin: 1.5rem 0 1.75rem;
+  }
+  .re-hero-sub {
+    font-size: 1.2rem;
+    max-width: 700px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 2rem;
+  }
+  .re-hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  /* Pain block */
+  .pain-block {
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius-xl);
+    padding: 4rem 3rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .pain-block h2 { color: #fff; margin-bottom: 1.5rem; }
+  .pain-block p { color: rgba(255,255,255,0.78); font-size: 1.1rem; line-height: 1.6; }
+  .pain-block p + p { margin-top: 1rem; }
+  .pain-block .highlight { color: var(--amber); font-style: italic; font-family: var(--font-display); font-weight: 500; }
+  .pain-num-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  @media (max-width:700px) { .pain-num-strip { grid-template-columns: 1fr; gap: 1rem;} }
+  .pain-num { font-family: var(--font-display); font-size: 1.4rem; color: var(--amber); font-style: italic; margin-bottom: 0.4rem; font-weight: 500; }
+  .pain-num-lbl { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.45; }
+
+  /* What developers actually want */
+  .want-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 800px) { .want-grid { grid-template-columns: 1fr; } }
+  .want-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    gap: 1.25rem;
+    transition: all 0.3s;
+  }
+  .want-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--electric-soft);
+  }
+  .want-icon {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--electric-soft);
+    color: var(--electric);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  .want-card h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .want-card p { font-size: 0.95rem; }
+
+  /* Decision helper */
+  .decision-helper {
+    background: linear-gradient(135deg, var(--bg-warm) 0%, var(--amber-soft) 100%);
+    border-radius: var(--radius-xl);
+    padding: 3rem;
+    margin: 3rem 0;
+    border: 1px solid var(--line);
+  }
+  .decision-helper h3 {
+    font-size: 1.65rem;
+    margin-bottom: 0.5rem;
+  }
+  .decision-helper p { font-size: 1rem; margin-bottom: 1.5rem; }
+  .decision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 800px) { .decision-grid { grid-template-columns: 1fr; } }
+  .decision-card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+  }
+  .decision-card .lbl {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--electric);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .decision-card h5 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 0.65rem;
+  }
+  .decision-card p { font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; }
+  .decision-card a {
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-bottom: 2px solid var(--electric);
+    padding-bottom: 2px;
+  }
+
+  /* Pricing tiers */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    align-items: stretch;
+  }
+  @media (max-width: 1000px) { .tiers { grid-template-columns: 1fr; } }
+  .tier {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .tier:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .tier.featured {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+    transform: scale(1.02);
+  }
+  @media (max-width: 1000px) { .tier.featured { transform: scale(1); } }
+  .tier.featured:hover { transform: scale(1.02) translateY(-4px); }
+  @media (max-width: 1000px) { .tier.featured:hover { transform: translateY(-4px); } }
+  .tier-badge {
+    position: absolute;
+    top: -12px; left: 2rem;
+    background: var(--amber);
+    color: var(--navy-deep);
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .tier-tag {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--electric);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .tier.featured .tier-tag { color: var(--amber); }
+  .tier-name {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+  .tier.featured .tier-name { color: #fff; }
+  .tier-name em { font-style: italic; color: var(--electric); font-weight: 400; }
+  .tier.featured .tier-name em { color: var(--amber); }
+  .tier-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-bottom: 0.4rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.25rem;
+  }
+  .tier.featured .tier-price { border-color: rgba(255,255,255,0.15); }
+  .tier-price-amount {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .tier.featured .tier-price-amount { color: #fff; }
+  .tier-price-per {
+    font-size: 0.95rem;
+    color: var(--ink-mute);
+  }
+  .tier.featured .tier-price-per { color: rgba(255,255,255,0.6); }
+  .tier-note {
+    font-size: 0.85rem;
+    color: var(--ink-mute);
+    margin-bottom: 1.25rem;
+  }
+  .tier.featured .tier-note { color: rgba(255,255,255,0.6); }
+  .tier-best-for {
+    background: var(--bg-warm);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .tier.featured .tier-best-for {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+  }
+  .tier-best-for strong { color: var(--ink); }
+  .tier.featured .tier-best-for strong { color: var(--amber); }
+  .tier-features {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+  }
+  .tier-features li {
+    display: flex;
+    gap: 0.7rem;
+    padding: 0.55rem 0;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .tier.featured .tier-features li { color: rgba(255,255,255,0.82); }
+  .tier-features li::before {
+    content: "✓";
+    color: var(--electric);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .tier.featured .tier-features li::before { color: var(--amber); }
+  .tier-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.25s;
+  }
+  .tier-cta:hover { background: var(--electric); transform: translateY(-1px); }
+  .tier.featured .tier-cta { background: var(--amber); color: var(--navy-deep); }
+  .tier.featured .tier-cta:hover { background: #E8B85F; }
+
+  /* Approach section */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+  @media (max-width: 900px) { .approach-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .approach-list { margin-top: 1.5rem; }
+  .approach-item {
+    border-top: 1px solid var(--line);
+    padding: 1.25rem 0;
+  }
+  .approach-item:last-child { border-bottom: 1px solid var(--line); }
+  .approach-item-head {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .approach-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--electric);
+    font-size: 1rem;
+    min-width: 30px;
+  }
+  .approach-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  .approach-item p {
+    font-size: 0.95rem;
+    margin-left: 46px;
+  }
+
+  /* Final pitch */
+  .final-pitch {
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+    color: #fff;
+    border-radius: var(--radius-xl);
+    padding: 5rem 3rem;
+    text-align: center;
+    margin: 4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-pitch::before {
+    content: "";
+    position: absolute;
+    top: -300px; right: -300px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(212,162,76,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .final-pitch > * { position: relative; z-index: 1; }
+  .final-pitch h2 { color: #fff; margin-bottom: 1.5rem; }
+  .final-pitch p { color: rgba(255,255,255,0.8); font-size: 1.15rem; max-width: 640px; margin: 0 auto 2.5rem; }
+
+  /* FAQ */
+  .faq-list { margin-top: 3rem; }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 1.5rem 0;
+  }
+  .faq-q {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after {
+    content: "+";
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    color: var(--electric);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+    line-height: 1;
+  }
+  details[open] .faq-q::after { content: "−"; }
+  .faq-a {
+    padding-top: 1rem;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .faq-a + .faq-a { margin-top: 0.75rem; }
+
+  .ad-budget-note {
+    background: var(--amber-soft);
+    border-left: 3px solid var(--amber);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-sm);
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .ad-budget-note strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="real-estate.html" class="active">Real Estate</a>
+      <a href="meta-ads.html">Meta Ads</a>
+      <a href="funnels.html">Funnels</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="automation.html">Automation</a>
+      <a href="case-studies.html">Results</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%20visited%20the%20real%20estate%20page%20and%20I%27d%20like%20to%20talk." class="btn btn-primary nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="real-estate.html">Real Estate</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="funnels.html">Funnels</a>
+    <a href="web-design.html">Web Design</a>
+    <a href="automation.html">Automation</a>
+    <a href="case-studies.html">Results</a>
+    <a href="blog.html">Insights</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="re-hero">
+  <div class="re-hero-bg"></div>
+  <div class="container re-hero-inner">
+    <div class="reveal" style="max-width: 1100px;">
+      <span class="eyebrow">For Nigerian Real Estate Developers</span>
+      <h1>Your <em>marketing partner</em>, not your marketing agency. We help you sell more property, recruit more realtors, and grow your brand — every month.</h1>
+      <p class="re-hero-sub">Most agencies hand you a report full of impressions and disappear when sales don't follow. We function as part of your team. We take initiative. We obsess over your results. And we charge a flat monthly fee — your ad budget stays separate, in your control.</p>
+      <div class="re-hero-ctas">
+        <a href="#tiers" class="btn btn-primary btn-lg">See the Partnership Tiers</a>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20a%20real%20estate%20developer%20and%20I%27d%20like%20to%20talk." class="btn btn-ghost btn-lg">Talk on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN BLOCK -->
+<section class="section-pad-sm">
+  <div class="container">
+    <div class="pain-block reveal">
+      <span class="eyebrow amber">If you've felt any of this…</span>
+      <h2 class="mt-md">You spend ₦500k on ads. You get 80 leads. <span class="highlight">You close zero.</span></h2>
+      <p>The leads come in. They look promising at first. Then most go cold. They stop replying on WhatsApp. They ask for the price and disappear. You start questioning yourself. Is the property the problem? Is my pricing wrong?</p>
+      <p>It's none of those things. Lagos property prices surged <strong style="color:#fff;">39.5% in the last 12 months</strong>. The country has a <strong style="color:#fff;">17–20 million unit housing deficit</strong>. The buyers exist. The demand is real.</p>
+      <p>The problem is that your marketing wasn't built to convert. It was built to spend.</p>
+
+      <div class="pain-num-strip">
+        <div>
+          <div class="pain-num">Reason 1</div>
+          <div class="pain-num-lbl">You're selling properties when you should be selling transformations — peace of mind, legacy, the end of paying rent forever.</div>
+        </div>
+        <div>
+          <div class="pain-num">Reason 2</div>
+          <div class="pain-num-lbl">Your leads go straight to WhatsApp with no filter. Your closers spend 80% of their day on tyre-kickers.</div>
+        </div>
+        <div>
+          <div class="pain-num">Reason 3</div>
+          <div class="pain-num-lbl">You're sleeping on the realtor channel. 1,000 active realtors beat ₦1M of ad spend — every single time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT DEVELOPERS ACTUALLY WANT -->
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal" style="max-width: 720px;">
+      <span class="eyebrow">What you actually need</span>
+      <h2 class="mt-sm">We don't sell you ads. We sell you the <em>full machine.</em></h2>
+      <p class="lead mt-md">When we sit down with developers, you don't ask for Facebook ads. You ask for buyers. You ask for inspections that close. You ask for realtors who actually sell. So that's what we build.</p>
+    </div>
+
+    <div class="want-grid">
+      <div class="want-card reveal">
+        <div class="want-icon">i</div>
+        <div>
+          <h4>More qualified buyers</h4>
+          <p>Pre-filtered leads who already know your price range, your locations, and what they're looking for — before they ever reach your team.</p>
+        </div>
+      </div>
+      <div class="want-card reveal">
+        <div class="want-icon">ii</div>
+        <div>
+          <h4>More site inspections</h4>
+          <p>The kind that turn into sales. Not WhatsApp lookers. Real buyers who show up with intent because they were nurtured properly first.</p>
+        </div>
+      </div>
+      <div class="want-card reveal">
+        <div class="want-icon">iii</div>
+        <div>
+          <h4>A real realtor army</h4>
+          <p>Hundreds — sometimes thousands — of independent realtors promoting your projects for commission. Free distribution that compounds.</p>
+        </div>
+      </div>
+      <div class="want-card reveal">
+        <div class="want-icon">iv</div>
+        <div>
+          <h4>A brand people trust</h4>
+          <p>Branding videos, storytelling, social proof. The reason a buyer chooses you over the developer next door at the same price point.</p>
+        </div>
+      </div>
+      <div class="want-card reveal">
+        <div class="want-icon">v</div>
+        <div>
+          <h4>Systems that don't break</h4>
+          <p>CRM, follow-ups, email sequences, automation. So no lead ever falls through the cracks — even when your sales team is overwhelmed.</p>
+        </div>
+      </div>
+      <div class="want-card reveal">
+        <div class="want-icon">vi</div>
+        <div>
+          <h4>A partner who takes initiative</h4>
+          <p>We don't wait for you to tell us what to do. We see opportunities. We suggest. We implement. We treat your business like ours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DECISION HELPER -->
+<section class="section-pad-sm">
+  <div class="container">
+    <div class="decision-helper reveal">
+      <span class="eyebrow amber">Which tier is for you?</span>
+      <h3 class="mt-sm">Pick the level of partnership that matches <em>where your business is right now.</em></h3>
+      <p>We've built three clear paths so you don't have to guess. Quick test below — find your match.</p>
+
+      <div class="decision-grid">
+        <div class="decision-card">
+          <div class="lbl">Start Here</div>
+          <h5>You want a marketing partner — but you're not ready for a 90-day intensive sprint.</h5>
+          <p>You have a working business. You need consistent ads, content, and a partner who runs your digital side month-to-month.</p>
+          <a href="#tier-growth">→ Growth Partnership (₦500k/mo)</a>
+        </div>
+        <div class="decision-card">
+          <div class="lbl">Scale Up</div>
+          <h5>You want a complete sales machine installed in 90 days.</h5>
+          <p>You're ready to commit. Website, ads, realtor recruitment, email — the whole infrastructure built and handed to you in 3 months.</p>
+          <a href="#tier-machine">→ 90-Day Sales Machine (₦750k/mo)</a>
+        </div>
+        <div class="decision-card">
+          <div class="lbl">Dominate</div>
+          <h5>You don't want to compete. You want to dominate your market.</h5>
+          <p>Multi-city campaigns, PR, influencer outreach, sales team training. The premium tier for developers ready to lead.</p>
+          <a href="#tier-domination">→ Market Domination (₦3M/mo)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="section-pad" id="tiers">
+  <div class="container">
+    <div class="reveal text-center" style="max-width: 720px; margin: 0 auto;">
+      <span class="eyebrow center">The Three Partnerships</span>
+      <h2 class="mt-sm">Pick your level. <em>We handle the rest.</em></h2>
+      <p class="lead mt-md">All tiers are flat monthly fees. Ad spend is separate and goes directly to Meta/Google in accounts you own — we never touch your money.</p>
+    </div>
+
+    <div class="ad-budget-note reveal">
+      <strong>About ad budget:</strong> Your monthly fee is what you pay <em>us</em>. Your ad budget is what you pay <em>Meta and Google</em> directly. They are completely separate. You control the budget; we manage the campaigns. Recommended ad budgets are listed on each tier — but you can scale up or down at any time.</p>
+    </div>
+
+    <div class="tiers">
+      <!-- TIER 1: GROWTH -->
+      <div class="tier reveal" id="tier-growth">
+        <div class="tier-tag">Growth Partnership</div>
+        <h3 class="tier-name">The <em>Monthly</em> Marketing Partner</h3>
+        <div class="tier-price">
+          <div class="tier-price-amount">₦500k</div>
+          <div class="tier-price-per">/month</div>
+        </div>
+        <div class="tier-note">Month-to-month · Cancel anytime · No 90-day commitment</div>
+
+        <div class="tier-best-for">
+          <strong>Best for:</strong> developers who already have a working business and want a senior marketing partner running their digital side every month — without committing to a full 90-day intensive.
+        </div>
+
+        <ul class="tier-features">
+          <li>Facebook & Instagram ads (lead gen, retargeting, branding)</li>
+          <li>Google search & display ads</li>
+          <li>Ongoing creative — graphics, ad copy, short-form video</li>
+          <li>Email marketing & nurture sequences</li>
+          <li>CRM setup, lead organisation, follow-up systems</li>
+          <li>Realtor recruitment campaigns (ongoing)</li>
+          <li>Realtor WhatsApp community support</li>
+          <li>Branding & storytelling content</li>
+          <li>Monthly performance report + strategy review</li>
+          <li>You own everything we build. Forever.</li>
+        </ul>
+
+        <div class="tier-note" style="margin-bottom: 1rem; font-style: italic;">Recommended ad budget: ₦400k–₦750k/mo</div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20interested%20in%20the%20%E2%82%A6500k%20Growth%20Partnership%20tier." class="tier-cta">Start the Partnership →</a>
+      </div>
+
+      <!-- TIER 2: 90-DAY MACHINE -->
+      <div class="tier featured reveal" id="tier-machine">
+        <span class="tier-badge">Most Popular</span>
+        <div class="tier-tag">90-Day Sales Machine</div>
+        <h3 class="tier-name">The <em>Complete System</em> — Installed</h3>
+        <div class="tier-price">
+          <div class="tier-price-amount">₦750k</div>
+          <div class="tier-price-per">/month · 90 days</div>
+        </div>
+        <div class="tier-note">Flexible plan: ₦1M month 1 · ₦650k month 2 · ₦600k month 3 (Total: ₦2.25M)</div>
+
+        <div class="tier-best-for">
+          <strong>Best for:</strong> developers ready to commit to a 90-day intensive that installs your full sales infrastructure end-to-end — from website to realtor army to predictable monthly revenue.
+        </div>
+
+        <ul class="tier-features">
+          <li>Everything in Growth Partnership, plus:</li>
+          <li>Conversion-optimised website + landing pages</li>
+          <li>1,000+ active realtors recruited in 90 days</li>
+          <li>Multi-level awareness content system</li>
+          <li>Buyer qualification funnel + lead routing</li>
+          <li>Professional video editing for ads + content</li>
+          <li>Real-time performance dashboard</li>
+          <li>30-Day Performance Promise — we work free if we don't deliver clear improvement</li>
+          <li><strong style="color:var(--amber);">Bonuses:</strong> Sales Team Playbook · Operations System · First-30 Quick Win Campaign</li>
+        </ul>
+
+        <div class="tier-note" style="margin-bottom: 1rem; font-style: italic; color: rgba(255,255,255,0.6);">Recommended ad budget: ₦750k/mo</div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20interested%20in%20the%2090-Day%20Sales%20Machine%20tier%20%28%E2%82%A6750k%2Fmo%29." class="tier-cta">Apply for the 90-Day →</a>
+      </div>
+
+      <!-- TIER 3: DOMINATION -->
+      <div class="tier reveal" id="tier-domination">
+        <div class="tier-tag">Market Domination</div>
+        <h3 class="tier-name">Be The <em>Most Recognised</em> Developer In Your Market</h3>
+        <div class="tier-price">
+          <div class="tier-price-amount">₦3M</div>
+          <div class="tier-price-per">/month · 90 days</div>
+        </div>
+        <div class="tier-note">Flexible plan: ₦4M month 1 · ₦2.75M month 2 · ₦2.25M month 3 (Total: ₦9M)</div>
+
+        <div class="tier-best-for">
+          <strong>Best for:</strong> developers with serious portfolios who want to dominate multiple cities, build a brand that's <em>talked about</em>, and treat marketing as a true business engine — not an expense.
+        </div>
+
+        <ul class="tier-features">
+          <li>Everything in 90-Day Sales Machine, plus:</li>
+          <li>Personal strategic partnership with Emmanuel</li>
+          <li>2,500+ realtor domination network</li>
+          <li>Multi-city ad domination (3 cities)</li>
+          <li>Advanced behavioural email automation</li>
+          <li>SMS + email integrated campaigns</li>
+          <li>Cinematic property film direction</li>
+          <li>PR + influencer outreach campaigns</li>
+          <li>Monthly live sales team training</li>
+          <li>Quarterly business strategy review</li>
+          <li>Priority response (24-hour turnaround)</li>
+          <li>Monthly competitor intelligence reports</li>
+        </ul>
+
+        <div class="tier-note" style="margin-bottom: 1rem; font-style: italic;">Recommended ad budget: ₦1.5M/mo</div>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20interested%20in%20the%20Market%20Domination%20tier%20%28%E2%82%A63M%2Fmo%29." class="tier-cta">Apply for Domination →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section-pad section-warm">
+  <div class="container">
+    <div class="approach-grid">
+      <div class="reveal">
+        <span class="eyebrow">Our Approach</span>
+        <h2 class="mt-sm">How we <em>actually</em> work with you.</h2>
+        <p class="lead mt-md">This is the part most agencies skip. The boring infrastructure. The accountability. The reason this works when other things didn't.</p>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%20want%20to%20learn%20more%20about%20your%20approach." class="btn btn-primary mt-md">Have a Conversation →</a>
+      </div>
+
+      <div class="approach-list reveal">
+        <div class="approach-item">
+          <div class="approach-item-head">
+            <div class="approach-num">01</div>
+            <h4>We function like a member of your team</h4>
+          </div>
+          <p>Not an external vendor. We sit in your strategy conversations. We learn your projects, your locations, your pricing tiers, your buyer profile. We take ownership.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item-head">
+            <div class="approach-num">02</div>
+            <h4>We take initiative without waiting</h4>
+          </div>
+          <p>You don't need to brief us on every campaign. We see opportunities, propose them, and execute when you greenlight. Your job is to keep building. Our job is to keep selling.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item-head">
+            <div class="approach-num">03</div>
+            <h4>You own everything we build</h4>
+          </div>
+          <p>Website, Facebook pixel data, email list, realtor community, every asset. Even if we ever part ways, it all stays in your business. Forever.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item-head">
+            <div class="approach-num">04</div>
+            <h4>Full transparency, weekly</h4>
+          </div>
+          <p>Every naira of ad spend documented. Weekly screenshots. Monthly reports. Live dashboard access. If you ever can't see where the money went, you don't pay the next invoice.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item-head">
+            <div class="approach-num">05</div>
+            <h4>We work with very few clients at a time</h4>
+          </div>
+          <p>By design. Real systems require real attention. Most agencies stack 30–40 clients to maximise revenue and dilute results. We don't.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="section-pad">
+  <div class="container">
+    <div class="testimonial-feature reveal" style="background:var(--navy); color:#fff; border-radius:24px; padding:4rem 3rem; position:relative; overflow:hidden; max-width:900px; margin:0 auto;">
+      <span class="pill amber" style="display:inline-flex;">★ Featured Result · ₦40M closed</span>
+      <p style="font-family:var(--font-display);font-style:italic;font-size:clamp(1.4rem, 2.5vw, 2rem);line-height:1.35;color:#fff;letter-spacing:-0.01em;margin:1.5rem 0 2rem;">"Working with Emmanuel was a game-changer. The expert guidance and well-structured ads brought in the right leads. With consistent follow-ups, we closed it. Real estate business owners who want real results should definitely connect with him."</p>
+      <div style="display:flex;align-items:center;gap:1rem;border-top:1px solid rgba(255,255,255,0.15);padding-top:1.5rem;">
+        <div>
+          <div style="font-weight:600;color:#fff;font-size:1rem;margin-bottom:0.15rem;">Iyabode Abiola</div>
+          <div style="color:rgba(255,255,255,0.6);font-size:0.88rem;">CEO · Natweng Realtors, Lagos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-pad section-cream">
+  <div class="container-narrow">
+    <div class="reveal text-center">
+      <span class="eyebrow center">Frequently Asked</span>
+      <h2 class="mt-sm">Questions developers ask <em>before saying yes.</em></h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary class="faq-q">Is the ad budget included in the monthly fee?</summary>
+        <p class="faq-a">No. The monthly fee is what you pay us — for strategy, creative, management, and everything we run on your behalf. The ad budget is what you pay Meta and Google directly. They never come through us. You always own and control your ad accounts.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What's the difference between the ₦500k tier and the ₦750k tier?</summary>
+        <p class="faq-a">The ₦500k Growth Partnership is month-to-month — ongoing marketing support without a fixed commitment. The ₦750k 90-Day Sales Machine is a 90-day intensive: we install your complete sales infrastructure (website, funnels, realtor army, etc.) in three months. After that 90 days, most clients transition to a lower monthly retainer to maintain the system.</p>
+        <p class="faq-a">Think of it this way: Growth Partnership is for businesses that already have momentum and want a partner to run their marketing. 90-Day Sales Machine is for businesses that need the whole system built from scratch — fast.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Do you work with realtors and small developers — or only big ones?</summary>
+        <p class="faq-a">We work with developers who can comfortably afford the monthly fee and the ad budget. That generally means you have at least 1–2 active projects and a realistic ability to fulfil 5–10 inspections per month. We've worked with mid-sized Lagos developers, Benin City builders, and large multi-project firms. We turn down clients we don't think we can deliver real results for.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">How quickly will we see results?</summary>
+        <p class="faq-a">In Week 1, your campaigns are live and leads start arriving. By Week 4, we have clear data on cost per lead, cost per inspection, and your realtor network is forming. First closes typically happen between Week 4–8, depending on your sales cycle. Real estate is a considered purchase — anyone promising sales in 7 days is lying to you.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What if it doesn't work?</summary>
+        <p class="faq-a">For the 90-Day Sales Machine, we offer the 30-Day Performance Promise: if after 30 days you don't see clear, measurable improvement in lead quality, buyer engagement, and marketing clarity — we keep working at zero additional cost until you do. For Domination tier, the guarantee is even stronger. The Growth Partnership is month-to-month, so if it's not working, you simply don't renew.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Do I need to provide a Facebook page, website, or anything else?</summary>
+        <p class="faq-a">Just three things: admin access to your Facebook page (or we create one from scratch), all your property details/photos/videos, and agreement on a domain name for your website. That's it. We handle everything else.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Can I see real numbers from past work?</summary>
+        <p class="faq-a">Yes. On the qualification call we'll walk through specific case studies — ad accounts, cost per lead, conversion rates, realtor recruitment numbers — for similar developers. Some are confidential by client request, but we share enough to show you exactly what's possible.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section-pad">
+  <div class="container">
+    <div class="final-pitch reveal">
+      <span class="eyebrow center amber">Your Next Step</span>
+      <h2 class="mt-sm">One conversation. <em>That's all it takes.</em></h2>
+      <p>If you're a serious developer and you're tired of paying marketers who deliver vanity metrics — let's talk. One short discovery call. We'll learn your business, look at your numbers, and tell you honestly which tier fits (if any).</p>
+      <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20a%20real%20estate%20developer%20and%20I%27d%20like%20to%20book%20a%20discovery%20call." class="btn btn-lg">Book a Discovery Call on WhatsApp →</a>
+      <p style="margin-top:2rem; font-size:0.9rem; opacity:0.6;">⚠️ We take a maximum of one new client per tier per month. By design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <div class="footer-links">
+          <a href="real-estate.html">Real Estate</a>
+          <a href="meta-ads.html">Meta Ads</a>
+          <a href="funnels.html">Funnels</a>
+          <a href="web-design.html">Web Design</a>
+          <a href="automation.html">Automation</a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="case-studies.html">Results</a>
+          <a href="blog.html">Insights</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <div class="footer-links">
+          <a href="https://wa.me/2348064158087">WhatsApp</a>
+          <a href="mailto:hello@swellbridgedigital.com">Email</a>
+          <a href="contact.html">Book a call</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div>
+      <div>Nigeria · Worldwide</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

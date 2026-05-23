@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Ads That Actually Sell — Swellbridge Digital</title>
+<meta name="description" content="Strategic Facebook and Instagram advertising for Nigerian businesses. Not boosted posts. Not vanity metrics. Real campaigns built to produce leads, sales, and ROI you can measure.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .meta-hero { padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+  .meta-hero-bg {
+    position: absolute;
+    top: -200px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(46,107,255,0.15) 0%, transparent 60%);
+    border-radius: 50%;
+  }
+  .meta-hero-inner { position: relative; z-index: 1; }
+  .meta-hero h1 { font-size: clamp(2.5rem, 5.5vw, 5rem); margin: 1.5rem 0 1.75rem; max-width: 1000px; }
+  .meta-hero-sub { font-size: 1.2rem; max-width: 700px; color: var(--ink-soft); margin-bottom: 2rem; }
+  .ad-mockup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+  @media (max-width: 900px) { .ad-mockup-grid { grid-template-columns: 1fr; max-width: 360px; margin: 4rem auto 0; } }
+  .ad-mockup {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transform: rotate(-1deg);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .ad-mockup:nth-child(2) { transform: rotate(1deg) translateY(20px); }
+  .ad-mockup:nth-child(3) { transform: rotate(-0.5deg); }
+  .ad-mockup:hover { transform: rotate(0) translateY(-8px); box-shadow: var(--shadow-xl); }
+  .ad-mockup-head {
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.85rem;
+  }
+  .ad-mockup-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--electric));
+    flex-shrink: 0;
+  }
+  .ad-mockup-name { font-weight: 600; color: var(--ink); }
+  .ad-mockup-sub { font-size: 0.75rem; color: var(--ink-mute); }
+  .ad-mockup-text { padding: 0.75rem 1rem 1rem; font-size: 0.88rem; line-height: 1.45; color: var(--ink); }
+  .ad-mockup-image {
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+  }
+  .ad-mockup-img-1 { background: linear-gradient(135deg, var(--navy) 0%, var(--electric) 100%); position:relative; }
+  .ad-mockup-img-2 { background: linear-gradient(135deg, #8B6914 0%, var(--amber) 100%); position:relative; }
+  .ad-mockup-img-3 { background: linear-gradient(135deg, #1E3A2F 0%, #2D5F4E 100%); position:relative; }
+  .ad-mockup-img-overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 1rem; color: #fff;
+  }
+  .ad-mockup-img-overlay h5 {
+    font-family: var(--font-display); font-size: 1.3rem; line-height: 1.1; letter-spacing: -0.02em;
+    color: #fff; margin-bottom: 0.25rem;
+  }
+  .ad-mockup-img-overlay p { font-size: 0.78rem; color: rgba(255,255,255,0.85); margin: 0; }
+  .ad-mockup-cta {
+    padding: 0.75rem 1rem;
+    background: var(--bg-warm);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--line);
+  }
+  .ad-mockup-cta-btn { background: var(--electric); color:#fff; padding: 0.4rem 0.85rem; border-radius: 6px; font-weight: 600; font-size: 0.78rem; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+  @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .ad-types-list { margin-top: 2rem; }
+  .ad-type-item {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 0.85rem;
+    transition: all 0.25s;
+  }
+  .ad-type-item:hover { border-color: var(--electric-soft); transform: translateX(4px); }
+  .ad-type-item h4 { font-size: 1.15rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.75rem; }
+  .ad-type-num { font-family: var(--font-display); font-style: italic; color: var(--electric); }
+  .ad-type-item p { font-size: 0.95rem; margin-left: 30px; }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    margin: 4rem 0;
+    overflow: hidden;
+  }
+  @media (max-width: 800px) { .stat-row { grid-template-columns: 1fr; } }
+  .stat-cell {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .stat-cell:last-child { border-right: none; }
+  @media (max-width: 800px) {
+    .stat-cell { border-right: none; border-bottom: 1px solid var(--line); }
+    .stat-cell:last-child { border-bottom: none; }
+  }
+  .stat-big {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+    color: var(--navy);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+  .stat-big em { font-style: italic; color: var(--electric); }
+  .stat-lbl { font-size: 0.9rem; color: var(--ink-mute); }
+
+  .pricing-block {
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius-xl);
+    padding: 4rem 3rem;
+    margin: 3rem 0;
+  }
+  .pricing-block h3 { color: #fff; margin-bottom: 1rem; }
+  .pricing-block .price-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  @media (max-width: 700px) { .pricing-block .price-grid { grid-template-columns: 1fr; } }
+  .price-card-dark {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+  .price-card-dark .tag { color: var(--amber); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .price-card-dark h4 { color: #fff; font-size: 1.4rem; margin-bottom: 1rem; }
+  .price-card-dark .amount { font-family: var(--font-display); font-size: 2.5rem; color: var(--amber); margin-bottom: 0.25rem; line-height: 1; }
+  .price-card-dark .per { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .price-card-dark ul { list-style: none; }
+  .price-card-dark li { display: flex; gap: 0.6rem; padding: 0.4rem 0; font-size: 0.9rem; color: rgba(255,255,255,0.82); }
+  .price-card-dark li::before { content: "✓"; color: var(--amber); font-weight: 700; }
+  .price-card-dark .btn {
+    margin-top: 1.5rem;
+    background: var(--amber);
+    color: var(--navy-deep);
+    padding: 0.9rem 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="meta-ads.html" class="active">Meta Ads</a>
+      <a href="funnels.html">Funnels</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="automation.html">Automation</a>
+      <a href="case-studies.html">Results</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20interested%20in%20Meta%20Ads." class="btn btn-primary nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="real-estate.html">Real Estate</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="funnels.html">Funnels</a>
+    <a href="web-design.html">Web Design</a>
+    <a href="automation.html">Automation</a>
+    <a href="case-studies.html">Results</a>
+    <a href="blog.html">Insights</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="meta-hero">
+  <div class="meta-hero-bg"></div>
+  <div class="container meta-hero-inner">
+    <div class="reveal">
+      <span class="eyebrow">Meta Ads · Facebook & Instagram</span>
+      <h1>The difference between <em>boosting a post</em> and running a campaign that closes ₦40 million.</h1>
+      <p class="meta-hero-sub">We don't run "social media ads." We architect campaign systems — built on real audience research, real creative, and real optimisation — that produce qualified leads and measurable revenue.</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="#pricing" class="btn btn-primary btn-lg">See Pricing</a>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20to%20discuss%20Meta%20Ads%20for%20my%20business." class="btn btn-ghost btn-lg">Talk on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Ad mockups -->
+    <div class="ad-mockup-grid reveal">
+      <div class="ad-mockup">
+        <div class="ad-mockup-head">
+          <div class="ad-mockup-avatar"></div>
+          <div>
+            <div class="ad-mockup-name">Meaningful Realtors</div>
+            <div class="ad-mockup-sub">Sponsored · Lagos</div>
+          </div>
+        </div>
+        <div class="ad-mockup-text">Never pay rent in January again. Own land in Lagos with our 12-month payment plan →</div>
+        <div class="ad-mockup-image ad-mockup-img-1">
+          <div class="ad-mockup-img-overlay">
+            <h5>Stop renting. Start owning.</h5>
+            <p>From ₦5M · Flexible monthly plans</p>
+          </div>
+        </div>
+        <div class="ad-mockup-cta">
+          <span style="color:var(--ink-mute);">swellbridgedigital.com</span>
+          <div class="ad-mockup-cta-btn">Learn More</div>
+        </div>
+      </div>
+
+      <div class="ad-mockup">
+        <div class="ad-mockup-head">
+          <div class="ad-mockup-avatar" style="background:linear-gradient(135deg,#D4A24C,#8B6914);"></div>
+          <div>
+            <div class="ad-mockup-name">Empire Consulting</div>
+            <div class="ad-mockup-sub">Sponsored · Nigeria</div>
+          </div>
+        </div>
+        <div class="ad-mockup-text">Coaches: how 7 of our clients hit ₦10M months — without becoming content creators 👇</div>
+        <div class="ad-mockup-image ad-mockup-img-2">
+          <div class="ad-mockup-img-overlay">
+            <h5>The 7-Figure Coach Playbook</h5>
+            <p>Free training · 20 minutes</p>
+          </div>
+        </div>
+        <div class="ad-mockup-cta">
+          <span style="color:var(--ink-mute);">empireconsulting.com</span>
+          <div class="ad-mockup-cta-btn">Watch Now</div>
+        </div>
+      </div>
+
+      <div class="ad-mockup">
+        <div class="ad-mockup-head">
+          <div class="ad-mockup-avatar" style="background:linear-gradient(135deg,#1E3A2F,#2D5F4E);"></div>
+          <div>
+            <div class="ad-mockup-name">Serene Family Clinic</div>
+            <div class="ad-mockup-sub">Sponsored · Port Harcourt</div>
+          </div>
+        </div>
+        <div class="ad-mockup-text">No more 3-hour hospital waits. Same-day appointments for families in PH →</div>
+        <div class="ad-mockup-image ad-mockup-img-3">
+          <div class="ad-mockup-img-overlay">
+            <h5>Healthcare without the wait.</h5>
+            <p>Book online · Same-day visits</p>
+          </div>
+        </div>
+        <div class="ad-mockup-cta">
+          <span style="color:var(--ink-mute);">sereneclinic.com</span>
+          <div class="ad-mockup-cta-btn">Book Now</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal" style="max-width:720px;">
+      <span class="eyebrow">Why Most Ads Fail</span>
+      <h2 class="mt-sm">Meta's algorithm isn't the problem. <em>Your message is.</em></h2>
+      <p class="lead mt-md">Meta's targeting has become so advanced that <em>who you reach</em> is barely the issue anymore. The real reason your ads aren't converting is what you're <em>saying</em> when you reach them — and what happens after they click.</p>
+    </div>
+
+    <div class="stat-row reveal">
+      <div class="stat-cell">
+        <div class="stat-big">5<em>%</em></div>
+        <div class="stat-lbl">Of any market is "ready to buy now". Most ads only target this tiny slice — and fight every competitor for it.</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-big">95<em>%</em></div>
+        <div class="stat-lbl">Of buyers are 30–90 days away from buying. Nobody talks to them. That's where the real money is.</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-big">40<em>%</em></div>
+        <div class="stat-lbl">Typical reduction in cost-per-lead when ads are restructured around awareness levels.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="section-pad section-warm">
+  <div class="container">
+    <div class="why-grid">
+      <div class="reveal">
+        <span class="eyebrow">What We Run</span>
+        <h2 class="mt-sm">Six campaign types. <em>Each with a different job.</em></h2>
+        <p class="lead mt-md">Bad agencies run one campaign and call it Meta Ads. Real growth comes from running several campaigns simultaneously, each targeting a different stage of the buyer's journey.</p>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20to%20discuss%20a%20Meta%20Ads%20campaign." class="btn btn-primary mt-md">Book a Strategy Call →</a>
+      </div>
+
+      <div class="ad-types-list reveal">
+        <div class="ad-type-item">
+          <h4><span class="ad-type-num">01</span> Lead Generation</h4>
+          <p>Capture qualified leads with on-platform forms or routed funnels. Pre-filtered so your team only talks to people worth talking to.</p>
+        </div>
+        <div class="ad-type-item">
+          <h4><span class="ad-type-num">02</span> Direct Response Sales</h4>
+          <p>Ads designed to drive an immediate purchase decision. Best for lower-ticket offers and bottom-of-funnel buyers ready to act.</p>
+        </div>
+        <div class="ad-type-item">
+          <h4><span class="ad-type-num">03</span> Retargeting</h4>
+          <p>Ads that follow up with people who visited your site, watched your video, or engaged with you — but didn't convert yet.</p>
+        </div>
+        <div class="ad-type-item">
+          <h4><span class="ad-type-num">04</span> Brand Awareness</h4>
+          <p>Trust-building video ads to people who don't know you yet. Plant the seed now — they buy in 30, 60, 90 days.</p>
+        </div>
+        <div class="ad-type-item">
+          <h4><span class="ad-type-num">05</span> Lookalike Scaling</h4>
+          <p>Once we have buyer data, we replicate it. Meta finds 1,000s more people who behave like your best customers.</p>
+        </div>
+        <div class="ad-type-item">
+          <h4><span class="ad-type-num">06</span> Content Distribution</h4>
+          <p>Boosted content campaigns (done right) that get your storytelling videos and educational posts in front of the right eyes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section-pad" id="pricing">
+  <div class="container">
+    <div class="reveal text-center" style="max-width:700px; margin: 0 auto;">
+      <span class="eyebrow center">Pricing</span>
+      <h2 class="mt-sm">Two ways to <em>run ads with us.</em></h2>
+      <p class="lead mt-md">Service fee is what you pay us. Ad spend is separate and paid directly to Meta. You own everything we build.</p>
+    </div>
+
+    <div class="pricing-block reveal">
+      <span class="eyebrow amber">Meta Ads Service</span>
+      <h3 class="mt-sm">Choose your level of commitment.</h3>
+
+      <div class="price-grid">
+        <div class="price-card-dark">
+          <div class="tag">Project</div>
+          <h4>One-Time Campaign Setup</h4>
+          <div class="amount">₦350k</div>
+          <div class="per">One-time fee</div>
+          <ul>
+            <li>Audience research & strategy</li>
+            <li>Ad creative (copy + 3 designs)</li>
+            <li>Pixel setup & event tracking</li>
+            <li>Campaign launch + 2 weeks optimisation</li>
+            <li>Handoff documentation so you can run it yourself after</li>
+          </ul>
+          <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20the%20Meta%20Ads%20one-time%20setup%20%28%E2%82%A6350k%29." class="btn">Start a Campaign →</a>
+        </div>
+
+        <div class="price-card-dark">
+          <div class="tag">Retainer</div>
+          <h4>Ongoing Ads Management</h4>
+          <div class="amount">₦300k</div>
+          <div class="per">/month · 3-month minimum</div>
+          <ul>
+            <li>Everything in setup, plus:</li>
+            <li>Ongoing creative refresh (weekly)</li>
+            <li>A/B testing & continuous optimisation</li>
+            <li>Retargeting + lookalike campaigns</li>
+            <li>Weekly performance reports</li>
+            <li>Monthly strategy call</li>
+          </ul>
+          <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20the%20Meta%20Ads%20retainer%20%28%E2%82%A6300k%2Fmo%29." class="btn">Start the Retainer →</a>
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem; font-size: 0.92rem; color: rgba(255,255,255,0.6); text-align: center;">Recommended ad budget: ₦300k–₦1M/month depending on your goals. You pay this directly to Meta — never through us.</p>
+    </div>
+
+    <div class="reveal" style="text-align:center; max-width: 600px; margin: 3rem auto 0;">
+      <p style="font-size: 1rem; color: var(--ink-mute);">Running ads for a real estate business? Look at the <a href="real-estate.html" style="color:var(--electric); font-weight:600;">Real Estate Partnership →</a> — it includes Meta Ads plus the rest of the system.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <div class="footer-links">
+          <a href="real-estate.html">Real Estate</a>
+          <a href="meta-ads.html">Meta Ads</a>
+          <a href="funnels.html">Funnels</a>
+          <a href="web-design.html">Web Design</a>
+          <a href="automation.html">Automation</a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="case-studies.html">Results</a>
+          <a href="blog.html">Insights</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <div class="footer-links">
+          <a href="https://wa.me/2348064158087">WhatsApp</a>
+          <a href="mailto:hello@swellbridgedigital.com">Email</a>
+          <a href="contact.html">Book a call</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div>
+      <div>Nigeria · Worldwide</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

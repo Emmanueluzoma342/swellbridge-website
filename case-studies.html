@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Results & Case Studies — Swellbridge Digital</title>
+<meta name="description" content="Real results from real clients. ₦40M deals closed, 2,000+ realtors recruited, hundreds of millions in property sales. See exactly what we've delivered.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .cs-hero { padding: 5rem 0 4rem; }
+  .cs-hero h1 { font-size: clamp(2.5rem, 5.5vw, 5rem); margin: 1.5rem 0 1.5rem; }
+  .cs-hero p.lead { max-width: 720px; }
+
+  .stat-banner {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius-xl); overflow: hidden;
+    margin-top: 3rem;
+  }
+  @media (max-width: 800px) { .stat-banner { grid-template-columns: 1fr 1fr; } }
+  .stat-cell {
+    padding: 2.5rem 1.5rem; text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-cell:last-child { border-right: none; }
+  @media (max-width: 800px) {
+    .stat-cell:nth-child(2n) { border-right: none; }
+    .stat-cell:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  }
+  .stat-cell .num {
+    font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    color: var(--amber); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em;
+  }
+  .stat-cell .num em { font-style: italic; color: #fff; font-weight: 400; }
+  .stat-cell .lbl { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+  /* Case story */
+  .case-story {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 4rem 3rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (max-width: 700px) { .case-story { padding: 2.5rem 1.75rem; } }
+  .case-story.dark { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .case-story.dark h2, .case-story.dark h3 { color: #fff; }
+  .case-story.dark p { color: rgba(255,255,255,0.8); }
+
+  .case-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .case-story.dark .case-head { border-bottom-color: rgba(255,255,255,0.15); }
+  .case-head .tag {
+    background: var(--electric-soft); color: var(--electric);
+    padding: 0.4rem 0.9rem; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em;
+  }
+  .case-story.dark .case-head .tag {
+    background: rgba(212,162,76,0.15); color: var(--amber);
+  }
+  .case-head .meta { font-size: 0.88rem; color: var(--ink-mute); }
+  .case-story.dark .case-head .meta { color: rgba(255,255,255,0.5); }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 800px) { .case-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+  .case-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1rem; }
+  .case-body p { font-size: 1.02rem; line-height: 1.65; margin-bottom: 1rem; }
+  .case-body strong { color: var(--ink); font-weight: 600; }
+  .case-story.dark .case-body strong { color: var(--amber); }
+
+  .case-numbers {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .case-num {
+    background: var(--bg-warm);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--electric);
+  }
+  .case-story.dark .case-num {
+    background: rgba(255,255,255,0.05);
+    border-left-color: var(--amber);
+  }
+  .case-num .big {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.02em;
+  }
+  .case-num .big em { font-style: italic; color: var(--electric); font-weight: 400; }
+  .case-story.dark .case-num .big { color: #fff; }
+  .case-story.dark .case-num .big em { color: var(--amber); }
+  .case-num .lbl { font-size: 0.82rem; color: var(--ink-mute); }
+  .case-story.dark .case-num .lbl { color: rgba(255,255,255,0.6); }
+
+  .case-quote {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .case-story.dark .case-quote { border-top-color: rgba(255,255,255,0.15); color: #fff; }
+  .case-quote-author { font-family: var(--font-body); font-style: normal; font-size: 0.9rem; color: var(--ink-mute); margin-top: 1rem; }
+  .case-story.dark .case-quote-author { color: rgba(255,255,255,0.6); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="meta-ads.html">Meta Ads</a>
+      <a href="funnels.html">Funnels</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="automation.html">Automation</a>
+      <a href="case-studies.html" class="active">Results</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20talk." class="btn btn-primary nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="real-estate.html">Real Estate</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="funnels.html">Funnels</a>
+    <a href="web-design.html">Web Design</a>
+    <a href="automation.html">Automation</a>
+    <a href="case-studies.html">Results</a>
+    <a href="blog.html">Insights</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<section class="cs-hero">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Results & Case Studies</span>
+      <h1>Real businesses. <em>Real revenue.</em> Real receipts.</h1>
+      <p class="lead">No "engagement up 200%" nonsense. These are the actual outcomes we've helped Nigerian businesses produce — measured in money, sales, and structural growth.</p>
+    </div>
+
+    <div class="stat-banner reveal">
+      <div class="stat-cell"><div class="num">2,000<em>+</em></div><div class="lbl">Realtors recruited</div></div>
+      <div class="stat-cell"><div class="num">₦40M<em>+</em></div><div class="lbl">Single deal closed</div></div>
+      <div class="stat-cell"><div class="num">10 <em>acres</em></div><div class="lbl">Of land sold</div></div>
+      <div class="stat-cell"><div class="num">100s<em> of ₦M</em></div><div class="lbl">In aggregate revenue</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <!-- CASE 1 -->
+    <div class="case-story reveal">
+      <div class="case-head">
+        <div>
+          <span class="tag">Real Estate · Lagos</span>
+        </div>
+        <div class="meta">Engagement: 2024 · Ongoing</div>
+      </div>
+      <h2 class="case-title">How Natweng Realtors closed a <em>₦40M duplex deal</em> from a single Facebook ad campaign.</h2>
+
+      <div class="case-grid">
+        <div class="case-body">
+          <p><strong>The situation:</strong> Natweng Realtors had a quality inventory of properties but was burning through Facebook ad budget without converting leads into actual sales. The leads were coming in — but most went cold within 48 hours.</p>
+          <p><strong>What we did:</strong> We rebuilt the ad funnel from scratch. New audience research, new pre-frame copy, and most importantly — a WhatsApp-first follow-up sequence that nurtured prospects from interest to inspection.</p>
+          <p><strong>The result:</strong> Within the campaign window, Natweng closed a single duplex deal worth ₦40 million. Plus dozens more conversations that fed into future sales.</p>
+        </div>
+
+        <div class="case-numbers">
+          <div class="case-num">
+            <div class="big">₦40M<em>+</em></div>
+            <div class="lbl">Single deal closed</div>
+          </div>
+          <div class="case-num">
+            <div class="big">~7x<em></em></div>
+            <div class="lbl">Return on ad spend</div>
+          </div>
+          <div class="case-num">
+            <div class="big">90 <em>days</em></div>
+            <div class="lbl">From launch to close</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="case-quote">"Working with Emmanuel was a game-changer. The expert guidance and well-structured ads brought in the right leads. With consistent follow-ups, we closed a ₦40 million deal."</p>
+      <p class="case-quote-author">— Iyabode Abiola, CEO, Natweng Realtors</p>
+    </div>
+
+    <!-- CASE 2 -->
+    <div class="case-story dark reveal">
+      <div class="case-head">
+        <div><span class="tag">Real Estate · Lagos</span></div>
+        <div class="meta">Engagement: 2023–2024</div>
+      </div>
+      <h2 class="case-title">How we built a <em>2,000-realtor army</em> for a major Lagos developer in 6 months.</h2>
+
+      <div class="case-grid">
+        <div class="case-body">
+          <p><strong>The situation:</strong> A Lagos developer with serious inventory was relying entirely on direct ads to sell. Cost per acquisition was painful, scaling was difficult, and they had no leverage when Meta's algorithms shifted.</p>
+          <p><strong>What we did:</strong> We architected a parallel realtor recruitment engine — recruitment ads, onboarding sequences, training content, a private community, and a commission system. Realtors became distributed salespeople, each selling to their own networks.</p>
+          <p><strong>The result:</strong> Within six months, the developer had over 2,000 active realtors promoting their projects. Net result: 10 acres of land sold through realtor-driven sales alone, plus a permanent distribution moat competitors couldn't replicate.</p>
+        </div>
+
+        <div class="case-numbers">
+          <div class="case-num">
+            <div class="big">2,000<em>+</em></div>
+            <div class="lbl">Active realtors recruited</div>
+          </div>
+          <div class="case-num">
+            <div class="big">10 <em>acres</em></div>
+            <div class="lbl">Sold via realtor network</div>
+          </div>
+          <div class="case-num">
+            <div class="big">6 <em>months</em></div>
+            <div class="lbl">From zero to full network</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 3 -->
+    <div class="case-story reveal">
+      <div class="case-head">
+        <div><span class="tag">Real Estate · Benin City</span></div>
+        <div class="meta">Engagement: 2023</div>
+      </div>
+      <h2 class="case-title">How a Benin City developer generated <em>hundreds of millions in sales</em> from a new market.</h2>
+
+      <div class="case-grid">
+        <div class="case-body">
+          <p><strong>The situation:</strong> A Benin-based real estate developer wanted to scale beyond word-of-mouth referrals. The Lagos-style marketing playbooks they'd seen online didn't translate to the Benin buyer — different psychology, different price sensitivity, different objections.</p>
+          <p><strong>What we did:</strong> We built a Benin-specific campaign architecture. Local language nuances in copy, locally relevant social proof, lower-friction lead capture, and a phone-first (not WhatsApp-first) follow-up system.</p>
+          <p><strong>The result:</strong> Hundreds of millions of Naira in property sales over the engagement period. New buyer demographics opened up. The developer became one of the most recognised names in their market.</p>
+        </div>
+
+        <div class="case-numbers">
+          <div class="case-num">
+            <div class="big">100s<em> of ₦M</em></div>
+            <div class="lbl">In property sales</div>
+          </div>
+          <div class="case-num">
+            <div class="big">New <em>market</em></div>
+            <div class="lbl">Successfully opened</div>
+          </div>
+          <div class="case-num">
+            <div class="big">Top 3<em></em></div>
+            <div class="lbl">Brand recognition locally</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 4 -->
+    <div class="case-story dark reveal">
+      <div class="case-head">
+        <div><span class="tag">Real Estate · Lagos</span></div>
+        <div class="meta">Engagement: 2024</div>
+      </div>
+      <h2 class="case-title">How a solo Lagos realtor sold <em>3 lands</em> from a campaign that cost less than her phone bill.</h2>
+
+      <div class="case-grid">
+        <div class="case-body">
+          <p><strong>The situation:</strong> An independent realtor had a small marketing budget (under ₦100k/month) and was competing against firms spending 10x more. She needed an asymmetric edge.</p>
+          <p><strong>What we did:</strong> We focused entirely on direct-response, highly targeted micro-campaigns aimed at very specific buyer profiles. Tight audience, sharp copy, no wasted spend. Plus a simple WhatsApp follow-up sequence she could run herself.</p>
+          <p><strong>The result:</strong> Three lands sold within the campaign period. Her cost per closed sale was roughly ₦25,000 — a number most agencies would call impossible in Nigerian real estate.</p>
+        </div>
+
+        <div class="case-numbers">
+          <div class="case-num">
+            <div class="big">3 <em>lands</em></div>
+            <div class="lbl">Sold from one campaign</div>
+          </div>
+          <div class="case-num">
+            <div class="big">~₦25k<em></em></div>
+            <div class="lbl">Cost per closed sale</div>
+          </div>
+          <div class="case-num">
+            <div class="big">Under <em>₦100k</em></div>
+            <div class="lbl">Monthly ad budget</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad section-cream">
+  <div class="container-narrow text-center reveal">
+    <span class="eyebrow center">What's Possible For You</span>
+    <h2 class="mt-sm">Your business <em>deserves results like these.</em></h2>
+    <p class="lead mt-md">Every case study started with a discovery call. Yours can too. Tell us about your business and we'll honestly assess whether we're a fit — and what's possible.</p>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20a%20discovery%20call." class="btn btn-primary btn-lg mt-md">Book a Discovery Call →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div><h4>Services</h4><div class="footer-links"><a href="real-estate.html">Real Estate</a><a href="meta-ads.html">Meta Ads</a><a href="funnels.html">Funnels</a><a href="web-design.html">Web Design</a><a href="automation.html">Automation</a></div></div>
+      <div><h4>Company</h4><div class="footer-links"><a href="about.html">About</a><a href="case-studies.html">Results</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Talk to us</h4><div class="footer-links"><a href="https://wa.me/2348064158087">WhatsApp</a><a href="mailto:hello@swellbridgedigital.com">Email</a><a href="contact.html">Book a call</a></div></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div><div>Nigeria · Worldwide</div></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

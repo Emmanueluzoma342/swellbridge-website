@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Swellbridge Digital</title>
+<meta name="description" content="Book a discovery call with Swellbridge Digital. WhatsApp, email, or schedule a call directly.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .ct-hero { padding: 5rem 0 3rem; }
+  .ct-hero h1 { font-size: clamp(2.5rem, 5.5vw, 5rem); margin: 1.5rem 0 1.5rem; max-width: 800px; }
+  .ct-hero p.lead { max-width: 640px; }
+
+  .ct-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 800px) { .ct-grid { grid-template-columns: 1fr; } }
+
+  .ct-card {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: 2.5rem; transition: all 0.3s; text-decoration: none; color: var(--ink);
+    display: block;
+  }
+  .ct-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--electric-soft);
+  }
+  .ct-card.featured {
+    background: var(--navy); color: #fff; border-color: var(--navy);
+  }
+  .ct-card.featured h3 { color: #fff; }
+  .ct-card.featured p { color: rgba(255,255,255,0.78); }
+  .ct-card.featured .ct-arrow { color: var(--amber); }
+  .ct-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: var(--electric-soft); color: var(--electric);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-display); font-style: italic; font-size: 1.6rem;
+  }
+  .ct-card.featured .ct-icon { background: rgba(212,162,76,0.15); color: var(--amber); }
+  .ct-card h3 { font-size: 1.5rem; margin-bottom: 0.6rem; letter-spacing: -0.015em; }
+  .ct-card p { font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem; }
+  .ct-arrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-weight: 600; font-size: 0.95rem;
+    color: var(--electric);
+  }
+  .ct-arrow::after { content: "→"; transition: transform 0.2s; }
+  .ct-card:hover .ct-arrow::after { transform: translateX(4px); }
+
+  /* Office info */
+  .office-info {
+    background: var(--bg-warm);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem; margin-top: 2rem;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;
+  }
+  @media (max-width: 700px) { .office-info { grid-template-columns: 1fr; gap: 1rem; } }
+  .office-info h4 {
+    font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-mute);
+    margin-bottom: 0.5rem; letter-spacing: 0.15em;
+  }
+  .office-info p { font-size: 0.95rem; color: var(--ink); margin: 0; }
+
+  .qual-list {
+    background: var(--bg-card); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); padding: 2.5rem;
+    max-width: 720px; margin: 0 auto;
+  }
+  .qual-list ul { margin-top: 1.5rem; }
+  .qual-list li {
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--line);
+    display: flex; gap: 0.85rem; align-items: flex-start;
+    font-size: 1.02rem; color: var(--ink-soft);
+  }
+  .qual-list li:first-child { border-top: none; padding-top: 0; }
+  .qual-list li::before {
+    content: "✓"; color: var(--electric); font-weight: 700;
+    flex-shrink: 0; margin-top: 0.15rem;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="meta-ads.html">Meta Ads</a>
+      <a href="funnels.html">Funnels</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="automation.html">Automation</a>
+      <a href="case-studies.html">Results</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20talk." class="btn btn-primary nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="real-estate.html">Real Estate</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="funnels.html">Funnels</a>
+    <a href="web-design.html">Web Design</a>
+    <a href="automation.html">Automation</a>
+    <a href="case-studies.html">Results</a>
+    <a href="blog.html">Insights</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<section class="ct-hero">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h1>Let's <em>have the conversation.</em></h1>
+      <p class="lead">Pick the channel that works best for you. WhatsApp gets the fastest response (usually within an hour), email for longer questions, or schedule a discovery call directly.</p>
+    </div>
+
+    <div class="ct-grid">
+      <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20to%20talk%20about%20working%20together." class="ct-card featured reveal">
+        <div class="ct-icon">W</div>
+        <h3>WhatsApp <em style="color:var(--amber); font-family:var(--font-display);">(fastest)</em></h3>
+        <p>Send a message and I usually respond within the hour during working hours. The fastest way to reach me.</p>
+        <span class="ct-arrow">+234 806 415 8087</span>
+      </a>
+
+      <a href="mailto:hello@swellbridgedigital.com?subject=Project%20Enquiry" class="ct-card reveal">
+        <div class="ct-icon">@</div>
+        <h3>Email</h3>
+        <p>Better for longer questions, briefs, or sharing documents. Replies usually within 24 hours.</p>
+        <span class="ct-arrow">hello@swellbridgedigital.com</span>
+      </a>
+
+      <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20a%20discovery%20call." class="ct-card reveal">
+        <div class="ct-icon">C</div>
+        <h3>Book a Discovery Call</h3>
+        <p>30-minute conversation. We learn your business, discuss what's possible, and you ask anything. No pitch, no pressure.</p>
+        <span class="ct-arrow">Schedule on WhatsApp</span>
+      </a>
+
+      <a href="case-studies.html" class="ct-card reveal">
+        <div class="ct-icon">R</div>
+        <h3>See Results First</h3>
+        <p>Want to see what we've delivered before reaching out? Browse case studies — real numbers, real businesses, real outcomes.</p>
+        <span class="ct-arrow">View Case Studies</span>
+      </a>
+    </div>
+
+    <div class="office-info reveal">
+      <div>
+        <h4>Based In</h4>
+        <p>Nigeria · Working with clients across Lagos, Abuja, Port Harcourt, Benin & internationally</p>
+      </div>
+      <div>
+        <h4>Working Hours</h4>
+        <p>Mon–Fri · 9am–6pm WAT<br>Sat · 10am–2pm (urgent only)</p>
+      </div>
+      <div>
+        <h4>Response Time</h4>
+        <p>WhatsApp · Within 1 hour<br>Email · Within 24 hours</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad section-warm">
+  <div class="container">
+    <div class="reveal text-center" style="max-width: 700px; margin: 0 auto;">
+      <span class="eyebrow center">Before You Reach Out</span>
+      <h2 class="mt-sm">Are <em>we a fit?</em></h2>
+      <p class="lead mt-md">We work best with businesses that match the criteria below. If most of these apply to you, we'd love to talk.</p>
+    </div>
+
+    <div class="qual-list reveal mt-lg">
+      <ul>
+        <li>You have a real product or service that's already sold to at least a few customers.</li>
+        <li>Your sales cycle is "considered" — buyers think before they buy. Not impulse purchases.</li>
+        <li>You can comfortably afford a starting investment of ₦150k+ for a project, or ₦300k+/month for ongoing work.</li>
+        <li>You're willing to invest in ad spend separately (typically ₦300k–₦1M+/month depending on scope).</li>
+        <li>You want a partner, not a vendor. You're open to advice and willing to make changes based on what we learn together.</li>
+        <li>You can dedicate at least one team member to communicate with us regularly during the engagement.</li>
+      </ul>
+    </div>
+
+    <div class="reveal text-center mt-lg">
+      <p>If that sounds like you — <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%20match%20your%20criteria%20and%20I%27d%20like%20to%20talk." style="color: var(--electric); font-weight: 600;">message us on WhatsApp →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div><h4>Services</h4><div class="footer-links"><a href="real-estate.html">Real Estate</a><a href="meta-ads.html">Meta Ads</a><a href="funnels.html">Funnels</a><a href="web-design.html">Web Design</a><a href="automation.html">Automation</a></div></div>
+      <div><h4>Company</h4><div class="footer-links"><a href="about.html">About</a><a href="case-studies.html">Results</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Talk to us</h4><div class="footer-links"><a href="https://wa.me/2348064158087">WhatsApp</a><a href="mailto:hello@swellbridgedigital.com">Email</a><a href="contact.html">Book a call</a></div></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div><div>Nigeria · Worldwide</div></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

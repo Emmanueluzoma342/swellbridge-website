@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — Swellbridge Digital</title>
+<meta name="description" content="Honest, practical writing on marketing, sales, and business growth in Nigeria. From Facebook ads to real estate funnels to automation.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .bl-hero { padding: 5rem 0 3rem; }
+  .bl-hero h1 { font-size: clamp(2.5rem, 5.5vw, 5rem); margin: 1.5rem 0 1.5rem; max-width: 800px; }
+  .bl-hero p.lead { max-width: 680px; }
+
+  /* Featured post */
+  .featured-post {
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem;
+    background: var(--navy); color: #fff;
+    border-radius: var(--radius-xl); padding: 3.5rem;
+    margin: 3rem 0;
+    align-items: center;
+    position: relative; overflow: hidden;
+  }
+  @media (max-width: 900px) { .featured-post { grid-template-columns: 1fr; padding: 2.5rem; } }
+  .featured-post::before {
+    content: ""; position: absolute; top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(212,162,76,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .featured-post > * { position: relative; z-index: 1; }
+  .featured-post h2 { color: #fff; font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin: 1rem 0 1rem; line-height: 1.15; }
+  .featured-post h2 em { color: var(--amber); }
+  .featured-post p { color: rgba(255,255,255,0.78); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem; }
+  .featured-post .meta {
+    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .featured-post .btn { background: var(--amber); color: var(--navy-deep); }
+  .featured-post .btn:hover { background: #E8B85F; }
+
+  .featured-visual {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--electric) 0%, var(--electric-bright) 50%, var(--amber) 100%);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .featured-visual::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(0,0,0,0.2) 0%, transparent 50%);
+  }
+  .featured-visual-text {
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #fff; text-align: center; padding: 2rem;
+    position: relative; z-index: 1;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* Post grid */
+  .post-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 800px) { .post-grid { grid-template-columns: 1fr; } }
+  .post-card {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: var(--radius-lg); overflow: hidden;
+    transition: all 0.3s;
+    display: block; text-decoration: none; color: var(--ink);
+  }
+  .post-card:hover {
+    transform: translateY(-4px); box-shadow: var(--shadow-lg);
+    border-color: var(--electric-soft);
+  }
+  .post-card-visual {
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+  }
+  .pv-1 { background: linear-gradient(135deg, var(--navy) 0%, var(--electric) 100%); }
+  .pv-2 { background: linear-gradient(135deg, var(--amber) 0%, #8B6914 100%); }
+  .pv-3 { background: linear-gradient(135deg, #1E3A2F 0%, var(--electric) 100%); }
+  .pv-4 { background: linear-gradient(135deg, #2A2620 0%, var(--amber) 100%); }
+  .post-card-visual-text {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 2rem; text-align: center;
+    font-family: var(--font-display); font-style: italic;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.5rem; letter-spacing: -0.02em;
+  }
+  .post-card-body { padding: 1.75rem; }
+  .post-card .pill { margin-bottom: 0.75rem; }
+  .post-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; letter-spacing: -0.015em; }
+  .post-card p { font-size: 0.95rem; line-height: 1.55; margin-bottom: 1rem; }
+  .post-card .meta { font-size: 0.82rem; color: var(--ink-mute); border-top: 1px solid var(--line); padding-top: 0.85rem; }
+  .post-card .meta span::after { content: " · "; }
+  .post-card .meta span:last-child::after { content: ""; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="real-estate.html">Real Estate</a>
+      <a href="meta-ads.html">Meta Ads</a>
+      <a href="funnels.html">Funnels</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="automation.html">Automation</a>
+      <a href="case-studies.html">Results</a>
+      <a href="blog.html" class="active">Insights</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20talk." class="btn btn-primary nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="real-estate.html">Real Estate</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="funnels.html">Funnels</a>
+    <a href="web-design.html">Web Design</a>
+    <a href="automation.html">Automation</a>
+    <a href="case-studies.html">Results</a>
+    <a href="blog.html">Insights</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<section class="bl-hero">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Swellbridge Insights</span>
+      <h1>Honest writing on what <em>actually</em> grows a Nigerian business.</h1>
+      <p class="lead">No gurus, no fluff, no recycled American advice. Just what we've learned in the trenches working with developers, consultants, and service businesses across Nigeria.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad-sm">
+  <div class="container">
+    <!-- Featured -->
+    <a href="blog/why-most-nigerian-real-estate-ads-fail.html" class="featured-post reveal" style="text-decoration:none;">
+      <div>
+        <div class="meta">Featured · Real Estate Marketing</div>
+        <h2>Why most Nigerian real estate ads <em>fail to sell</em> — and what to do instead.</h2>
+        <p>After analysing hundreds of underperforming campaigns for Nigerian developers, three patterns repeat. If you've ever spent ₦500k on ads and closed zero deals, this is for you.</p>
+        <span class="btn" style="background: var(--amber); color: var(--navy-deep);">Read the article →</span>
+      </div>
+      <div class="featured-visual">
+        <div class="featured-visual-text">Why most ads fail.</div>
+      </div>
+    </a>
+
+    <!-- Grid -->
+    <div class="post-grid">
+      <a href="blog/awareness-levels-eugene-schwartz-applied-to-nigeria.html" class="post-card reveal">
+        <div class="post-card-visual pv-2">
+          <div class="post-card-visual-text">The 5 awareness levels — applied to your buyer.</div>
+        </div>
+        <div class="post-card-body">
+          <span class="pill amber">Copywriting</span>
+          <h3>Eugene Schwartz's 5 awareness levels — applied to Nigerian buyers.</h3>
+          <p>The framework that explains why your ad copy converts for some people and feels like spam to others. Plus exact templates for each level.</p>
+          <div class="meta"><span>8 min read</span><span>Copywriting</span></div>
+        </div>
+      </a>
+
+      <a href="blog/whatsapp-first-follow-up-system.html" class="post-card reveal">
+        <div class="post-card-visual pv-3">
+          <div class="post-card-visual-text">The WhatsApp follow-up that closes.</div>
+        </div>
+        <div class="post-card-body">
+          <span class="pill">Sales</span>
+          <h3>The WhatsApp follow-up system that turned cold leads into ₦40M deals.</h3>
+          <p>Most Nigerian businesses send one WhatsApp message after a Facebook lead form. We send seven. Here's the exact sequence — and why each message matters.</p>
+          <div class="meta"><span>10 min read</span><span>Sales</span></div>
+        </div>
+      </a>
+
+      <a href="blog/realtor-army-recruitment-playbook.html" class="post-card reveal">
+        <div class="post-card-visual pv-1">
+          <div class="post-card-visual-text">How to build a 1,000-realtor army.</div>
+        </div>
+        <div class="post-card-body">
+          <span class="pill">Real Estate</span>
+          <h3>How to recruit a 1,000-realtor army for your real estate project in 90 days.</h3>
+          <p>Distribution beats ad spend every time. Here's the exact recruitment funnel we used to build a 2,000-strong realtor network for a Lagos developer.</p>
+          <div class="meta"><span>12 min read</span><span>Real Estate</span></div>
+        </div>
+      </a>
+
+      <a href="blog/should-i-do-my-own-marketing-or-hire.html" class="post-card reveal">
+        <div class="post-card-visual pv-4">
+          <div class="post-card-visual-text">DIY or hire an agency?</div>
+        </div>
+        <div class="post-card-body">
+          <span class="pill amber">Strategy</span>
+          <h3>Should you do your own marketing or hire an agency? An honest answer.</h3>
+          <p>The answer most agencies refuse to give. We break down when to DIY, when to hire, and the worst-case middle path most businesses end up in by accident.</p>
+          <div class="meta"><span>7 min read</span><span>Strategy</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad section-cream">
+  <div class="container-narrow text-center reveal">
+    <h2>Want help applying any of this <em>to your business?</em></h2>
+    <p class="lead mt-sm">Reading is one thing. Implementing in your specific business is another. If you'd like our help — let's talk.</p>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20discuss%20applying%20your%20insights%20to%20my%20business." class="btn btn-primary btn-lg mt-md">Book a Discovery Call →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div><h4>Services</h4><div class="footer-links"><a href="real-estate.html">Real Estate</a><a href="meta-ads.html">Meta Ads</a><a href="funnels.html">Funnels</a><a href="web-design.html">Web Design</a><a href="automation.html">Automation</a></div></div>
+      <div><h4>Company</h4><div class="footer-links"><a href="about.html">About</a><a href="case-studies.html">Results</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Talk to us</h4><div class="footer-links"><a href="https://wa.me/2348064158087">WhatsApp</a><a href="mailto:hello@swellbridgedigital.com">Email</a><a href="contact.html">Book a call</a></div></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div><div>Nigeria · Worldwide</div></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
