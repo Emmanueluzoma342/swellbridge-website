@@ -316,6 +316,11 @@ p.large { font-size: 1.125rem; }
   transition: transform 0.25s, opacity 0.25s;
 }
 
+/* Mobile nav: hidden everywhere by default */
+.nav-mobile {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
@@ -324,10 +329,10 @@ p.large { font-size: 1.125rem; }
     inset: 64px 0 0 0;
     background: var(--bg);
     padding: 2rem;
-    display: none;
     flex-direction: column;
     gap: 1.5rem;
     z-index: 99;
+    overflow-y: auto;
   }
   .nav-mobile.open { display: flex; }
   .nav-mobile a {
@@ -494,4 +499,9 @@ section { position: relative; }
 }
 @media (max-width: 700px) {
   .container, .container-narrow, .container-wide { padding: 0 1.25rem; }
+}
+
+/* ===== Mobile: hide hero collage to prevent overflow ===== */
+@media (max-width: 900px) {
+  .hero-collage { display: none; }
 }
