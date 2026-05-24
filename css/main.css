@@ -327,19 +327,26 @@ p.large { font-size: 1.125rem; }
   .nav-toggle { display: flex; }
   .nav-mobile {
     position: fixed;
-    inset: 64px 0 0 0;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
     background: var(--bg);
     padding: 2rem;
     flex-direction: column;
     gap: 1.5rem;
     z-index: 99;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-mobile.open { display: flex; }
   .nav-mobile a {
     font-family: var(--font-display);
     font-size: 1.5rem;
     color: var(--ink);
+    padding: 0.5rem 0;
   }
 }
 
