@@ -323,6 +323,7 @@ p.large { font-size: 1.125rem; }
 
 @media (max-width: 900px) {
   .nav-links { display: none; }
+  .nav-cta { display: none; }
   .nav-toggle { display: flex; }
   .nav-mobile {
     position: fixed;
