@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 7-Day Business Website Build — Swellbridge Digital</title>
+<meta name="description" content="A complete, custom-designed business website — built, written, designed, and live in 7 days — for ₦150,000. Until June 12. Only 10 spots.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The 7-Day Business Website Build — ₦150k. 10 spots. June 12 only.">
+<meta property="og:description" content="A complete, custom-designed business website — built, written, designed, and live in 7 days — for ₦150,000.">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="css/main.css">
+
+<style>
+  /* ============================
+     OFFER PAGE — page-specific styles
+     ============================ */
+
+  /* Hero */
+  .offer-hero {
+    padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(3rem, 6vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .offer-hero::before {
+    content: "";
+    position: absolute;
+    top: -250px; right: -180px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(46,107,255,0.10) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .offer-hero::after {
+    content: "";
+    position: absolute;
+    bottom: -200px; left: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(212,162,76,0.10) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .offer-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .offer-hero h1 {
+    font-size: clamp(2.6rem, 6.5vw, 5.5rem);
+    margin: 1.5rem 0 1.75rem;
+  }
+  .offer-hero h1 .underline {
+    position: relative;
+    display: inline-block;
+  }
+  .offer-hero h1 .underline::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 4%;
+    height: 14px;
+    background: var(--electric-soft);
+    z-index: -1;
+    border-radius: 2px;
+  }
+  .offer-hero .lead {
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 720px;
+    margin: 0 auto 2rem;
+  }
+  .offer-hero .scroll-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+  }
+  .offer-hero .scroll-cue .dot {
+    width: 6px; height: 6px;
+    background: var(--electric);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.4); }
+  }
+
+  /* Act labels */
+  .act-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .act-label::before {
+    content: "";
+    width: 24px; height: 1px;
+    background: var(--amber);
+  }
+
+  /* Section base */
+  .offer-section {
+    padding: clamp(3.5rem, 7vw, 6rem) 0;
+    position: relative;
+  }
+  .offer-section .container-narrow > h2 {
+    margin-bottom: 1.25rem;
+  }
+  .offer-section .container-narrow > p.lead {
+    margin-bottom: 2.25rem;
+  }
+
+  /* The 3 things grid */
+  .three-things {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 900px) { .three-things { grid-template-columns: 1fr; } }
+  .thing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.85rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  .thing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--electric-soft);
+  }
+  .thing-number {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2.5rem;
+    color: var(--electric);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+  }
+  .thing-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.85rem;
+    line-height: 1.25;
+  }
+  .thing-card p {
+    font-size: 0.96rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* Mistakes — alternating layout */
+  .mistakes-list {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .mistake {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--amber);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (max-width: 700px) {
+    .mistake { grid-template-columns: 1fr; padding: 1.5rem 1.4rem; gap: 0.75rem; }
+  }
+  .mistake-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--amber);
+    font-weight: 500;
+    white-space: nowrap;
+    padding-top: 0.1rem;
+  }
+  .mistake h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+  .mistake p {
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* Pricing table */
+  .price-tiers {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .price-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  @media (max-width: 700px) {
+    .price-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem 0; }
+  }
+  .price-amount {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+  }
+  .price-amount em {
+    font-style: italic;
+    color: var(--electric);
+  }
+  .price-desc {
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .price-note {
+    margin-top: 2rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--amber-soft);
+    border-radius: var(--radius-md);
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .price-note strong {
+    color: var(--ink);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  /* The offer announcement — dark dramatic block */
+  .offer-reveal {
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-soft) 100%);
+    border-radius: var(--radius-xl);
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.75rem, 4vw, 3.5rem);
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .offer-reveal::before {
+    content: "";
+    position: absolute;
+    top: -150px; right: -150px;
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(46,107,255,0.32) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .offer-reveal::after {
+    content: "";
+    position: absolute;
+    bottom: -120px; left: -120px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(212,162,76,0.20) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .offer-reveal > * { position: relative; z-index: 1; }
+  .offer-reveal .badge {
+    display: inline-block;
+    padding: 0.45rem 1rem;
+    background: rgba(212,162,76,0.15);
+    color: var(--amber);
+    border: 1px solid rgba(212,162,76,0.3);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  .offer-reveal h2 {
+    color: #fff;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    margin-bottom: 1.25rem;
+    line-height: 1.05;
+  }
+  .offer-reveal h2 em {
+    color: var(--amber);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .offer-reveal p.intro {
+    color: rgba(245,241,232,0.8);
+    font-size: 1.1rem;
+    max-width: 620px;
+    margin: 0 auto 2rem;
+    line-height: 1.55;
+  }
+  .offer-reveal .price-block {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 1.25rem 2rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .price-old {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: rgba(245,241,232,0.4);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+  }
+  .price-new {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .offer-reveal .save-line {
+    font-size: 0.95rem;
+    color: rgba(245,241,232,0.65);
+    margin-top: 0.25rem;
+  }
+
+  /* Benefits / what you get */
+  .benefits-list {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 700px) { .benefits-list { grid-template-columns: 1fr; } }
+  .benefit {
+    padding: 1.1rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .benefit .check {
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+    background: var(--electric-soft);
+    border-radius: 50%;
+    color: var(--electric);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.78rem;
+    margin-top: 0.15rem;
+  }
+
+  /* Process timeline */
+  .timeline {
+    margin-top: 3rem;
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 27px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--electric) 0%, var(--amber) 100%);
+    border-radius: 2px;
+  }
+  @media (max-width: 700px) {
+    .timeline::before { left: 18px; }
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    align-items: start;
+    position: relative;
+  }
+  @media (max-width: 700px) {
+    .step { grid-template-columns: 36px 1fr; gap: 1rem; }
+  }
+  .step-dot {
+    width: 56px; height: 56px;
+    background: #fff;
+    border: 2px solid var(--electric);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--electric);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 700px) {
+    .step-dot { width: 36px; height: 36px; font-size: 1rem; }
+  }
+  .step:last-child .step-dot {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+  .step-body { padding-top: 0.5rem; }
+  .step-body h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.45rem;
+  }
+  .step-body h4 .day {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    color: var(--electric);
+    background: var(--electric-soft);
+    padding: 0.2rem 0.55rem;
+    border-radius: 100px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+    font-style: normal;
+  }
+  .step-body p {
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* CTA options block */
+  .cta-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  @media (max-width: 800px) { .cta-options { grid-template-columns: 1fr; } }
+  .cta-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .cta-card.primary {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+  .cta-card.primary h3 { color: #fff; }
+  .cta-card.primary p { color: rgba(245,241,232,0.78); }
+  .cta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .cta-card .label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--electric);
+    margin-bottom: 0.85rem;
+  }
+  .cta-card.primary .label { color: var(--amber); }
+  .cta-card h3 {
+    font-size: 1.55rem;
+    margin-bottom: 0.85rem;
+    line-height: 1.2;
+  }
+  .cta-card p {
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
+    flex-grow: 1;
+  }
+  .cta-card .btn { width: 100%; justify-content: center; }
+
+  /* Urgency reasons */
+  .urgency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 900px) { .urgency-grid { grid-template-columns: 1fr; } }
+  .urgency-item {
+    padding: 2rem 1.85rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    border-top: 4px solid var(--amber);
+    transition: all 0.3s;
+  }
+  .urgency-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .urgency-icon {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 0.9rem;
+    font-weight: 500;
+  }
+  .urgency-item h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.7rem;
+  }
+  .urgency-item p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* Safety / guarantees */
+  .safety-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  @media (max-width: 800px) { .safety-grid { grid-template-columns: 1fr; } }
+  .safety-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.65rem;
+  }
+  .safety-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.55rem;
+    color: var(--ink);
+  }
+  .safety-card p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* Samples showcase */
+  .samples-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 800px) { .samples-grid { grid-template-columns: 1fr; } }
+  .sample {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .sample:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .sample-img {
+    aspect-ratio: 16/10;
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .sample:hover .sample-img { transform: scale(1.02); }
+  .sample-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .sample-img .sample-tag {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    padding: 0.32rem 0.7rem;
+    background: rgba(10, 31, 68, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 100px;
+  }
+  .sample-body {
+    padding: 1.5rem 1.65rem;
+  }
+  .sample-body h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.45rem;
+  }
+  .sample-body p {
+    font-size: 0.93rem;
+    color: var(--ink-mute);
+    margin-bottom: 1rem;
+  }
+  .sample-body a {
+    color: var(--electric);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .sample-body a::after { content: "→"; transition: transform 0.2s; }
+  .sample-body a:hover::after { transform: translateX(4px); }
+
+  /* Recap (checklist + price) */
+  .recap-block {
+    background: linear-gradient(135deg, #FBF9F5 0%, #F5F1E8 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: clamp(2.5rem, 5vw, 4rem);
+    margin-top: 1rem;
+  }
+  .recap-block h3 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .recap-block h3 em { color: var(--electric); font-style: italic; }
+  .recap-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 700px) { .recap-list { grid-template-columns: 1fr; } }
+  .recap-list li {
+    padding: 0.6rem 0;
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(229,223,210,0.5);
+  }
+  .recap-list li::before {
+    content: "✓";
+    color: var(--electric);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .recap-summary {
+    text-align: center;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--line);
+  }
+  .recap-summary .big-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    color: var(--electric);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+  .recap-summary .strike {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink-mute);
+    text-decoration: line-through;
+    margin-bottom: 0.5rem;
+  }
+  .recap-summary .meta {
+    font-size: 0.9rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  /* Hesitation Q&A — soft objection handling */
+  .hesitation {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .hes-block {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.25rem;
+  }
+  @media (max-width: 600px) { .hes-block { padding: 1.6rem 1.5rem; } }
+  .hes-block .q {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+  .hes-block p {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 0.85rem;
+  }
+  .hes-block p:last-child { margin-bottom: 0; }
+
+  /* Polarization (for / not-for) */
+  .polar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  @media (max-width: 800px) { .polar-grid { grid-template-columns: 1fr; } }
+  .polar-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+  .polar-card.not-for { border-top: 4px solid #C44; }
+  .polar-card.for { border-top: 4px solid #2E8B57; }
+  .polar-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+  }
+  .polar-card ul li {
+    padding: 0.6rem 0;
+    font-size: 0.96rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    border-bottom: 1px dashed rgba(229,223,210,0.7);
+  }
+  .polar-card ul li:last-child { border-bottom: none; }
+  .polar-card.not-for ul li::before { content: "✕"; color: #C44; font-weight: 700; flex-shrink: 0; }
+  .polar-card.for ul li::before { content: "✓"; color: #2E8B57; font-weight: 700; flex-shrink: 0; }
+
+  /* FAQ */
+  .faq-list {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .faq {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: #fff;
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+  .faq[open] { box-shadow: var(--shadow-md); border-color: var(--electric-soft); }
+  .faq summary {
+    padding: 1.35rem 1.65rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+";
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 1.5rem;
+    color: var(--electric);
+    transition: transform 0.25s;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .faq[open] summary::after { transform: rotate(45deg); }
+  .faq-body {
+    padding: 0 1.65rem 1.5rem;
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  /* Final CTA stacks */
+  .final-cta-block {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .final-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .deadline-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.7rem 1.4rem;
+    background: var(--amber-soft);
+    border: 1px solid rgba(212,162,76,0.3);
+    border-radius: 100px;
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .deadline-strip .dot {
+    width: 8px; height: 8px;
+    background: var(--amber);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Sticky bottom CTA bar (mobile + visible after scroll) */
+  .sticky-cta {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 90;
+    background: var(--navy);
+    border-radius: 100px;
+    padding: 0.5rem 0.6rem 0.5rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    box-shadow: 0 12px 32px rgba(10,31,68,0.25);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .sticky-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .sticky-cta-text {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .sticky-cta-text small {
+    display: block;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 0.15rem;
+  }
+  .sticky-cta .btn {
+    padding: 0.65rem 1.1rem;
+    font-size: 0.85rem;
+  }
+  @media (max-width: 480px) {
+    .sticky-cta { padding: 0.5rem 0.5rem 0.5rem 1rem; }
+    .sticky-cta-text { font-size: 0.78rem; }
+    .sticky-cta-text small { font-size: 0.62rem; }
+    .sticky-cta .btn { padding: 0.6rem 0.85rem; font-size: 0.78rem; }
+  }
+
+  /* Question intro section bg pattern */
+  .questions-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .three-questions {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .question-card {
+    padding: 1.25rem 1.65rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink);
+    line-height: 1.4;
+    position: relative;
+    padding-left: 3.25rem;
+  }
+  .question-card::before {
+    content: "?";
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px; height: 28px;
+    background: var(--electric-soft);
+    color: var(--electric);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.05rem;
+  }
+
+  /* Section dividers — decorative star */
+  .divider-star {
+    text-align: center;
+    color: var(--amber);
+    margin: 1rem 0;
+  }
+  .divider-star svg {
+    width: 16px; height: 16px;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">
+      <span class="nav-logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+      Swellbridge
+    </a>
+    <div class="nav-links">
+      <a href="/real-estate.html">Real Estate</a>
+      <a href="/meta-ads.html">Meta Ads</a>
+      <a href="/funnels.html">Funnels</a>
+      <a href="/web-design.html">Web Design</a>
+      <a href="/automation.html">Automation</a>
+      <a href="/case-studies.html">Results</a>
+      <a href="/about.html">About</a>
+    </div>
+    <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%20saw%20the%207-Day%20Website%20offer%20and%20I%27d%20like%20to%20talk." class="btn btn-primary nav-cta">Lock a spot</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="/real-estate.html">Real Estate</a>
+    <a href="/meta-ads.html">Meta Ads</a>
+    <a href="/funnels.html">Funnels</a>
+    <a href="/web-design.html">Web Design</a>
+    <a href="/automation.html">Automation</a>
+    <a href="/case-studies.html">Results</a>
+    <a href="/about.html">About</a>
+    <a href="https://wa.me/2348064158087" class="btn btn-primary" style="margin-top:1rem; align-self:flex-start;">Lock a spot</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="offer-hero">
+  <div class="container">
+    <div class="offer-hero-inner reveal">
+      <span class="eyebrow center amber">★ Democracy Day Build · June 2026</span>
+      <h1>You came here for a strategy call.<br><span class="underline">Read this first.</span></h1>
+      <p class="lead">We're going to give you most of the strategy on this page — for free. By the end, you'll know exactly what your first website should look like, what it should cost, and how to avoid the mistakes 9 out of 10 Nigerian business owners make.</p>
+      <p class="lead" style="margin-top:-1rem;">If you still want the call after that, the link is at the bottom. Either way — you'll leave smarter than you came.</p>
+      <div class="scroll-cue">
+        <span class="dot"></span>
+        Start reading
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></div>
+
+<!-- ACT 1: VALUE -->
+
+<!-- The Real Problem -->
+<section class="offer-section section-cream">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="act-label">Act One — The Value</span>
+      <h2>The real problem with most<br>Nigerian small business websites.</h2>
+      <p class="lead">Here's something nobody told you when you started looking for a website: your website doesn't have to be fancy. It has to be <em style="font-family:var(--font-display); color:var(--electric);">clear</em>.</p>
+      <p class="large">Most Nigerian small business websites fail not because they look bad — but because they answer the wrong questions. They tell visitors about the business owner. Their history. Their team. Their awards.</p>
+      <p class="large" style="margin-top:1.25rem;">But the visitor — your potential customer — is silently asking 3 questions:</p>
+    </div>
+
+    <div class="three-questions reveal">
+      <div class="question-card">Are these people real, or will they scam me?</div>
+      <div class="question-card">Can they actually do what I need?</div>
+      <div class="question-card">How do I reach them right now while I'm interested?</div>
+    </div>
+
+    <p class="large reveal" style="margin-top:2rem;">If your website doesn't answer all three within the first 5 seconds of scrolling — you've lost the customer. They've already gone back to Instagram, WhatsApp Status, or a competitor's page.</p>
+  </div>
+</section>
+
+<!-- The 3 Things Every Website Must Have -->
+<section class="offer-section">
+  <div class="container">
+    <div class="container-narrow" style="padding:0;">
+      <div class="reveal">
+        <span class="eyebrow">The fundamentals</span>
+        <h2 style="margin-top:1rem;">The 3 things every<br>first website must have.</h2>
+        <p class="lead">We promised in the ad to show you this, and we will. Here it is. Every successful business website we've built had these three things at the top.</p>
+      </div>
+    </div>
+
+    <div class="three-things">
+      <div class="thing-card reveal">
+        <div class="thing-number">01</div>
+        <h4>A clear sentence that says what you do and who you do it for.</h4>
+        <p>Not "Welcome to our website." Not "Excellence in service since 2018." A clear, specific sentence like "We design custom kitchen cabinets for homes in Lekki and Ikoyi." If a visitor can't tell what you sell within 5 seconds, they leave.</p>
+      </div>
+
+      <div class="thing-card reveal">
+        <div class="thing-number">02</div>
+        <h4>Proof that you're real and trustworthy.</h4>
+        <p>Real photos of your work. Real customer messages (WhatsApp screenshots count). A real address or area you operate in. A real phone number that actually answers. Nigerian buyers have been burned by too many fake online businesses — your website has 5 seconds to convince them you're not one of them.</p>
+      </div>
+
+      <div class="thing-card reveal">
+        <div class="thing-number">03</div>
+        <h4>A big, obvious WhatsApp button.</h4>
+        <p>Not just a "contact us" form. A WhatsApp button. Because in Nigeria, this is how business happens. The faster you let them message you, the more sales you close. Forms get ignored. WhatsApp gets opened.</p>
+      </div>
+    </div>
+
+    <p class="lead text-center reveal" style="margin-top:2.5rem; max-width:700px; margin-left:auto; margin-right:auto;">Get these three right, and your website will outperform most small business sites in Nigeria — no matter how big or small it is.</p>
+  </div>
+</section>
+
+<!-- The 3 Mistakes -->
+<section class="offer-section section-warm">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="eyebrow amber">What to avoid</span>
+      <h2 style="margin-top:1rem;">The 3 most expensive<br>mistakes first-time buyers make.</h2>
+      <p class="lead">Now that you know what to do, here's what to avoid. We've watched business owners spend ₦300k–₦1M and walk away with nothing useful. Here's why.</p>
+    </div>
+
+    <div class="mistakes-list">
+      <div class="mistake reveal">
+        <div class="mistake-num">Mistake 01</div>
+        <div>
+          <h4>Hiring the cheapest designer they can find.</h4>
+          <p>We get it — budgets are tight. But the cheapest option in Nigeria's web design market is almost always someone who'll deliver a template, vanish after launch, or simply stop replying halfway through. You're not saving money. You're paying twice.</p>
+        </div>
+      </div>
+
+      <div class="mistake reveal">
+        <div class="mistake-num">Mistake 02</div>
+        <div>
+          <h4>Building a website without thinking about who it's actually for.</h4>
+          <p>Your website's job is to talk to your customer, not to you. Many business owners design their site around what they want to say — their history, their awards, their team. The customer doesn't care. The customer wants to know "can you solve my problem, and how do I reach you?" Every page, every section, every word should be built around that.</p>
+        </div>
+      </div>
+
+      <div class="mistake reveal">
+        <div class="mistake-num">Mistake 03</div>
+        <div>
+          <h4>Treating the website as a brochure instead of a salesperson.</h4>
+          <p>Your website's job isn't to just look pretty. Its job is to take a visitor from "curious" to "messaging you on WhatsApp." Every section, every image, every line should be pulling them toward that one action. If a section doesn't help convert visitors into messages, it's wasted space.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Honest Pricing -->
+<section class="offer-section">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">Transparent pricing</span>
+      <h2 style="margin-top:1rem;">Honest pricing for<br>Nigerian business websites.</h2>
+      <p class="lead">The ad promised transparent pricing. Here it is.</p>
+    </div>
+
+    <div class="price-tiers reveal">
+      <div class="price-row">
+        <div class="price-amount">₦100k or less</div>
+        <div class="price-desc">You'll get a template. Probably from a freelancer using Wix or a free Bootstrap theme. It might look acceptable. It won't be customized to your business or built for conversion. Some freelancers also disappear after collecting payment. Buyer beware.</div>
+      </div>
+      <div class="price-row">
+        <div class="price-amount">₦150k – ₦400k</div>
+        <div class="price-desc">A <em>custom-designed sales-focused</em> website. Built for one job: turning visitors into customers. This is the sweet spot for most first-time business websites in Nigeria.</div>
+      </div>
+      <div class="price-row">
+        <div class="price-amount">₦500k – ₦1M</div>
+        <div class="price-desc">A full multi-page business website, professional copywriting, advanced features (booking systems, payment integration, multiple landing pages). Worth it for established businesses with specific needs.</div>
+      </div>
+      <div class="price-row">
+        <div class="price-amount">₦1M+</div>
+        <div class="price-desc">A complete digital infrastructure: website, funnels, automation, e-commerce, ongoing optimization. For businesses serious about scaling.</div>
+      </div>
+    </div>
+
+    <div class="price-note reveal">
+      <strong>Our normal pricing.</strong>
+      Our standard work falls in the ₦350k–₦750k range. We deliver in the second and third tiers above. But for the rest of June, we're doing something different. Keep reading.
+    </div>
+  </div>
+</section>
+
+<div class="divider-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></div>
+
+<!-- ACT 2: THE PITCH -->
+
+<!-- Offer Reveal -->
+<section class="offer-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:1.5rem;">
+      <span class="act-label" style="justify-content:center;">Act Two — The Pitch</span>
+    </div>
+    <div class="offer-reveal reveal">
+      <span class="badge">For the rest of June 2026</span>
+      <h2>The Democracy Day<br><em>7-Day Business Website Build.</em></h2>
+      <p class="intro">A complete, custom-designed business website — built, written, designed, and live in 7 days.</p>
+
+      <div class="price-block">
+        <span class="price-old">₦350k – ₦750k</span>
+        <span class="price-new">₦150,000</span>
+      </div>
+      <div class="save-line">Roughly 60% off our normal price for the same level of work.</div>
+    </div>
+  </div>
+</section>
+
+<!-- What it'll do for you -->
+<section class="offer-section section-cream">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">By this time next month</span>
+      <h2 style="margin-top:1rem;">Here's what it'll<br>do for you.</h2>
+      <p class="lead">You'll have a website that actually does its job — turns visitors into WhatsApp messages instead of just sitting there looking pretty.</p>
+    </div>
+
+    <div class="benefits-list">
+      <div class="benefit reveal"><span class="check">✓</span><span>A real online address you can put on your business card, your Instagram bio, your WhatsApp Status.</span></div>
+      <div class="benefit reveal"><span class="check">✓</span><span>A reason for customers to take you seriously when they Google you (and they will Google you).</span></div>
+      <div class="benefit reveal"><span class="check">✓</span><span>The credibility that lets you confidently charge what you're worth.</span></div>
+      <div class="benefit reveal"><span class="check">✓</span><span>You'll stop losing customers to competitors who look more serious online — even when your work is better.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works — Timeline -->
+<section class="offer-section">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">The process</span>
+      <h2 style="margin-top:1rem;">Here's how<br>it works.</h2>
+      <p class="lead">No 3-month timelines. No endless revisions. No ghosting. Five clear steps, then your site is live.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="step reveal">
+        <div class="step-dot">01</div>
+        <div class="step-body">
+          <h4>You lock in your spot.</h4>
+          <p>You pay ₦75,000 to lock in your spot — half the price. We don't start until this is paid.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">02</div>
+        <div class="step-body">
+          <h4>A 20-minute call.</h4>
+          <p>We learn your business, your customers, what you sell, what makes you different. No homework on your side. No "prepare anything." Just a conversation.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">03</div>
+        <div class="step-body">
+          <h4>We build.</h4>
+          <p>We write your content. We design your logo (if you don't have one). We source and edit your photos. We design and build the website. You do nothing.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">04</div>
+        <div class="step-body">
+          <h4>First preview. <span class="day">Day 5</span></h4>
+          <p>You see the website. You tell us what to adjust. We adjust.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot">05</div>
+        <div class="step-body">
+          <h4>Launch. <span class="day">Day 7</span></h4>
+          <p>Website goes live. You pay the remaining ₦75,000. You start sending visitors.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Samples Showcase -->
+<section class="offer-section section-warm">
+  <div class="container">
+    <div class="container-narrow reveal" style="padding:0;">
+      <span class="eyebrow amber">A few we've built</span>
+      <h2 style="margin-top:1rem;">What "custom-designed"<br>actually looks like.</h2>
+      <p class="lead">A small sample of recent work. Each one was built around the customer the business is actually trying to reach.</p>
+    </div>
+
+    <div class="samples-grid">
+      <a href="https://swellbridgedigital.com/samples/luxury-estates/" target="_blank" rel="noopener" class="sample reveal">
+        <div class="sample-img">
+          <span class="sample-tag">Real Estate</span>
+          <img src="assets/samples/luxury-estates.jpg" alt="Luxury Estates Lagos sample site — premium real estate landing page" loading="lazy">
+        </div>
+        <div class="sample-body">
+          <h4>Luxury Estates Lagos</h4>
+          <p>A premium real estate brand for buyers who research carefully.</p>
+          <span>View live</span>
+        </div>
+      </a>
+      <a href="https://swellbridgedigital.com/samples/empire-consulting/" target="_blank" rel="noopener" class="sample reveal">
+        <div class="sample-img">
+          <span class="sample-tag">Consulting</span>
+          <img src="assets/samples/empire-consulting.jpg" alt="Empire Consulting sample site — consultant landing page" loading="lazy">
+        </div>
+        <div class="sample-body">
+          <h4>Empire Consulting</h4>
+          <p>A consulting firm that needed to look as serious as their fees.</p>
+          <span>View live</span>
+        </div>
+      </a>
+      <a href="https://swellbridgedigital.com/samples/serene-clinic/" target="_blank" rel="noopener" class="sample reveal">
+        <div class="sample-img">
+          <span class="sample-tag">Healthcare</span>
+          <img src="assets/samples/serene-clinic.jpg" alt="Serene Clinic sample site — family healthcare landing page" loading="lazy">
+        </div>
+        <div class="sample-body">
+          <h4>Serene Clinic</h4>
+          <p>A healthcare service that needed to feel trustworthy at first glance.</p>
+          <span>View live</span>
+        </div>
+      </a>
+      <a href="https://swellbridgedigital.com/samples/oak-and-amber/" target="_blank" rel="noopener" class="sample reveal">
+        <div class="sample-img">
+          <span class="sample-tag">Interior Design</span>
+          <img src="assets/samples/oak-and-amber.jpg" alt="Oak and Amber sample site — interior design studio landing page" loading="lazy">
+        </div>
+        <div class="sample-body">
+          <h4>Oak &amp; Amber</h4>
+          <p>A boutique brand that needed warmth, craft, and a clear path to purchase.</p>
+          <span>View live</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- The Two Options CTA -->
+<section class="offer-section">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">What to do next</span>
+      <h2 style="margin-top:1rem;">You have two options.<br>Pick the one that fits.</h2>
+    </div>
+
+    <div class="cta-options">
+      <div class="cta-card primary reveal">
+        <span class="label">★ Option One</span>
+        <h3>You're ready to lock in a spot.</h3>
+        <p>You've read enough. You know what we do. You want one of the 10 spots before they close.</p>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20ready%20to%20lock%20in%20a%20spot%20for%20the%207-Day%20Website%20Build.%20What%27s%20next%3F" class="btn btn-electric btn-lg">I'm Ready — Let's Start <span class="btn-arrow">→</span></a>
+      </div>
+
+      <div class="cta-card reveal">
+        <span class="label">Option Two</span>
+        <h3>You'd rather talk first.</h3>
+        <p>Honestly? This is what most of our best clients do. Paying ₦150k to people you've never spoken to is a leap of faith. We respect that completely. Zero pressure. No follow-up spam.</p>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%20saw%20the%207-Day%20Website%20offer.%20I%27d%20like%20to%20talk%20first%20before%20deciding." class="btn btn-whatsapp btn-lg">Let's Talk First on WhatsApp <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+
+    <p class="text-center reveal" style="margin-top:2rem; font-size:0.95rem; color:var(--ink-mute);">On the call, we'll look at your specific business, show you real examples, walk you through the build day by day, and confirm whether the offer fits. If it's not the right fit, just say so — no hard feelings.</p>
+  </div>
+</section>
+
+<!-- Why now — Urgency -->
+<section class="offer-section section-cream">
+  <div class="container">
+    <div class="container-narrow reveal" style="padding:0;">
+      <span class="eyebrow amber">Why now</span>
+      <h2 style="margin-top:1rem;">Three real reasons,<br>not made up.</h2>
+    </div>
+
+    <div class="urgency-grid">
+      <div class="urgency-item reveal">
+        <div class="urgency-icon">10</div>
+        <h4>Only 10 spots.</h4>
+        <p>Building a custom website in 7 days takes our full attention. We physically cannot do more than 10 in a month and still deliver our normal quality. Once 10 spots are taken, the offer is closed — even if June 12 hasn't passed yet.</p>
+      </div>
+
+      <div class="urgency-item reveal">
+        <div class="urgency-icon">2×</div>
+        <h4>Price more than doubles after June 12.</h4>
+        <p>This is our June experiment, not a permanent discount. On June 13, our pricing returns to ₦350k–₦750k. Same work, more than double the price.</p>
+      </div>
+
+      <div class="urgency-item reveal">
+        <div class="urgency-icon">∞</div>
+        <h4>Every day you wait costs you.</h4>
+        <p>This isn't fake urgency — it's math. People are Googling your business right now. Some are leaving because they couldn't find you, or what they found didn't look professional. That's revenue walking out the door.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why it's safe -->
+<section class="offer-section">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">Why it's safe</span>
+      <h2 style="margin-top:1rem;">We've removed every<br>reason to hesitate.</h2>
+      <p class="lead">You're not buying from a faceless agency. You're buying from a real business with real proof — and a real refund policy if we get it wrong.</p>
+    </div>
+
+    <div class="safety-grid">
+      <div class="safety-card reveal">
+        <h4>50/50 payment, not full upfront.</h4>
+        <p>You pay ₦75,000 to start. The remaining ₦75,000 is due only when your website is ready and you've approved it. If you don't approve, you don't pay the balance.</p>
+      </div>
+
+      <div class="safety-card reveal">
+        <h4>2 rounds of revisions included.</h4>
+        <p>We adjust until you're happy. No "scope creep" arguments. No surprise extra charges.</p>
+      </div>
+
+      <div class="safety-card reveal">
+        <h4>Money-back guarantee on the deposit.</h4>
+        <p>If after the first design draft you genuinely don't like the direction we've taken, we'll refund your ₦75,000 in full. No drama. No questions. No "approval committee."</p>
+      </div>
+
+      <div class="safety-card reveal">
+        <h4>A real human, not a faceless agency.</h4>
+        <p>Swellbridge Digital is led by Emmanuel Uzoma — 7 years in digital marketing and web design. Live business website (you're on it). Verified email (hello@swellbridgedigital.com). Real phone. Real Instagram. Talk to us before paying a single naira.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recap -->
+<section class="offer-section section-warm">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">The recap</span>
+      <h2 style="margin-top:1rem;">What you get for<br>₦150,000.</h2>
+    </div>
+
+    <div class="recap-block reveal">
+      <h3>Everything below, <em>for one price.</em></h3>
+
+      <ul class="recap-list">
+        <li>A complete custom-designed business website</li>
+        <li>All content written for you</li>
+        <li>Free professional logo</li>
+        <li>Photos sourced and edited</li>
+        <li>Big WhatsApp button on every section</li>
+        <li>Mobile-first, fast-loading</li>
+        <li>Free hosting for 1 year</li>
+        <li>2 rounds of revisions</li>
+        <li>Delivered live in 7 days</li>
+        <li>Pay only ₦75k upfront, ₦75k on approval</li>
+        <li>Money-back guarantee on the deposit</li>
+        <li>Real human, not a template factory</li>
+      </ul>
+
+      <div class="recap-summary">
+        <div class="strike">Normally ₦350k – ₦750k</div>
+        <div class="big-num">₦150,000</div>
+        <div class="meta">Until June 12 · 10 spots · First come, first served</div>
+
+        <div class="final-ctas" style="margin-top:1rem;">
+          <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20ready%20to%20lock%20in%20a%20spot%20for%20the%207-Day%20Website%20Build." class="btn btn-electric btn-lg">I'm Ready — Let's Start <span class="btn-arrow">→</span></a>
+          <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20to%20talk%20first%20about%20the%207-Day%20Website%20Build." class="btn btn-whatsapp btn-lg">Let's Talk First <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></div>
+
+<!-- ACT 3: STACKS -->
+
+<!-- Still hesitating -->
+<section class="offer-section">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="act-label">Act Three — Still on the fence?</span>
+      <h2>Still thinking<br>about it?</h2>
+      <p class="lead">If you've read this far and haven't clicked either button, something's still holding you back. Let's deal with it.</p>
+    </div>
+
+    <div class="hesitation">
+      <div class="hes-block reveal">
+        <div class="q">"₦150k still feels like a lot of money right now."</div>
+        <p>We hear you. ₦150k is money. But let's look at it differently.</p>
+        <p>Spread across a year, ₦150k is about <strong style="color:var(--electric);">₦411 a day</strong>. Less than the price of a single okada ride. Less than a small bottle of Coke.</p>
+        <p>For ₦411 a day, you're getting a 24/7 salesperson that works while you sleep. A salesperson that never asks for a salary, never takes a sick day, never gets tired, and tells your story to every single person who Googles your business.</p>
+        <p>Compare that to what you're currently spending — possibly on Facebook ads, on flyers, on word of mouth — and ask yourself: which one of those still works at 2am when a customer is searching for you?</p>
+      </div>
+
+      <div class="hes-block reveal">
+        <div class="q">"What if I pay and you guys don't deliver?"</div>
+        <p><strong style="color:var(--ink);">Worst case scenario:</strong> you pay ₦75k, we deliver something you don't like on the first draft, you reject it, and we refund every kobo. You're out nothing. Not even time, because we did all the work.</p>
+        <p><strong style="color:var(--ink);">Best case scenario:</strong> in 7 days, you have a real business website that turns visitors into customers, and you'll wonder why you didn't do this 2 years ago.</p>
+        <p style="font-family:var(--font-display); font-style:italic; font-size:1.1rem; color:var(--navy); margin-top:1rem;">The risk is on us. Not on you.</p>
+      </div>
+
+      <div class="hes-block reveal">
+        <div class="q">"I'd rather just keep thinking about it."</div>
+        <p>Be honest with yourself: have you been "thinking about getting a website" for months? Maybe a year? What's actually going to change in the next 30 days that hasn't changed in the last 6 months?</p>
+        <p>If the answer is "nothing," then the only thing standing between you and a real business website is one decision. The same business that's been on your mind for months can be live in 7 days. You just have to move.</p>
+        <p style="font-family:var(--font-display); font-style:italic; font-size:1.1rem; color:var(--navy); margin-top:1rem;">10 spots. June 12 deadline. Make the decision.</p>
+      </div>
+    </div>
+
+    <div class="final-cta-block reveal">
+      <div class="deadline-strip">
+        <span class="dot"></span>
+        Closes midnight, June 12 · 10 spots only
+      </div>
+      <div class="final-ctas">
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20ready%20to%20lock%20in%20a%20spot%20for%20the%207-Day%20Website%20Build." class="btn btn-electric btn-lg">I'm Ready — Let's Start <span class="btn-arrow">→</span></a>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20to%20talk%20first%20before%20deciding." class="btn btn-whatsapp btn-lg">Let's Talk First <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Polarization: Who this is and isn't for -->
+<section class="offer-section section-cream">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">Honest fit check</span>
+      <h2 style="margin-top:1rem;">Who this is —<br>and isn't — for.</h2>
+      <p class="lead">We're being honest here because we don't want to waste your time or ours.</p>
+    </div>
+
+    <div class="polar-grid">
+      <div class="polar-card not-for reveal">
+        <h4>This is NOT for you if…</h4>
+        <ul>
+          <li>You want advanced features like e-commerce, custom booking systems, or complex backend integrations. (You need our full ₦750k+ package — we'd love to talk after June.)</li>
+          <li>You think a website alone will magically bring customers without any effort to share it. (It won't. It's a tool, not a miracle.)</li>
+          <li>You're looking for the absolute cheapest option, regardless of quality. (Try Fiverr.)</li>
+          <li>You're not actually running a real business yet and you're "still planning." (Get the business going first, then come back.)</li>
+        </ul>
+      </div>
+
+      <div class="polar-card for reveal">
+        <h4>This IS for you if…</h4>
+        <ul>
+          <li>You run a real business and you're tired of looking unprofessional online.</li>
+          <li>You want a real business website without the 3-month timeline or the ₦750k price tag.</li>
+          <li>You'd rather pay 50% upfront and 50% on approval than risk full payment upfront.</li>
+          <li>You'd like to talk to a human before deciding.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="offer-section">
+  <div class="container-narrow">
+    <div class="reveal">
+      <span class="eyebrow">Last questions</span>
+      <h2 style="margin-top:1rem;">Anything else<br>on your mind?</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq reveal">
+        <summary>Why this offer? What's the real reason?</summary>
+        <div class="faq-body">Honest answer: we want a wave of new clients in June. We'd rather give 10 businesses an unreasonable deal and earn referrals and repeat business, than charge full price to fewer people. The math works for us when even 3 of the 10 come back for bigger projects later. That's the bet.</div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>I don't have a logo, photos, or written content. Is that a problem?</summary>
+        <div class="faq-body">That's the whole point. We handle all of it. Logo (free), photos (free), content (free — written by us based on a 20-minute call).</div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>7 days seems fast. Are you cutting corners?</summary>
+        <div class="faq-body">We deliver in 7 days because we've systemized the process — 7 years of doing this means we don't have to figure it out as we go. Same quality. Less wasted time.</div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>How do I know you're not a scam?</summary>
+        <div class="faq-body">You're on our live business website right now. You can see our Instagram (<a href="https://www.instagram.com/swellbridgedigital/" target="_blank" rel="noopener" style="color:var(--electric); font-weight:600;">@swellbridgedigital</a>). You have our verified business email (hello@swellbridgedigital.com). You have our phone number (+234 806 415 8087). You can talk to us before paying anything. And you only pay ₦75k upfront — the rest comes after you've seen and approved your website.</div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>What about after launch? Do you disappear?</summary>
+        <div class="faq-body">2 free rounds of revisions before launch. Free 1-year hosting. After that, ongoing support is available if you need it (quoted separately).</div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>Can I see the kind of work you've done?</summary>
+        <div class="faq-body">Yes — scroll up to the samples section, or visit our <a href="/case-studies.html" style="color:var(--electric); font-weight:600;">case studies page</a>. Every sample is a live link you can click into.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section-pad">
+  <div class="container">
+    <div class="cta-section reveal">
+      <span class="eyebrow center amber">10 spots · Closes midnight, June 12</span>
+      <h2 class="mt-sm">Make the<br><em>decision.</em></h2>
+      <p>The same business that's been on your mind for months can be live in 7 days. You just have to move.</p>
+      <div class="final-ctas">
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20ready%20to%20lock%20in%20a%20spot%20for%20the%207-Day%20Website%20Build." class="btn btn-lg">I'm Ready — Let's Start <span class="btn-arrow">→</span></a>
+        <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27d%20like%20to%20talk%20first." class="btn btn-whatsapp btn-lg">Let's Talk First <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Swellbridge<span style="color:var(--amber);">.</span></h3>
+        <p>Strategic marketing partner for Nigerian businesses that sell things people think carefully about.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <div class="footer-links">
+          <a href="/real-estate.html">Real Estate</a>
+          <a href="/meta-ads.html">Meta Ads</a>
+          <a href="/funnels.html">Funnels</a>
+          <a href="/web-design.html">Web Design</a>
+          <a href="/automation.html">Automation</a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <a href="/case-studies.html">Results</a>
+          <a href="/blog.html">Insights</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <div class="footer-links">
+          <a href="https://wa.me/2348064158087">WhatsApp</a>
+          <a href="tel:+2348064158087">+234 806 415 8087</a>
+          <a href="mailto:hello@swellbridgedigital.com">hello@swellbridgedigital.com</a>
+          <a href="https://www.instagram.com/swellbridgedigital/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Swellbridge Digital · Founded by Emmanuel Uzoma Anofienem</div>
+      <div>Nigeria · Worldwide</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky CTA bar (appears after scrolling past hero) -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text">
+    ₦150,000 · 7-Day Build
+    <small>10 spots · until June 12</small>
+  </div>
+  <a href="https://wa.me/2348064158087?text=Hi%20Emmanuel%2C%20I%27m%20interested%20in%20the%207-Day%20Website%20Build." class="btn btn-electric">Lock a spot →</a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // Sticky CTA — show after user scrolls past the hero
+  const sticky = document.getElementById('stickyCta');
+  const heroEl = document.querySelector('.offer-hero');
+  if (sticky && heroEl) {
+    const onScroll = () => {
+      const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+      const footerEl = document.querySelector('.footer');
+      const footerTop = footerEl ? footerEl.offsetTop : Infinity;
+      const scrollY = window.scrollY + window.innerHeight;
+      // Show after hero, hide when footer is in view
+      if (window.scrollY > heroBottom && scrollY < footerTop + 100) {
+        sticky.classList.add('visible');
+      } else {
+        sticky.classList.remove('visible');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>
+
+</body>
+</html>
