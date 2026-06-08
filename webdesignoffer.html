@@ -253,6 +253,22 @@ footer a{color:#C4CEE2;text-decoration:none;}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 @media(min-width:720px){.block{padding:4rem 0;}.hero{padding:4rem 0;}.btn{width:auto;min-width:340px;}.hero-fig{max-width:340px;}}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '26786909137584547');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=26786909137584547&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -466,7 +482,7 @@ footer a{color:#C4CEE2;text-decoration:none;}
 </section>
 
 <!-- THE OFFER (Hormozi) -->
-<section class="block warm">
+<section class="block warm" id="offerSection">
   <div class="wrap">
     <span class="eyebrow amber reveal">Now, the offer</span>
     <h2 class="reveal">I have made this so good that saying no feels strange</h2>
@@ -698,6 +714,41 @@ document.querySelectorAll('.hero .reveal').forEach(function(el,i){el.style.trans
 document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var it=q.parentElement,a=q.nextElementSibling,open=it.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null;});if(!open){it.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}});});
 var cta=document.getElementById('stickyCta'),hero=document.querySelector('.hero');
 window.addEventListener('scroll',function(){if(window.scrollY>(hero.offsetHeight*0.9)){cta.classList.add('show');}else{cta.classList.remove('show');}},{passive:true});
+</script>
+<!-- Meta event tracking: Lead on WhatsApp click, ViewContent on offer view -->
+<script>
+(function(){
+  // Fire Lead before the WhatsApp redirect, then continue to wa.me
+  var waLinks = document.querySelectorAll('a[href*="wa.me"]');
+  waLinks.forEach(function(link){
+    link.addEventListener('click', function(e){
+      if (typeof fbq !== 'function') return; // pixel blocked/failed, let link work normally
+      var url = this.href;
+      var opensNewTab = this.target === '_blank';
+      fbq('track', 'Lead', {content_name: 'Web Design Offer - WhatsApp'});
+      if (opensNewTab) return; // new tab: event fires, current page stays, no need to delay
+      // same tab: hold the redirect briefly so the event can send, then navigate
+      e.preventDefault();
+      setTimeout(function(){ window.location.href = url; }, 250);
+    });
+  });
+
+  // Fire ViewContent once when the offer section is scrolled into view
+  var offer = document.getElementById('offerSection');
+  if (offer && 'IntersectionObserver' in window) {
+    var fired = false;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting && !fired && typeof fbq === 'function') {
+          fired = true;
+          fbq('track', 'ViewContent', {content_name: 'Web Design Offer - Pricing'});
+          obs.disconnect();
+        }
+      });
+    }, {threshold: 0.4});
+    obs.observe(offer);
+  }
+})();
 </script>
 </body>
 </html>
