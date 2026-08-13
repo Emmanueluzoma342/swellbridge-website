@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 7 Day Booking Page for Travel &amp; Tour Businesses | Swellbridge Digital</title>
+<meta name="description" content="A one page booking site for travel and tour operators. Live in 7 working days for ₦75,000, or your money back.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A1F44;
+    --navy-2:#122C5C;
+    --blue:#2E6BFF;
+    --amber:#D4A24C;
+    --cream:#FBF9F5;
+    --ink:#1B2A45;
+    --line:rgba(10,31,68,.14);
+    --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--cream);color:var(--ink);
+    font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:84px 0}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.015em;color:var(--navy)}
+  h1{font-size:clamp(36px,7vw,62px);line-height:1.06}
+  h2{font-size:clamp(28px,5vw,44px);line-height:1.14;margin-bottom:22px}
+  h3{font-size:clamp(21px,3.4vw,27px);line-height:1.25}
+  p{margin-bottom:18px}
+  em{font-style:italic;color:var(--blue)}
+  .eyebrow{
+    font-size:13px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;
+    color:var(--amber);margin-bottom:18px;
+  }
+  .dark .eyebrow{color:var(--amber)}
+  .lead{font-size:clamp(19px,2.6vw,23px);line-height:1.55}
+  .muted{opacity:.72}
+  .small{font-size:15px}
+
+  /* dotted boarding-pass rule, the signature device */
+  .tear{
+    height:2px;margin:0;border:0;
+    background-image:radial-gradient(circle, currentColor 1.4px, transparent 1.5px);
+    background-size:14px 2px;opacity:.3;color:var(--navy);
+  }
+
+  /* HEADER */
+  header{background:var(--navy);color:var(--cream);padding:20px 0}
+  .brandbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-family:'Fraunces',serif;font-size:21px;font-weight:600;letter-spacing:.01em}
+  .brand span{color:var(--amber)}
+  .brandbar .tag{font-size:13px;letter-spacing:.16em;text-transform:uppercase;opacity:.65}
+
+  /* HERO */
+  .hero{background:var(--navy);color:var(--cream);padding:60px 0 96px;position:relative;overflow:hidden}
+  .hero h1{color:var(--cream)}
+  .hero em{color:var(--amber)}
+  .hero .lead{margin-top:26px;max-width:680px;opacity:.92}
+  .hero .amber-line{width:76px;height:4px;background:var(--amber);margin-bottom:30px}
+  .pricepill{
+    display:inline-flex;align-items:baseline;gap:14px;margin-top:34px;flex-wrap:wrap;
+    background:rgba(46,107,255,.16);border:1px solid rgba(46,107,255,.5);
+    border-radius:999px;padding:14px 26px;
+  }
+  .pricepill b{font-family:'Fraunces',serif;font-size:30px;color:var(--amber);font-weight:600}
+  .pricepill s{opacity:.55;font-size:16px}
+
+  .btn{
+    display:inline-block;background:var(--blue);color:#fff;text-decoration:none;
+    font-weight:600;font-size:18px;padding:19px 40px;border-radius:999px;
+    transition:transform .15s ease, background .15s ease;border:none;cursor:pointer;
+    font-family:'Inter',sans-serif;
+  }
+  .btn:hover{background:#1E56E0;transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+  .btn-row{margin-top:38px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .btn-note{font-size:14px;opacity:.7}
+
+  /* GENERIC BLOCKS */
+  .light{background:var(--cream)}
+  .dark{background:var(--navy);color:var(--cream)}
+  .dark h2,.dark h3{color:var(--cream)}
+  .dark em{color:var(--amber)}
+
+  .qlist{list-style:none;margin:30px 0 0;counter-reset:q;display:grid;gap:18px}
+  .qlist li{counter-increment:q;padding-left:52px;position:relative;font-size:19px}
+  .qlist li::before{
+    content:counter(q);position:absolute;left:0;top:-2px;
+    font-family:'Fraunces',serif;font-size:26px;color:var(--blue);font-weight:600;
+  }
+  .dark .qlist li::before{color:var(--amber)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;gap:30px}}
+
+  /* STACK TABLE */
+  .stack{margin-top:12px;border-top:1px solid var(--line)}
+  .stack .row{
+    display:flex;justify-content:space-between;gap:20px;align-items:baseline;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .stack .row span:first-child{max-width:74%}
+  .stack .row span:last-child{opacity:.6;white-space:nowrap;font-size:16px}
+  .stack .row.pay{border-bottom:none;padding-top:22px}
+  .stack .row.pay span{opacity:1;font-weight:600;font-size:21px;color:var(--blue)}
+  .stack .row.pay span:last-child{font-family:'Fraunces',serif;font-size:30px;color:var(--navy)}
+
+  /* GUARANTEE */
+  .guarantee{
+    background:#fff;border:2px solid var(--blue);border-radius:16px;padding:38px;
+    box-shadow:0 14px 40px rgba(10,31,68,.08);
+  }
+  .guarantee h3{margin-bottom:14px}
+
+  .fitgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:26px}
+  @media(max-width:760px){.fitgrid{grid-template-columns:1fr}}
+  .fit{background:#fff;border-radius:14px;padding:28px;border:1px solid var(--line)}
+  .fit h3{font-size:20px;margin-bottom:14px}
+  .fit ul{list-style:none;display:grid;gap:12px}
+  .fit li{padding-left:26px;position:relative;font-size:16.5px}
+  .fit li::before{content:"";position:absolute;left:0;top:9px;width:11px;height:11px;border-radius:50%;border:2.5px solid var(--blue)}
+  .fit.no li::before{border-color:#B4B9C4}
+
+  /* FORM */
+  .formwrap{background:var(--navy-2);color:var(--cream);border-radius:18px;padding:clamp(26px,5vw,48px)}
+  .formwrap h2{color:var(--cream)}
+  .field{margin-bottom:20px}
+  label{display:block;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;opacity:.8}
+  input,select,textarea{
+    width:100%;padding:16px 18px;border-radius:10px;border:1px solid rgba(251,249,245,.25);
+    background:rgba(251,249,245,.06);color:var(--cream);font-family:'Inter',sans-serif;font-size:17px;
+  }
+  input::placeholder,textarea::placeholder{color:rgba(251,249,245,.45)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--amber);outline-offset:1px;background:rgba(251,249,245,.1)}
+  select option{color:#0A1F44;background:#FBF9F5}
+  textarea{min-height:96px;resize:vertical}
+  .formwrap .btn{width:100%;margin-top:8px;font-size:19px;padding:21px}
+  .formnote{font-size:14px;opacity:.7;margin-top:16px;text-align:center}
+  .err{color:#FFC9C9;font-size:14px;margin-top:10px;display:none}
+
+  /* FAQ */
+  details{border-bottom:1px solid var(--line);padding:20px 0}
+  summary{cursor:pointer;font-weight:600;font-size:19px;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--blue);font-size:24px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:14px;margin-bottom:0}
+
+  footer{background:var(--navy);color:var(--cream);padding:44px 0;font-size:15px}
+  footer a{color:var(--amber);text-decoration:none}
+  .footrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;opacity:.8}
+
+  .sticky{
+    position:fixed;left:0;right:0;bottom:0;background:var(--navy);
+    padding:12px 16px;display:none;justify-content:center;z-index:50;
+    box-shadow:0 -8px 24px rgba(10,31,68,.25);
+  }
+  .sticky .btn{width:100%;max-width:520px;text-align:center;padding:16px}
+  @media(max-width:760px){.sticky{display:flex}body{padding-bottom:84px}}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap brandbar">
+    <div class="brand">Swellbridge <span>Digital</span></div>
+    <div class="tag">Websites &amp; funnels for travel brands</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="amber-line"></div>
+    <h1>Your DM is full.<br>Your bank alert is <em>quiet.</em></h1>
+    <p class="lead">If you sell trips, tours or visa support, you already know the pattern. Somebody asks how much. You send the price. Then silence.</p>
+    <p class="lead">In 7 working days I will give you one page that answers every doubt in their head, then hands you a warm chat on WhatsApp.</p>
+
+    <div class="pricepill"><b>₦75,000</b> <s>₦315,000 if bought in parts</s></div>
+
+    <div class="btn-row">
+      <a class="btn" href="#start">Get my booking page</a>
+      <span class="btn-note">Takes 40 seconds. Then we talk on WhatsApp.</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THEY GO QUIET -->
+<section class="light">
+  <div class="wrap">
+    <div class="eyebrow">The thing nobody tells you</div>
+    <h2>People do not go quiet because they are broke.</h2>
+    <p class="lead">They go quiet because you answered one question and left four hanging. That silence is not rejection. It is doubt that had nowhere to go.</p>
+    <p class="lead" style="margin-top:26px"><b>Here is what is actually in their head before they pay you:</b></p>
+    <ol class="qlist">
+      <li>Is this person real, or will I lose my money.</li>
+      <li>Has anybody actually travelled with them.</li>
+      <li>What exactly is inside the price.</li>
+      <li>Can I pay in parts, or must I pay at once.</li>
+      <li>What happens if my visa is refused.</li>
+    </ol>
+  </div>
+</section>
+
+<hr class="tear">
+
+<!-- THE PIXEL LESSON -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow">Now the part most people miss</div>
+    <h2>Facebook can only learn from what it is allowed to see.</h2>
+    <div class="grid2">
+      <div>
+        <p class="lead">When every enquiry lands inside your DM, the only thing Facebook can measure is that somebody chatted with you.</p>
+        <p class="lead">So it goes and finds you more people who love to chat. Not people who pay.</p>
+      </div>
+      <div>
+        <p class="lead">When enquiries pass through a page with tracking on it, Facebook finally sees the difference between a window shopper and a buyer.</p>
+        <p class="lead"><b>Same budget. Better people. That is the whole game.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="light">
+  <div class="wrap">
+    <div class="eyebrow">A short story</div>
+    <h2>Same woman. Same trips. Different conversations.</h2>
+    <p class="lead">Last year I built the website for a Lagos tour operator. Registered company. Real memberships. Years of trips behind her. None of it was visible anywhere. It was all sitting in her head and in her DM.</p>
+    <p class="lead">We put the proof on one page. Certificates. Real destinations. What is included and what is not. A pay in parts option. A WhatsApp button on every section, with the message already typed.</p>
+    <p class="lead">People started arriving already convinced. Instead of asking how much, they were asking how to pay.</p>
+  </div>
+</section>
+
+<hr class="tear">
+
+<!-- STOP REPEATING YOURSELF -->
+<section class="light">
+  <div class="wrap">
+    <div class="eyebrow">And there is the daily one</div>
+    <h2>You are tired of typing the same thing every day.</h2>
+    <p class="lead">Same question, twenty times a week. What is included. Can I pay in parts. Which hotel. What about my visa. You type the same paragraph until your hands are tired, and half of them still go quiet.</p>
+    <p class="lead">After this, somebody asks in your DM and you send one link. The page says everything you would have typed, in order, with your proof attached. Then they come back to you ready to talk money.</p>
+    <div class="fitgrid" style="margin-top:30px">
+      <div class="fit">
+        <h3>Now</h3>
+        <ul>
+          <li>You retype the same answers all day</li>
+          <li>You forget to mention your best proof</li>
+          <li>Serious buyers wait behind time wasters</li>
+        </ul>
+      </div>
+      <div class="fit">
+        <h3>After</h3>
+        <ul>
+          <li>You paste one link and move on</li>
+          <li>The page never forgets a single detail</li>
+          <li>People arrive already convinced</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:26px">It works on your Instagram bio, your WhatsApp status, your flyers and your referrals too. Not only ads.</p>
+  </div>
+</section>
+
+<hr class="tear">
+
+<!-- OFFER -->
+<section class="light" style="padding-top:70px">
+  <div class="wrap">
+    <div class="eyebrow">The offer</div>
+    <h2>The 7 Day Booking Page</h2>
+    <p class="lead muted">One page. Built for phones first, because that is where your buyers live. Written by me, not filled with template words.</p>
+
+    <div class="stack">
+      <div class="row"><span>Your booking page, written and designed for your trips</span><span>₦150,000</span></div>
+      <div class="row"><span>WhatsApp buttons on every section with the message already typed</span><span>₦25,000</span></div>
+      <div class="row"><span>Enquiry form that lands in your inbox and your phone</span><span>₦20,000</span></div>
+      <div class="row"><span>Meta Pixel and lead tracking set up correctly so your ads learn</span><span>₦40,000</span></div>
+      <div class="row"><span>Three ad images plus the ad words to run them</span><span>₦45,000</span></div>
+      <div class="row"><span>Domain, hosting and security handled for you</span><span>₦15,000</span></div>
+      <div class="row"><span>Bonus: five WhatsApp replies that turn "how much" into a deposit</span><span>₦20,000</span></div>
+      <div class="row pay"><span>You pay today</span><span>₦75,000</span></div>
+    </div>
+    <p class="small muted" style="margin-top:18px">Half to start. Half the day it goes live. I only take 8 of these in a month, because I write every page myself.</p>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="light" style="padding-top:0">
+  <div class="wrap">
+    <div class="guarantee">
+      <div class="eyebrow" style="color:var(--blue)">My promise to you</div>
+      <h3>Live in 7 working days, or you get every naira back.</h3>
+      <p>And you still keep the ad images and the WhatsApp replies. If I miss the date, that is my failure, not your loss. I carry the risk so you do not have to wonder.</p>
+      <p class="small muted" style="margin-bottom:0">The 7 days start the day you send me your photos, prices and trip details.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FIT -->
+<section class="light" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Before you fill the form</div>
+    <h2>Let me be plain about who this is for.</h2>
+    <div class="fitgrid">
+      <div class="fit">
+        <h3>This is for you if</h3>
+        <ul>
+          <li>You already sell trips, tours, visa support or study travel</li>
+          <li>You get enquiries but too many die at "how much"</li>
+          <li>You have run ads before and felt the money leak</li>
+          <li>You can send photos, prices and trip details this week</li>
+        </ul>
+      </div>
+      <div class="fit no">
+        <h3>This is not for you if</h3>
+        <ul>
+          <li>You have not decided what you sell or where you send people</li>
+          <li>You want a big ten page website, not a page that sells</li>
+          <li>You are looking for the cheapest option on the market</li>
+          <li>You want me to promise a number of bookings I cannot control</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="light" id="start" style="padding-top:20px">
+  <div class="wrap">
+    <div class="formwrap">
+      <div class="eyebrow">Your next step</div>
+      <h2>Tell me about your trips.</h2>
+      <p class="muted" style="opacity:.85">Fill this in and you will land straight in my WhatsApp with your answers already attached. I will reply with exactly what your page would say. No cost for that conversation.</p>
+
+      <div id="already" style="display:none">
+        <div class="eyebrow">Got your details</div>
+        <h2>Thank you. Now let us talk about your trips.</h2>
+        <p class="muted" style="opacity:.9">Your details already reached me from the form. The fastest next step is a short chat on WhatsApp. Tell me what you sell and where you send people, and I will show you exactly what your page would say.</p>
+        <a class="btn" id="waDirect" href="#" style="width:100%;text-align:center;margin-top:10px">Chat with me on WhatsApp</a>
+        <p class="formnote">I reply myself, usually within a few hours.</p>
+      </div>
+
+      <div id="formBlock">
+      <form id="leadForm" name="booking-page-lead" method="POST" data-netlify="true" netlify-honeypot="company-website">
+        <input type="hidden" name="form-name" value="booking-page-lead">
+        <p style="display:none"><label>Do not fill this in <input name="company-website"></label></p>
+
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="Demi James" required>
+        </div>
+
+        <div class="field">
+          <label for="business">Business name</label>
+          <input id="business" name="business" type="text" placeholder="Betini Trips" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">WhatsApp number</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="0803 000 0000" required>
+        </div>
+
+        <div class="field">
+          <label for="sells">What do you mostly sell</label>
+          <select id="sells" name="sells" required>
+            <option value="" disabled selected>Choose one</option>
+            <option>Group tours and getaways</option>
+            <option>Visa support and documentation</option>
+            <option>Flights and travel bookings</option>
+            <option>Faith journeys and pilgrimages</option>
+            <option>Study or medical travel</option>
+            <option>Corporate travel and events</option>
+            <option>A mix of everything</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="site">Do you have a website now</label>
+          <select id="site" name="site" required>
+            <option value="" disabled selected>Choose one</option>
+            <option>No website, only Instagram or WhatsApp</option>
+            <option>Yes, but it brings me nothing</option>
+            <option>Yes, and I want a page that sells better</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="note">Anything I should know (optional)</label>
+          <textarea id="note" name="note" placeholder="Your next trip, your busiest season, what keeps failing"></textarea>
+        </div>
+
+        <button class="btn" type="submit" id="submitBtn">Send and open WhatsApp</button>
+        <div class="err" id="errMsg">Please fill in your name, business, number and the two questions above.</div>
+        <p class="formnote">Your details go straight to me. I do not share them, and I do not spam.</p>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="light" style="padding-top:40px">
+  <div class="wrap">
+    <div class="eyebrow">Questions people ask me</div>
+    <h2>Straight answers</h2>
+
+    <details>
+      <summary>Why is it only ₦75,000 when others charge more</summary>
+      <p>Because this is one page, not a full website, and I have built this type of page many times. It is the fastest way for us to work together and see results. If it works for you, we can talk about the bigger build later. There is no pressure to.</p>
+    </details>
+    <details>
+      <summary>What do you need from me</summary>
+      <p>Photos from your real trips, your prices or price ranges, what is included, any certificates or memberships you hold, and your WhatsApp number. If your photos are weak, I will tell you how to fix that before we build.</p>
+    </details>
+    <details>
+      <summary>Will this get me bookings</summary>
+      <p>A page cannot force anybody to travel. What it does is remove the doubt that stops good people from paying, and it lets your ads find better people. The selling on WhatsApp is still yours, and the five reply templates are there to make that part easier.</p>
+    </details>
+    <details>
+      <summary>Do I need to run ads too</summary>
+      <p>No. The page works with your Instagram bio, your status, your flyers and your referrals. But if you do run ads, the tracking is already in place, so your money works harder from day one.</p>
+    </details>
+    <details>
+      <summary>Who owns the page after</summary>
+      <p>You do. Your domain, your hosting account, your page. I hand over everything and show you how to change your prices yourself.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footrow">
+    <span>Swellbridge Digital · Emmanuel Uzoma</span>
+    <span><a href="https://swellbridgedigital.com">swellbridgedigital.com</a></span>
+  </div>
+</footer>
+
+<div class="sticky"><a class="btn" href="#start">Get my booking page</a></div>
+
+<script>
+  // ==== EDIT THIS ONE LINE IF YOUR NUMBER CHANGES ====
+  var WHATSAPP_NUMBER = "2348064158087";
+  // ===================================================
+
+  var form = document.getElementById('leadForm');
+  var errMsg = document.getElementById('errMsg');
+  var btn = document.getElementById('submitBtn');
+
+  /* If they arrive from the Facebook instant form, they already gave their
+     details. Hide the form and point everything at WhatsApp instead.
+     Link to this page as:  yourdomain.com/?f=1  */
+  (function () {
+    var fromForm = new URLSearchParams(window.location.search).get('f') === '1';
+    if (!fromForm) return;
+
+    var msg = "Hello Emmanuel, I just filled your form about the 7 Day Booking Page. I run a travel business and I want to know more.";
+    var wa = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
+
+    document.getElementById('formBlock').style.display = 'none';
+    document.getElementById('already').style.display = 'block';
+    document.getElementById('waDirect').setAttribute('href', wa);
+
+    document.querySelectorAll('.hero .btn, .sticky .btn').forEach(function (b) {
+      b.setAttribute('href', wa);
+      b.textContent = 'Chat with me on WhatsApp';
+    });
+    var hint = document.querySelector('.btn-note');
+    if (hint) { hint.textContent = 'Straight to my WhatsApp. No forms again.'; }
+  })();
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var data = {
+      name: form.name.value.trim(),
+      business: form.business.value.trim(),
+      phone: form.phone.value.trim(),
+      sells: form.sells.value,
+      site: form.site.value,
+      note: form.note.value.trim()
+    };
+
+    if (!data.name || !data.business || !data.phone || !data.sells || !data.site) {
+      errMsg.style.display = 'block';
+      return;
+    }
+    errMsg.style.display = 'none';
+    btn.textContent = 'Opening WhatsApp...';
+
+    var lines = [
+      "Hello Emmanuel, I want the 7 Day Booking Page.",
+      "",
+      "Name: " + data.name,
+      "Business: " + data.business,
+      "Phone: " + data.phone,
+      "I mostly sell: " + data.sells,
+      "Website now: " + data.site
+    ];
+    if (data.note) { lines.push("Note: " + data.note); }
+
+    var waLink = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+
+    // Fire the Meta lead event if the Pixel is installed
+    if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+
+    // Save the lead to Netlify Forms, then send them to WhatsApp either way
+    var body = new URLSearchParams();
+    body.append('form-name', 'booking-page-lead');
+    Object.keys(data).forEach(function (k) { body.append(k, data[k]); });
+
+    var go = function () { window.location.href = waLink; };
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    }).then(go).catch(go);
+
+    // Safety net in case the network hangs
+    setTimeout(go, 2500);
+  });
+</script>
+
+</body>
+</html>
