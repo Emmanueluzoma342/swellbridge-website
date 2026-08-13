@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relocation Client Value Calculator | Swellbridge Digital</title>
+<meta name="description" content="A free calculator for relocation, visa and travel consultancies. See what a client actually costs you, your true return on marketing, and which single improvement would earn you the most.">
+<link rel="canonical" href="https://swellbridgedigital.com/relocation-calculator">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Relocation Client Value Calculator">
+<meta property="og:description" content="Five numbers decide whether your consultancy grows or grinds. Put yours in and find your bottleneck in ninety seconds.">
+<meta property="og:url" content="https://swellbridgedigital.com/relocation-calculator">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0A1F44;
+  --navy-deep:#061530;
+  --blue:#2E6BFF;
+  --amber:#D4A24C;
+  --cream:#FBF9F5;
+  --ink:#16233D;
+  --muted:#5C6780;
+  --rule:#E3DDD2;
+  --white:#FFFFFF;
+  --shadow:0 1px 2px rgba(10,31,68,.05), 0 8px 28px rgba(10,31,68,.07);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--cream); color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif; font-weight:600; letter-spacing:-.015em;
+  line-height:1.16; color:var(--navy); margin:0}
+em{font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:500}
+a{color:var(--blue)}
+.wrap{max-width:1140px; margin:0 auto; padding:0 24px}
+.eyebrow{font-size:11px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--amber)}
+
+/* ---------------- HEADER ---------------- */
+.topbar{border-bottom:1px solid var(--rule); background:rgba(251,249,245,.92);
+  backdrop-filter:saturate(150%) blur(8px); position:sticky; top:0; z-index:60}
+.topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:62px}
+.logo{font-family:'Fraunces',serif; font-weight:600; font-size:19px; color:var(--navy);
+  text-decoration:none; letter-spacing:-.02em}
+.logo span{color:var(--amber)}
+.topbar .call{font-size:13.5px; font-weight:600; color:var(--navy); text-decoration:none;
+  border:1px solid var(--navy); border-radius:999px; padding:8px 17px; transition:.18s}
+.topbar .call:hover{background:var(--navy); color:#fff}
+
+/* ---------------- HERO ---------------- */
+.hero{background:var(--navy); color:#fff; position:relative; overflow:hidden}
+.hero:before{content:""; position:absolute; inset:0;
+  background:radial-gradient(760px 420px at 82% -8%, rgba(46,107,255,.30), transparent 62%),
+             radial-gradient(560px 380px at 8% 108%, rgba(212,162,76,.16), transparent 66%)}
+.hero .wrap{position:relative; padding:78px 24px 92px; max-width:900px}
+.hero .eyebrow{color:var(--amber)}
+.hero h1{color:#fff; font-size:clamp(34px,5.6vw,60px); margin:20px 0 0}
+.hero h1 i{font-style:italic; font-weight:500; color:var(--amber)}
+.hero p.lede{font-size:clamp(16.5px,2.1vw,20px); color:rgba(255,255,255,.80);
+  max-width:640px; margin:24px 0 0; line-height:1.6}
+.hero .meta{margin-top:30px; display:flex; flex-wrap:wrap; gap:10px}
+.pill{font-size:12.5px; font-weight:500; color:rgba(255,255,255,.82);
+  border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:6px 14px}
+
+/* ---------------- DESK ---------------- */
+.desk{padding:0 0 20px; margin-top:-46px; position:relative; z-index:5}
+.grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.02fr); gap:26px;
+  align-items:start}
+
+.card{background:var(--white); border:1px solid var(--rule); border-radius:14px;
+  box-shadow:var(--shadow)}
+.card-hd{padding:22px 26px 0}
+.card-hd h2{font-size:22px}
+.card-hd p{font-size:14px; color:var(--muted); margin:8px 0 0}
+
+/* ---- inputs ---- */
+.controls{padding:8px 26px 26px}
+.ctrl{padding:19px 0; border-bottom:1px solid var(--rule)}
+.ctrl:last-child{border-bottom:0; padding-bottom:4px}
+.ctrl-top{display:flex; align-items:baseline; justify-content:space-between; gap:14px}
+.ctrl-top label{font-size:14.5px; font-weight:600; color:var(--navy)}
+.ctrl .hint{font-size:12.5px; color:var(--muted); margin:5px 0 12px; line-height:1.5}
+.valbox{display:flex; align-items:center; gap:2px; border:1px solid var(--rule);
+  border-radius:8px; padding:5px 10px; background:var(--cream); flex:none}
+.valbox .pre,.valbox .suf{font-size:14px; color:var(--muted); font-weight:600}
+.valbox input{border:0; background:transparent; font-family:'Inter',sans-serif;
+  font-size:16px; font-weight:700; color:var(--navy); width:96px; text-align:right;
+  padding:0 2px; font-variant-numeric:tabular-nums}
+.valbox input.narrow{width:44px}
+.valbox input::-webkit-outer-spin-button,.valbox input::-webkit-inner-spin-button{
+  -webkit-appearance:none; margin:0}
+.valbox:focus-within{border-color:var(--blue); box-shadow:0 0 0 3px rgba(46,107,255,.14)}
+
+input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:22px;
+  background:transparent; cursor:pointer; display:block}
+input[type=range]::-webkit-slider-runnable-track{height:5px; border-radius:99px;
+  background:linear-gradient(90deg,var(--blue) var(--pct,40%), #E7E3DA var(--pct,40%))}
+input[type=range]::-moz-range-track{height:5px; border-radius:99px; background:#E7E3DA}
+input[type=range]::-moz-range-progress{height:5px; border-radius:99px; background:var(--blue)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:20px; height:20px;
+  border-radius:50%; background:#fff; border:2px solid var(--blue); margin-top:-7.5px;
+  box-shadow:0 2px 6px rgba(10,31,68,.22); transition:transform .12s}
+input[type=range]::-moz-range-thumb{width:18px; height:18px; border-radius:50%; background:#fff;
+  border:2px solid var(--blue); box-shadow:0 2px 6px rgba(10,31,68,.22)}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.14)}
+input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 5px rgba(46,107,255,.22)}
+.scale{display:flex; justify-content:space-between; font-size:11px; color:#9AA2B4;
+  margin-top:2px; font-weight:500}
+.resetrow{padding:0 26px 22px}
+.reset{background:none; border:0; color:var(--muted); font-size:13px; font-weight:600;
+  cursor:pointer; text-decoration:underline; text-underline-offset:3px; padding:0;
+  font-family:inherit}
+.reset:hover{color:var(--blue)}
+
+/* ---- panel ---- */
+.panel{background:var(--navy-deep); border-radius:14px; color:#fff; overflow:hidden;
+  box-shadow:0 2px 4px rgba(6,21,48,.18), 0 18px 46px rgba(6,21,48,.24);
+  position:sticky; top:86px}
+.panel-hd{padding:22px 26px 18px; border-bottom:1px solid rgba(255,255,255,.09)}
+.panel-hd .eyebrow{color:var(--amber)}
+.panel-hd h2{color:#fff; font-size:21px; margin-top:9px}
+
+.headline{padding:24px 26px 20px; border-bottom:1px solid rgba(255,255,255,.09);
+  display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.kpi .k{font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:600;
+  color:rgba(255,255,255,.5)}
+.kpi .v{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(26px,4vw,34px);
+  color:#fff; line-height:1.1; margin-top:7px; letter-spacing:-.02em}
+.kpi .v.amber{color:var(--amber)}
+.kpi .s{font-size:12.5px; color:rgba(255,255,255,.55); margin-top:5px}
+
+/* ---- ladder (signature) ---- */
+.ladder{padding:24px 26px 26px; border-bottom:1px solid rgba(255,255,255,.09)}
+.ladder h3{color:#fff; font-size:15px; font-family:'Inter',sans-serif; font-weight:600;
+  letter-spacing:0; margin-bottom:4px}
+.ladder .sub{font-size:12.5px; color:rgba(255,255,255,.52); margin-bottom:18px}
+.rung{margin-bottom:15px}
+.rung:last-child{margin-bottom:0}
+.rung-top{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  margin-bottom:6px}
+.rung-top .rl{font-size:13px; font-weight:600; color:rgba(255,255,255,.9)}
+.rung-top .rv{font-size:13px; font-weight:700; color:#fff; font-variant-numeric:tabular-nums}
+.track{height:9px; border-radius:99px; background:rgba(255,255,255,.08);
+  overflow:hidden; position:relative}
+.fill{height:100%; border-radius:99px; background:var(--blue);
+  transition:width .5s cubic-bezier(.4,0,.2,1); width:0}
+.fill.f2{background:linear-gradient(90deg,#2E6BFF,#5B8CFF)}
+.fill.f3{background:var(--amber)}
+.lost{font-size:11.5px; color:rgba(212,162,76,.85); margin-top:5px; font-weight:500}
+
+/* ---- secondary stats ---- */
+.stats{padding:22px 26px; display:grid; grid-template-columns:1fr 1fr; gap:18px 20px}
+.stat .k{font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+  color:rgba(255,255,255,.45)}
+.stat .v{font-size:19px; font-weight:700; color:#fff; margin-top:5px;
+  font-variant-numeric:tabular-nums}
+.stat .v.good{color:#6FD79B}
+.stat .v.bad{color:#FF8A7A}
+.stat .n{font-size:11.5px; color:rgba(255,255,255,.42); margin-top:3px; line-height:1.45}
+
+/* ---------------- BOTTLENECK ---------------- */
+.section{padding:64px 0}
+.section-hd{max-width:660px; margin-bottom:34px}
+.section-hd h2{font-size:clamp(25px,3.6vw,34px); margin-top:14px}
+.section-hd h2 i{color:var(--blue)}
+.section-hd p{font-size:16.5px; color:var(--muted); margin:14px 0 0}
+
+.levers{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px}
+.lever{background:var(--white); border:1px solid var(--rule); border-radius:14px;
+  padding:24px 24px 22px; position:relative; transition:.25s; overflow:hidden;
+  display:flex; flex-direction:column}
+.lever.top{border-color:var(--amber); box-shadow:0 2px 4px rgba(212,162,76,.10),
+  0 14px 36px rgba(212,162,76,.16); background:#FEFCF7}
+.lever .rank{font-family:'Fraunces',serif; font-weight:600; font-size:13px; color:var(--muted)}
+.lever.top .flag{display:inline-block; background:var(--amber); color:#3B2A08; font-size:10.5px;
+  font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:4px 10px;
+  border-radius:99px; margin-bottom:12px}
+.lever .flag{display:none}
+.lever h3{font-size:19px; margin:0 0 8px}
+.lever .why{font-size:13.5px; color:var(--muted); line-height:1.55; margin:0 0 16px}
+.lever .move{font-size:13px; color:var(--navy); font-weight:600; padding:10px 14px;
+  background:var(--cream); border-radius:8px; margin:0 0 16px; line-height:1.5}
+.lever.top .move{background:#F8EFDD}
+.lever .gain{display:flex; align-items:baseline; gap:9px; border-top:1px solid var(--rule);
+  padding-top:14px; margin-top:auto}
+.lever .gain .g{font-family:'Fraunces',serif; font-weight:600; font-size:27px; color:var(--blue);
+  letter-spacing:-.02em; line-height:1}
+.lever.top .gain .g{color:#B0741C}
+.lever .gain .gl{font-size:12.5px; color:var(--muted); line-height:1.4}
+.lever.done .gain .g{color:#2E9E63; font-size:19px}
+
+.compound{margin-top:26px; background:var(--navy); color:#fff; border-radius:14px;
+  padding:34px 32px; display:grid; grid-template-columns:1.25fr 1fr; gap:30px;
+  align-items:center}
+.compound h3{color:#fff; font-size:23px; margin-bottom:10px}
+.compound h3 i{color:var(--amber)}
+.compound p{font-size:14.5px; color:rgba(255,255,255,.72); margin:0; line-height:1.6}
+.compound .fig{text-align:right}
+.compound .fig .k{font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(255,255,255,.5); font-weight:600}
+.compound .fig .v{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(30px,5vw,44px);
+  color:var(--amber); line-height:1.1; margin-top:8px; letter-spacing:-.02em}
+.compound .fig .s{font-size:13px; color:rgba(255,255,255,.6); margin-top:8px}
+
+/* ---------------- READING ---------------- */
+.readbox{background:var(--white); border:1px solid var(--rule); border-radius:14px;
+  padding:30px 32px; box-shadow:var(--shadow)}
+.readbox h3{font-size:19px; margin-bottom:12px}
+.readbox ul{list-style:none; padding:0; margin:0}
+.readbox li{padding-left:26px; position:relative; margin-bottom:13px; font-size:14.8px;
+  line-height:1.6; color:var(--ink)}
+.readbox li:last-child{margin-bottom:0}
+.readbox li:before{content:""; position:absolute; left:0; top:9px; width:9px; height:9px;
+  background:var(--amber); border-radius:2px}
+.readbox li b{color:var(--navy); font-weight:600}
+
+/* ---------------- CONTACT ---------------- */
+.contact{background:var(--navy); color:#fff; padding:70px 0 62px}
+.contact .section-hd h2{color:#fff}
+.contact .section-hd h2 i{color:var(--amber)}
+.contact .section-hd p{color:rgba(255,255,255,.72)}
+.people{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:860px}
+.person{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.13);
+  border-radius:14px; padding:28px 26px; text-align:center}
+.person img{width:104px; height:104px; border-radius:50%; object-fit:cover;
+  border:2px solid rgba(212,162,76,.55); margin-bottom:16px}
+.person .nm{font-family:'Fraunces',serif; font-weight:600; font-size:21px; color:#fff;
+  line-height:1.2}
+.person .rl{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber);
+  font-weight:600; margin:9px 0 18px}
+.btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
+.btn{display:inline-flex; align-items:center; gap:7px; font-size:13.5px; font-weight:600;
+  text-decoration:none; padding:11px 18px; border-radius:999px; transition:.18s;
+  white-space:nowrap}
+.btn-call{background:#fff; color:var(--navy)}
+.btn-call:hover{background:var(--amber); color:#3B2A08}
+.btn-wa{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35)}
+.btn-wa:hover{border-color:var(--amber); color:var(--amber)}
+.person .num{font-size:13px; color:rgba(255,255,255,.5); margin-top:14px;
+  font-variant-numeric:tabular-nums}
+
+footer{background:var(--navy-deep); color:rgba(255,255,255,.5); padding:30px 0;
+  font-size:13px; border-top:1px solid rgba(255,255,255,.08)}
+footer .wrap{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+footer a{color:rgba(255,255,255,.75); text-decoration:none}
+footer a:hover{color:var(--amber)}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width:940px){
+  .grid{grid-template-columns:1fr}
+  .panel{position:static}
+  .levers{grid-template-columns:1fr}
+  .compound{grid-template-columns:1fr; gap:22px}
+  .compound .fig{text-align:left}
+}
+@media (max-width:620px){
+  .hero .wrap{padding:56px 22px 76px}
+  .topbar .call{display:none}
+  .headline{grid-template-columns:1fr; gap:18px}
+  .stats{grid-template-columns:1fr}
+  .people{grid-template-columns:1fr}
+  .section{padding:48px 0}
+  .card-hd,.controls,.panel-hd,.headline,.ladder,.stats,.resetrow{padding-left:20px; padding-right:20px}
+  .readbox,.compound{padding:24px 22px}
+  .valbox input{width:70px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important; animation:none !important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="logo" href="https://swellbridgedigital.com">Swellbridge<span>.</span></a>
+    <a class="call" href="tel:+2348064158087">Talk to us &mdash; 0806 415 8087</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Free tool &mdash; no sign-up, nothing stored</div>
+    <h1>The Relocation<br><i>Client Value</i> Calculator</h1>
+    <p class="lede">Five numbers decide whether a consultancy grows or grinds. Put yours in below and see what a client really costs you, what your marketing actually returns, and which single change would earn you the most.</p>
+    <div class="meta">
+      <span class="pill">Takes about 90 seconds</span>
+      <span class="pill">Estimates are fine</span>
+      <span class="pill">Your figures never leave your browser</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="desk">
+  <div class="wrap">
+    <div class="grid">
+
+      <!-- ============ INPUTS ============ -->
+      <div class="card">
+        <div class="card-hd">
+          <h2>Your five numbers</h2>
+          <p>Use last month, or a typical month. Rough estimates reveal the same pattern as exact records.</p>
+        </div>
+        <div class="controls">
+
+          <div class="ctrl">
+            <div class="ctrl-top">
+              <label for="spend">Monthly marketing spend</label>
+              <div class="valbox"><span class="pre">&#8358;</span><input id="spend" type="text" inputmode="numeric" autocomplete="off" value="400,000"></div>
+            </div>
+            <div class="hint">Everything you spend to be seen: ads, boosted posts, agency fees, influencers, flyers.</div>
+            <input type="range" id="spend_r" min="0" max="3000000" step="10000" value="400000" aria-label="Monthly marketing spend slider">
+            <div class="scale"><span>&#8358;0</span><span>&#8358;3m</span></div>
+          </div>
+
+          <div class="ctrl">
+            <div class="ctrl-top">
+              <label for="enq">Enquiries per month</label>
+              <div class="valbox"><input id="enq" type="text" inputmode="numeric" autocomplete="off" value="100" class="narrow"></div>
+            </div>
+            <div class="hint">Real people who reached out &mdash; calls, WhatsApp, DMs, forms. Not impressions or page likes.</div>
+            <input type="range" id="enq_r" min="1" max="600" step="1" value="100" aria-label="Enquiries per month slider">
+            <div class="scale"><span>1</span><span>600</span></div>
+          </div>
+
+          <div class="ctrl">
+            <div class="ctrl-top">
+              <label for="book">Enquiries that reach a real conversation</label>
+              <div class="valbox"><input id="book" type="text" inputmode="numeric" autocomplete="off" value="20" class="narrow"><span class="suf">%</span></div>
+            </div>
+            <div class="hint">A proper call, office visit or full consultation &mdash; not just a reply. Most agencies land between 15% and 30%.</div>
+            <input type="range" id="book_r" min="1" max="100" step="1" value="20" aria-label="Booking rate slider">
+            <div class="scale"><span>1%</span><span>100%</span></div>
+          </div>
+
+          <div class="ctrl">
+            <div class="ctrl-top">
+              <label for="close">Conversations that become paying clients</label>
+              <div class="valbox"><input id="close" type="text" inputmode="numeric" autocomplete="off" value="25" class="narrow"><span class="suf">%</span></div>
+            </div>
+            <div class="hint">Be honest here. This is the number owners over-estimate by the widest margin.</div>
+            <input type="range" id="close_r" min="1" max="100" step="1" value="25" aria-label="Close rate slider">
+            <div class="scale"><span>1%</span><span>100%</span></div>
+          </div>
+
+          <div class="ctrl">
+            <div class="ctrl-top">
+              <label for="fee">Average total fee per client</label>
+              <div class="valbox"><span class="pre">&#8358;</span><input id="fee" type="text" inputmode="numeric" autocomplete="off" value="250,000"></div>
+            </div>
+            <div class="hint">Everything one client pays across the whole relationship &mdash; consultation, processing, documentation, tickets, extras.</div>
+            <input type="range" id="fee_r" min="0" max="5000000" step="10000" value="250000" aria-label="Average fee slider">
+            <div class="scale"><span>&#8358;0</span><span>&#8358;5m</span></div>
+          </div>
+
+        </div>
+        <div class="resetrow"><button class="reset" id="reset" type="button">Reset to example figures</button></div>
+      </div>
+
+      <!-- ============ PANEL ============ -->
+      <div class="panel">
+        <div class="panel-hd">
+          <div class="eyebrow">Live reading</div>
+          <h2>What your marketing is really doing</h2>
+        </div>
+
+        <div class="headline">
+          <div class="kpi">
+            <div class="k">One client costs you</div>
+            <div class="v" id="o_cpc">&#8358;80,000</div>
+            <div class="s" id="o_cpc_s">to acquire, all in</div>
+          </div>
+          <div class="kpi">
+            <div class="k">Return per &#8358;1 spent</div>
+            <div class="v amber" id="o_roi">&#8358;3.13</div>
+            <div class="s" id="o_roi_s">comes back as revenue</div>
+          </div>
+        </div>
+
+        <div class="ladder">
+          <h3>Where your month goes</h3>
+          <div class="sub">Every enquiry you pay for, and what is left by the end.</div>
+
+          <div class="rung">
+            <div class="rung-top"><span class="rl">Enquiries generated</span><span class="rv" id="l1">100</span></div>
+            <div class="track"><div class="fill" id="b1" style="width:100%"></div></div>
+          </div>
+
+          <div class="rung">
+            <div class="rung-top"><span class="rl">Reached a real conversation</span><span class="rv" id="l2">20</span></div>
+            <div class="track"><div class="fill f2" id="b2"></div></div>
+            <div class="lost" id="lost1">80 enquiries never got that far</div>
+          </div>
+
+          <div class="rung">
+            <div class="rung-top"><span class="rl">Became paying clients</span><span class="rv" id="l3">5</span></div>
+            <div class="track"><div class="fill f3" id="b3"></div></div>
+            <div class="lost" id="lost2">15 conversations did not convert</div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="k">Cost per enquiry</div>
+            <div class="v" id="o_cpe">&#8358;4,000</div>
+            <div class="n">What one raised hand costs you</div>
+          </div>
+          <div class="stat">
+            <div class="k">Break-even per enquiry</div>
+            <div class="v" id="o_be">&#8358;12,500</div>
+            <div class="n" id="o_be_n">The most you can pay and still profit</div>
+          </div>
+          <div class="stat">
+            <div class="k">Monthly revenue</div>
+            <div class="v" id="o_rev">&#8358;1.25m</div>
+            <div class="n" id="o_clients">5 clients this month</div>
+          </div>
+          <div class="stat">
+            <div class="k">Left after marketing</div>
+            <div class="v good" id="o_profit">&#8358;850,000</div>
+            <div class="n">Before your other running costs</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOTTLENECK ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-hd">
+      <div class="eyebrow">The bottleneck finder</div>
+      <h2>Four ways to grow. <i>One</i> of them is worth the most to you.</h2>
+      <p>Each card below moves a single lever to a level a well-run consultancy reaches, and holds everything else steady. The one at the top is where your next naira and your next week of effort belong.</p>
+    </div>
+
+    <div class="levers" id="levers"></div>
+
+    <div class="compound">
+      <div>
+        <h3>Or move all four <i>a little</i></h3>
+        <p>This is the quiet arithmetic. These numbers multiply rather than add, so four modest improvements outperform one heroic push almost every time &mdash; and modest improvements are the ones a team can actually sustain.</p>
+      </div>
+      <div class="fig">
+        <div class="k">If all four reached those levels</div>
+        <div class="v" id="c_rev">&#8358;4.08m</div>
+        <div class="s" id="c_note">per month, on the same &#8358;400,000 spend</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO READ ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="readbox">
+      <h3>How to read what you are looking at</h3>
+      <ul>
+        <li><b>Cost per client is the number that matters, not cost per enquiry.</b> Cheap enquiries that never convert are the most expensive kind of marketing there is.</li>
+        <li><b>Break-even per enquiry tells you whether to scale.</b> If your actual cost per enquiry sits comfortably below it, more spend makes you money. If it sits above it, more spend makes the loss bigger and faster.</li>
+        <li><b>A return under &#8358;3 per naira usually means the leak is after the click</b> &mdash; in response speed, follow-up, or the sales conversation &mdash; not in the advertising.</li>
+        <li><b>The lever at the top of the bottleneck finder is rarely the one owners expect.</b> It is usually response speed and follow-up rather than more traffic, because those are the levers left furthest from where they could be.</li>
+        <li><b>Everything here is monthly.</b> Multiply the gain by twelve before you decide it is too small to bother with.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact">
+  <div class="wrap">
+    <div class="section-hd">
+      <div class="eyebrow">When you want a hand with it</div>
+      <h2>Talk to a <i>human</i>, not a contact form</h2>
+      <p>We are Swellbridge Digital, from Benin City. We set all of this up for travel and relocation agencies &mdash; your website, sales pages for each offer you sell, ads that bring in people who can actually pay, and the follow-up system that stops enquiries dying quietly. All of it, or only the part that is leaking. Call either of us directly; these are our own numbers.</p>
+    </div>
+
+    <div class="people">
+      <div class="person">
+        <img src="uzoma.jpg" alt="Emmanuel Uzoma Anofienem, Founder of Swellbridge Digital" width="104" height="104">
+        <div class="nm">Emmanuel Uzoma Anofienem</div>
+        <div class="rl">Founder &amp; Strategy</div>
+        <div class="btns">
+          <a class="btn btn-call" href="tel:+2348064158087">Call</a>
+          <a class="btn btn-wa" href="https://wa.me/2348064158087?text=Hi%20Uzoma%2C%20I%20used%20the%20Relocation%20Client%20Value%20Calculator%20and%20I%27d%20like%20to%20talk." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="num">+234 806 415 8087</div>
+      </div>
+
+      <div class="person">
+        <img src="favour.jpg" alt="Favour, Senior Consultant at Swellbridge Digital" width="104" height="104">
+        <div class="nm">Favour</div>
+        <div class="rl">Senior Consultant</div>
+        <div class="btns">
+          <a class="btn btn-call" href="tel:+2349037428647">Call</a>
+          <a class="btn btn-wa" href="https://wa.me/2349037428647?text=Hi%20Favour%2C%20I%20used%20the%20Relocation%20Client%20Value%20Calculator%20and%20I%27d%20like%20to%20talk." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="num">+234 903 742 8647</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; <span id="yr">2026</span> Swellbridge Digital &nbsp;&middot;&nbsp; Performance marketing &amp; web design</div>
+    <div><a href="https://swellbridgedigital.com">swellbridgedigital.com</a> &nbsp;&middot;&nbsp; <a href="https://instagram.com/swellbridgedigital" target="_blank" rel="noopener">@swellbridgedigital</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var DEFAULTS = { spend:400000, enq:100, book:20, close:25, fee:250000 };
+
+  // Levels a well-run consultancy reaches. Used by the bottleneck finder.
+  var TARGET = {
+    book: 40,      // % of enquiries reaching a real conversation
+    close: 35,     // % of conversations becoming clients
+    feeLift: 1.25, // a specific offer typically supports a 25% higher average fee
+    enqLift: 1.20  // sharper targeting and creative: 20% more enquiries on the same spend
+  };
+
+  var ids = ['spend','enq','book','close','fee'];
+  var el = {};
+  ids.forEach(function(k){ el[k] = document.getElementById(k); el[k+'_r'] = document.getElementById(k+'_r'); });
+
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ---------- formatting ---------- */
+  function naira(n){
+    if(!isFinite(n)) return '\u20A6\u2014';
+    n = Math.round(n);
+    return '\u20A6' + n.toLocaleString('en-NG');
+  }
+  function nairaShort(n){
+    if(!isFinite(n)) return '\u20A6\u2014';
+    if(n >= 1000000) return '\u20A6' + (n/1000000).toFixed(n >= 10000000 ? 1 : 2).replace(/\.?0+$/,'') + 'm';
+    if(n >= 100000) return '\u20A6' + Math.round(n/1000) + ',000';
+    return naira(n);
+  }
+  function clampNum(v, min, max, fallback){
+    v = parseFloat(v);
+    if(isNaN(v)) v = fallback;
+    if(v < min) v = min;
+    if(v > max) v = max;
+    return v;
+  }
+
+  /* ---------- read state ---------- */
+  var LIMITS = {
+    spend: [0, 100000000], enq: [1, 100000],
+    book: [1, 100], close: [1, 100], fee: [0, 100000000]
+  };
+  var GROUPED = { spend:true, fee:true };
+
+  function raw(v){ return String(v).replace(/[^0-9.]/g, ''); }
+
+  function readState(){
+    var st = {};
+    ids.forEach(function(k){
+      var v = clampNum(raw(el[k].value), LIMITS[k][0], LIMITS[k][1], DEFAULTS[k]);
+      st[k] = (k === 'enq') ? Math.round(v) : v;
+    });
+    return st;
+  }
+
+  function display(k, v){
+    return GROUPED[k] ? Math.round(v).toLocaleString('en-NG') : String(v);
+  }
+
+  function model(s){
+    var convos  = s.enq * (s.book/100);
+    var clients = convos * (s.close/100);
+    var revenue = clients * s.fee;
+    return {
+      convos: convos,
+      clients: clients,
+      revenue: revenue,
+      cpe: s.enq > 0 ? s.spend / s.enq : 0,
+      cpc: clients > 0 ? s.spend / clients : Infinity,
+      roi: s.spend > 0 ? revenue / s.spend : Infinity,
+      profit: revenue - s.spend,
+      breakEven: s.fee * (s.book/100) * (s.close/100)
+    };
+  }
+
+  function revenueOf(enq, book, close, fee){
+    return enq * (book/100) * (close/100) * fee;
+  }
+
+  /* ---------- slider fill (webkit needs a var) ---------- */
+  function paintRange(r){
+    var min = parseFloat(r.min), max = parseFloat(r.max), v = parseFloat(r.value);
+    var pct = max > min ? ((v - min) / (max - min)) * 100 : 0;
+    r.style.setProperty('--pct', pct + '%');
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    var s = readState();
+    var m = model(s);
+
+    // headline
+    $('o_cpc').textContent = isFinite(m.cpc) ? nairaShort(m.cpc) : '\u2014';
+    $('o_cpc_s').textContent = m.clients >= 1
+      ? 'to acquire, all in'
+      : 'at this rate you win under one client a month';
+
+    $('o_roi').textContent = s.spend > 0 ? naira(m.roi).replace('\u20A6', '\u20A6') : 'No spend';
+    if(s.spend > 0){
+      $('o_roi').textContent = '\u20A6' + m.roi.toFixed(2);
+      $('o_roi_s').textContent = m.roi >= 3
+        ? 'healthy \u2014 this can be scaled'
+        : (m.roi >= 1 ? 'thin \u2014 the leak is after the click' : 'you are losing money on every naira');
+    } else {
+      $('o_roi').textContent = '\u2014';
+      $('o_roi_s').textContent = 'add your marketing spend above';
+    }
+
+    // ladder
+    var pctConvo = s.book, pctClient = s.book * (s.close/100);
+    $('l1').textContent = Math.round(s.enq);
+    $('l2').textContent = Math.round(m.convos * 10) / 10;
+    $('l3').textContent = Math.round(m.clients * 10) / 10;
+    $('b1').style.width = '100%';
+    $('b2').style.width = Math.max(pctConvo, 1.5) + '%';
+    $('b3').style.width = Math.max(pctClient, 1.5) + '%';
+
+    var lostA = s.enq - m.convos, lostB = m.convos - m.clients;
+    $('lost1').textContent = Math.round(lostA) + ' enquiries never got that far';
+    $('lost2').textContent = Math.round(lostB) + ' conversations did not convert';
+
+    // stats
+    $('o_cpe').textContent = s.spend > 0 ? nairaShort(m.cpe) : '\u20A60';
+    $('o_be').textContent = nairaShort(m.breakEven);
+    $('o_be_n').textContent = (s.spend > 0 && m.cpe > m.breakEven)
+      ? 'You are currently paying more than this'
+      : 'The most you can pay and still profit';
+
+    $('o_rev').textContent = nairaShort(m.revenue);
+    var cl = Math.round(m.clients * 10) / 10;
+    $('o_clients').textContent = cl + (cl === 1 ? ' client this month' : ' clients this month');
+
+    var p = $('o_profit');
+    p.textContent = nairaShort(m.profit);
+    p.className = 'v ' + (m.profit >= 0 ? 'good' : 'bad');
+
+    ['spend_r','enq_r','book_r','close_r','fee_r'].forEach(function(k){ paintRange(el[k]); });
+
+    renderLevers(s, m);
+  }
+
+  /* ---------- bottleneck finder ---------- */
+  function renderLevers(s, m){
+    var base = m.revenue;
+
+    var newBook  = Math.max(s.book, TARGET.book);
+    var newClose = Math.max(s.close, TARGET.close);
+    var newFee   = s.fee * TARGET.feeLift;
+    var newEnq   = s.enq * TARGET.enqLift;
+
+    var cards = [
+      {
+        title: 'Answer faster, follow up longer',
+        why: 'Lifting the share of enquiries that reach a real conversation is almost always the cheapest gain available, because it needs no budget \u2014 only a named person, a one-hour response rule, and follow-up that continues past message two.',
+        move: s.book >= TARGET.book
+              ? 'Your booking rate of ' + s.book + '% is already at a strong level'
+              : 'Booking rate: ' + s.book + '% \u2192 ' + TARGET.book + '%',
+        rev: revenueOf(s.enq, newBook, s.close, s.fee),
+        done: s.book >= TARGET.book
+      },
+      {
+        title: 'Prove more, persuade less',
+        why: 'Turning more conversations into paying clients comes from evidence rather than pressure: named outcomes with real detail, a written process, faces and an address, and a clear answer to what happens if an application is refused.',
+        move: s.close >= TARGET.close
+              ? 'Your close rate of ' + s.close + '% is already at a strong level'
+              : 'Close rate: ' + s.close + '% \u2192 ' + TARGET.close + '%',
+        rev: revenueOf(s.enq, s.book, newClose, s.fee),
+        done: s.close >= TARGET.close
+      },
+      {
+        title: 'Sell an outcome, not a service',
+        why: 'A specific offer for a specific audience \u2014 a named group, a defined result, a stated timeframe, risk reduced \u2014 stops being comparable to the agency down the road, which is what lets your average fee rise without losing the sale.',
+        move: 'Average fee: ' + nairaShort(s.fee) + ' \u2192 ' + nairaShort(newFee) + ' (+25%)',
+        rev: revenueOf(s.enq, s.book, s.close, newFee),
+        done: false
+      },
+      {
+        title: 'Reach better people, not more people',
+        why: 'Sharper targeting, stronger creative and a page that qualifies will lift enquiry volume on the same budget. Worth doing \u2014 but note where it ranks. Widening the funnel before sealing the leak simply pours more into the same gap.',
+        move: 'Enquiries: ' + Math.round(s.enq) + ' \u2192 ' + Math.round(newEnq) + ' on the same spend (+20%)',
+        rev: revenueOf(newEnq, s.book, s.close, s.fee),
+        done: false
+      }
+    ];
+
+    cards.forEach(function(c){ c.gain = c.rev - base; });
+    cards.sort(function(a,b){ return b.gain - a.gain; });
+
+    var html = '';
+    cards.forEach(function(c, i){
+      var cls = 'lever' + (i === 0 && c.gain > 0 ? ' top' : '') + (c.done ? ' done' : '');
+      var gainTxt = c.done
+        ? 'Already strong'
+        : '+' + nairaShort(c.gain);
+      var gainLabel = c.done
+        ? 'Keep it there \u2014 your gain is elsewhere'
+        : 'more revenue per month<br>' + nairaShort(c.gain * 12) + ' over a year';
+
+      html += '<div class="' + cls + '">'
+            +   '<span class="flag">Your biggest opportunity</span>'
+            +   '<div class="rank">Lever ' + (i+1) + ' of 4</div>'
+            +   '<h3>' + c.title + '</h3>'
+            +   '<p class="why">' + c.why + '</p>'
+            +   '<div class="move">' + c.move + '</div>'
+            +   '<div class="gain"><span class="g">' + gainTxt + '</span>'
+            +     '<span class="gl">' + gainLabel + '</span></div>'
+            + '</div>';
+    });
+    $('levers').innerHTML = html;
+
+    // compound
+    var compRev = revenueOf(newEnq, newBook, newClose, newFee);
+    $('c_rev').textContent = nairaShort(compRev);
+    var mult = base > 0 ? (compRev / base) : 0;
+    $('c_note').textContent = base > 0
+      ? mult.toFixed(1).replace(/\.0$/,'') + '\u00D7 your current revenue, on the same ' + nairaShort(s.spend) + ' spend'
+      : 'per month, on the same ' + nairaShort(s.spend) + ' spend';
+  }
+
+  /* ---------- wiring ---------- */
+  ids.forEach(function(k){
+    var num = el[k], rng = el[k+'_r'];
+
+    rng.addEventListener('input', function(){
+      num.value = display(k, parseFloat(rng.value));
+      render();
+    });
+
+    num.addEventListener('input', function(){
+      var v = parseFloat(raw(num.value));
+      if(!isNaN(v)){
+        var rmin = parseFloat(rng.min), rmax = parseFloat(rng.max);
+        rng.value = Math.min(Math.max(v, rmin), rmax);
+      }
+      render();
+    });
+
+    // tidy up on blur: clamp, and add thousand separators to money fields
+    num.addEventListener('blur', function(){
+      var st = readState();
+      num.value = display(k, st[k]);
+      rng.value = Math.min(Math.max(st[k], parseFloat(rng.min)), parseFloat(rng.max));
+      render();
+    });
+
+    num.addEventListener('focus', function(){ num.select(); });
+  });
+
+  $('reset').addEventListener('click', function(){
+    ids.forEach(function(k){
+      el[k].value = display(k, DEFAULTS[k]);
+      el[k+'_r'].value = DEFAULTS[k];
+    });
+    render();
+  });
+
+  $('yr').textContent = new Date().getFullYear();
+  render();
+})();
+</script>
+</body>
+</html>
