@@ -73,7 +73,15 @@
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+[[redirects]]
+  from = "/travel"
+  to = "/travel.html"
+  status = 200
 
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
 # 404 fallback
 [[redirects]]
   from = "/*"
