@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Results & Case Studies — Swellbridge Digital</title>
-<meta name="description" content="Real results from real clients. ₦40M deals closed, 2,000+ realtors recruited, hundreds of millions in property sales. See exactly what we've delivered.">
+<title>Results &amp; Case Studies · Swellbridge Digital</title>
+<meta name="description" content="Verified campaign results from Nigerian real estate, agriculture, travel and construction clients. Screenshot-backed lead figures, live client sites, and honest labelling of what is proven and what is client-reported.">
+<link rel="canonical" href="https://swellbridgedigital.com/case-studies.html">
 <link rel="stylesheet" href="css/main.css">
 <style>
   .cs-hero { padding: 5rem 0 4rem; }
@@ -35,7 +36,7 @@
   .stat-cell .lbl { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
 
   /* Case story */
-  .case-story {
+  .case-story { scroll-margin-top: 1.5rem;
     background: #fff;
     border: 1px solid var(--line);
     border-radius: var(--radius-xl);
@@ -121,6 +122,145 @@
   .case-story.dark .case-quote { border-top-color: rgba(255,255,255,0.15); color: #fff; }
   .case-quote-author { font-family: var(--font-body); font-style: normal; font-size: 0.9rem; color: var(--ink-mute); margin-top: 1rem; }
   .case-story.dark .case-quote-author { color: rgba(255,255,255,0.6); }
+
+  /* ---- Additions for the rebuilt page ---- */
+
+  /* Verification label chip */
+  .vlabel {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; padding: 0.35rem 0.75rem;
+    border-radius: 100px; border: 1px solid var(--line-strong);
+    color: var(--ink-mute); background: transparent;
+  }
+  .vlabel::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .vlabel.verified { color: var(--electric); border-color: rgba(46,107,255,0.35); }
+  .vlabel.attested { color: #8A6A22; border-color: rgba(212,162,76,0.5); }
+  .case-story.dark .vlabel { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.22); }
+  .case-story.dark .vlabel.attested { color: var(--amber); border-color: rgba(212,162,76,0.45); }
+
+  /* Footnote under a case */
+  .case-note {
+    margin-top: 2rem; padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.9rem; line-height: 1.6; color: var(--ink-mute);
+  }
+  .case-story.dark .case-note { border-top-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); }
+
+  /* Screenshot proof grid */
+  .proof-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem; margin-top: 2rem;
+  }
+  @media (max-width: 900px) { .proof-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .proof-grid { grid-template-columns: 1fr; } }
+  .proof-fig { margin: 0; }
+  .proof-fig img {
+    display: block; width: 100%; height: auto;
+    background: var(--bg-warm);
+    border: 1px solid var(--line); border-radius: var(--radius-md);
+  }
+  .case-story.dark .proof-fig img { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.18); }
+  .proof-fig figcaption {
+    margin-top: 0.6rem; font-size: 0.8rem; line-height: 1.5; color: var(--ink-mute);
+  }
+  .case-story.dark .proof-fig figcaption { color: rgba(255,255,255,0.6); }
+
+  /* Testimonial screenshots keep their natural height */
+  .proof-fig.natural { margin-top: 1.25rem; }
+
+  /* ===== Scannable case layout ===== */
+  .case-sum {
+    font-size: 1.12rem; line-height: 1.6; margin: 0 0 1.5rem;
+    max-width: 52rem; font-weight: 500;
+  }
+  .case-story.dark .case-sum { color: rgba(255,255,255,0.92); }
+  .num-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    margin: 0 0 1.5rem;
+  }
+  @media (max-width: 640px) { .num-row { grid-template-columns: 1fr; gap: 0.5rem; } }
+  .case-more { border-top: 1px solid var(--line); padding-top: 0.25rem; }
+  .case-story.dark .case-more { border-top-color: rgba(255,255,255,0.15); }
+  .case-more > summary {
+    cursor: pointer; list-style: none; padding: 0.85rem 0;
+    font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+    font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.6rem;
+  }
+  .case-story.dark .case-more > summary { color: var(--amber); }
+  .case-more > summary::-webkit-details-marker { display: none; }
+  .case-more > summary::after {
+    content: "+"; font-size: 1.25rem; line-height: 1; font-weight: 400;
+    margin-left: auto; transition: transform 0.2s ease;
+  }
+  .case-more[open] > summary::after { content: "\2212"; }
+  .case-more > summary:hover { opacity: 0.7; }
+  .case-more[open] > summary { border-bottom: 1px solid var(--line); margin-bottom: 1.5rem; }
+  .case-story.dark .case-more[open] > summary { border-bottom-color: rgba(255,255,255,0.15); }
+
+  /* ===== Results at a glance ===== */
+  .glance { border-top: 1px solid var(--line); margin-top: 2.5rem; }
+  .glance-row {
+    display: grid; grid-template-columns: 1.4fr 1fr auto;
+    gap: 1rem; align-items: baseline;
+    padding: 1.1rem 0; border-bottom: 1px solid var(--line);
+    text-decoration: none; color: inherit;
+  }
+  .glance-row:hover { background: var(--bg-warm); }
+  .glance-who { font-weight: 600; font-size: 1rem; }
+  .glance-what { font-size: 0.92rem; color: var(--muted); }
+  .glance-num {
+    font-family: 'Fraunces', Georgia, serif; font-size: 1.35rem;
+    color: var(--navy); white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .glance-row { grid-template-columns: 1fr auto; gap: 0.35rem 1rem; padding: 1rem 0; }
+    .glance-what { grid-column: 1 / -1; }
+  }
+
+  .hero-quote {
+    margin: 2rem 0 0; padding: 1.25rem 0 0;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    font-family: 'Fraunces', Georgia, serif; font-style: italic;
+    font-size: 1.15rem; line-height: 1.6; color: #fff; max-width: 46rem;
+  }
+  .hero-quote cite {
+    display: block; margin-top: 0.75rem;
+    font-family: 'Inter', system-ui, sans-serif; font-style: normal;
+    font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  /* Lightweight case entry (no numbers column) */
+  .case-lite p { font-size: 1.02rem; line-height: 1.65; max-width: 68ch; }
+
+  /* Honesty strip */
+  .honesty { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.5rem; }
+  @media (max-width: 800px) { .honesty { grid-template-columns: 1fr; gap: 1.75rem; } }
+  .honesty h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
+  .honesty p { font-size: 0.95rem; line-height: 1.6; color: var(--ink-soft); }
+
+  /* Numbered process steps */
+  .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; margin-top: 3rem; }
+  @media (max-width: 800px) { .steps { grid-template-columns: 1fr; gap: 2rem; } }
+  .step-n {
+    font-family: var(--font-display); font-size: 2.4rem; line-height: 1;
+    font-style: italic; color: var(--amber); margin-bottom: 0.75rem;
+  }
+  .step h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+  /* Copy portfolio + link list */
+  .copy-item h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .copy-item p { font-size: 0.95rem; line-height: 1.6; color: var(--ink-soft); }
+  .link-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 1.5rem; flex-wrap: wrap;
+    padding: 1.5rem 0; border-bottom: 1px solid var(--line);
+  }
+  .link-row:last-child { border-bottom: none; }
+  .link-row a { font-family: var(--font-display); font-size: 1.35rem; color: var(--ink); }
+  .link-row a:hover { color: var(--electric); }
+  .link-row span { font-size: 0.9rem; color: var(--ink-mute); max-width: 46ch; }
 </style>
 </head>
 <body>
@@ -159,152 +299,682 @@
 <section class="cs-hero">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Results & Case Studies</span>
-      <h1>Real businesses. <em>Real revenue.</em> Real receipts.</h1>
-      <p class="lead">No "engagement up 200%" nonsense. These are the actual outcomes we've helped Nigerian businesses produce — measured in money, sales, and structural growth.</p>
+      <span class="eyebrow">Results &amp; Case Studies</span>
+      <h1>Nine engagements. <em>Receipts where I have them.</em></h1>
+      <p class="lead">Below is what I have actually built and run for clients across real estate, agriculture, travel and construction. Where a number comes from an Ads Manager screenshot, it is marked verified and the screenshot is on the page. Where a number comes from the client rather than a dashboard I can show you, it is marked client-attested. Nothing here is estimated.</p>
+      <blockquote class="hero-quote">
+        "The deal did not come easy, but your expert guidance and well-structured ads brought in the right leads. With consistent follow-ups, we closed it."
+        <cite>Iyabode Abiola, Natweng Realtors, publicly on Facebook</cite>
+      </blockquote>
     </div>
 
     <div class="stat-banner reveal">
-      <div class="stat-cell"><div class="num">2,000<em>+</em></div><div class="lbl">Realtors recruited</div></div>
-      <div class="stat-cell"><div class="num">₦40M<em>+</em></div><div class="lbl">Single deal closed</div></div>
-      <div class="stat-cell"><div class="num">10 <em>acres</em></div><div class="lbl">Of land sold</div></div>
-      <div class="stat-cell"><div class="num">100s<em> of ₦M</em></div><div class="lbl">In aggregate revenue</div></div>
+      <div class="stat-cell"><div class="num">6,655</div><div class="lbl">Leads generated, screenshot-verified</div></div>
+      <div class="stat-cell"><div class="num">₦4.3M<em>+</em></div><div class="lbl">Meta spend managed in campaigns shown</div></div>
+      <div class="stat-cell"><div class="num">₦171</div><div class="lbl">Lowest verified cost per lead</div></div>
+      <div class="stat-cell"><div class="num">987</div><div class="lbl">Community members built</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad-sm">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Results at a glance</span>
+      <h2>Every engagement, <em>one line each.</em></h2>
+      <p class="lead mt-sm">Tap any row to jump to it. Every case opens with a plain summary and the numbers, then expands if you want the detail.</p>
+    </div>
+    <div class="glance mt-lg reveal">
+      <a class="glance-row" href="#case-1">
+        <span class="glance-who">Natweng Realtors</span>
+        <span class="glance-what">Meta campaign and WhatsApp follow-up rebuilt</span>
+        <span class="glance-num">Deal closed</span>
+      </a>
+      <a class="glance-row" href="#case-2">
+        <span class="glance-who">Landberry and GLI Farms</span>
+        <span class="glance-what">Webinar funnels for farmland investment</span>
+        <span class="glance-num">4,579 leads</span>
+      </a>
+      <a class="glance-row" href="#case-3">
+        <span class="glance-who">Landberry</span>
+        <span class="glance-what">Realtor recruitment network</span>
+        <span class="glance-num">2,000+ realtors</span>
+      </a>
+      <a class="glance-row" href="#case-4">
+        <span class="glance-who">Lagos developer</span>
+        <span class="glance-what">Diaspora and local funnels, kept separate</span>
+        <span class="glance-num">937 leads</span>
+      </a>
+      <a class="glance-row" href="#case-5">
+        <span class="glance-who">Same developer</span>
+        <span class="glance-what">Four estate funnels plus a realtor engine</span>
+        <span class="glance-num">1,065 registrations</span>
+      </a>
+      <a class="glance-row" href="#case-6">
+        <span class="glance-who">CPAL, Asaba</span>
+        <span class="glance-what">Site, realtor hub, tracking and ads</span>
+        <span class="glance-num">47 at ₦343</span>
+      </a>
+      <a class="glance-row" href="#case-7">
+        <span class="glance-who">TONDIV Group</span>
+        <span class="glance-what">Two-division construction and logistics site</span>
+        <span class="glance-num">Live site</span>
+      </a>
+      <a class="glance-row" href="#case-8">
+        <span class="glance-who">Betini Trips</span>
+        <span class="glance-what">15-page travel operator site, full build</span>
+        <span class="glance-num">Live site</span>
+      </a>
+      <a class="glance-row" href="#case-9">
+        <span class="glance-who">Benthess</span>
+        <span class="glance-what">44-page mobile-first sales proposal</span>
+        <span class="glance-num">Scope of work</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section-pad-sm section-warm">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">How to read this page</span>
+      <h2 class="mt-sm">Three labels, <em>used honestly.</em></h2>
+    </div>
+
+    <div class="honesty reveal">
+      <div>
+        <h3>Verified</h3>
+        <p>The figure appears in a platform dashboard and the screenshot is published on this page, with the ad account number removed.</p>
+      </div>
+      <div>
+        <h3>Client-attested</h3>
+        <p>The client told me the outcome and I believe them, but the proof sits in their CRM and their bank, not mine. I will not present it as though I measured it.</p>
+      </div>
+      <div>
+        <h3>Scope of work</h3>
+        <p>I built the system. Performance data belongs to the client and has not been released for publication. The work is shown; no numbers are claimed.</p>
+      </div>
+    </div>
+
+    <p class="lead mt-md reveal">If a marketer shows you numbers without telling you which of these three they are, that is the thing to ask about.</p>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Capability in one line each</span>
+      <h2 class="mt-sm">What I am <em>actually hired for.</em></h2>
+    </div>
+
+    <div class="grid grid-4 mt-lg reveal">
+      <div class="card">
+        <h3>Paid acquisition</h3>
+        <p>Meta campaigns built from audience research and original creative, measured on cost per qualified lead rather than reach.</p>
+      </div>
+      <div class="card">
+        <h3>Funnel architecture</h3>
+        <p>Opt-in pages, sales pages, lead magnets, nurture sequences and the tracking that connects them.</p>
+      </div>
+      <div class="card">
+        <h3>Conversion websites</h3>
+        <p>Custom-coded sites built as sales instruments, deployed live, with credentials and trust evidence structured into the page.</p>
+      </div>
+      <div class="card">
+        <h3>Distribution systems</h3>
+        <p>Realtor networks, WhatsApp communities and sales-team enablement, so the client is not renting every customer from Meta forever.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section-pad">
   <div class="container">
+
     <!-- CASE 1 -->
-    <div class="case-story reveal">
+    <div id="case-1" class="case-story reveal">
       <div class="case-head">
-        <div>
-          <span class="tag">Real Estate · Lagos</span>
-        </div>
-        <div class="meta">Engagement: 2024 · Ongoing</div>
+        <div><span class="tag">Real Estate · Lagos</span></div>
+        <div class="meta">Natweng Realtors · <span class="vlabel">Public testimonial</span></div>
       </div>
-      <h2 class="case-title">How Natweng Realtors closed a <em>₦40M duplex deal</em> from a single Facebook ad campaign.</h2>
+      <h2 class="case-title">A duplex deal closed, <em>credited publicly</em> by the client's CEO.</h2>
 
-      <div class="case-grid">
+      <p class="case-sum">Rebuilt the campaign and the follow-up behind it. The client closed the deal and credited it publicly, under her own name, where anyone can read it.</p>
+
+      <div class="num-row">
+          <div class="case-num">
+            <div class="big">₦40M</div>
+            <div class="lbl">Deal value (client-attested)</div>
+          </div>
+          <div class="case-num">
+            <div class="big">Closed</div>
+            <div class="lbl">Confirmed in public testimonial</div>
+          </div>
+          <div class="case-num">
+            <div class="big">WhatsApp</div>
+            <div class="lbl">Follow-up channel that carried it</div>
+          </div>
+      </div>
+
+      <details class="case-more" open>
+        <summary>Read the full story</summary>
+
         <div class="case-body">
-          <p><strong>The situation:</strong> Natweng Realtors had a quality inventory of properties but was burning through Facebook ad budget without converting leads into actual sales. The leads were coming in — but most went cold within 48 hours.</p>
-          <p><strong>What we did:</strong> We rebuilt the ad funnel from scratch. New audience research, new pre-frame copy, and most importantly — a WhatsApp-first follow-up sequence that nurtured prospects from interest to inspection.</p>
-          <p><strong>The result:</strong> Within the campaign window, Natweng closed a single duplex deal worth ₦40 million. Plus dozens more conversations that fed into future sales.</p>
+          <p><strong>The situation:</strong> Natweng Realtors had good inventory and was spending on Facebook without converting the leads into inspections. Leads arrived and went cold.</p>
+          <p><strong>What I did:</strong> Rebuilt the campaign from the audience up, then rebuilt what happened after the click. New research, new pre-frame copy, and a WhatsApp-first follow-up sequence carrying prospects from enquiry to inspection.</p>
+          <p><strong>The result:</strong> The client closed the deal and said so publicly on Facebook, under her own name, where anyone can read it. Iyabode Abiola puts the deal value at ₦40M. That figure is hers, not from a dashboard I control, so it is marked client-attested. What the public comment independently confirms is the close itself and what she credits it to.</p>
         </div>
 
-        <div class="case-numbers">
-          <div class="case-num">
-            <div class="big">₦40M<em>+</em></div>
-            <div class="lbl">Single deal closed</div>
-          </div>
-          <div class="case-num">
-            <div class="big">~7x<em></em></div>
-            <div class="lbl">Return on ad spend</div>
-          </div>
-          <div class="case-num">
-            <div class="big">90 <em>days</em></div>
-            <div class="lbl">From launch to close</div>
-          </div>
-        </div>
-      </div>
-
-      <p class="case-quote">"Working with Emmanuel was a game-changer. The expert guidance and well-structured ads brought in the right leads. With consistent follow-ups, we closed a ₦40 million deal."</p>
-      <p class="case-quote-author">— Iyabode Abiola, CEO, Natweng Realtors</p>
+      <p class="case-quote">"The deal did not come easy, but your expert guidance and well-structured ads brought in the right leads. With consistent follow-ups, we closed it."</p>
+      <p class="case-quote-author">Iyabode Abiola, Natweng Realtors. Public Facebook comment, 2025. Quoted verbatim.</p>
+      <figure class="proof-fig natural">
+        <img src="assets/proof/iyabode-facebook-comment.jpg" alt="Public Facebook comment from Iyabode Abiola of Natweng Realtors crediting the campaign for a closed deal" loading="lazy" width="706" height="700">
+      </figure>
+      </details>
     </div>
 
     <!-- CASE 2 -->
-    <div class="case-story dark reveal">
+    <div id="case-2" class="case-story dark reveal">
       <div class="case-head">
-        <div><span class="tag">Real Estate · Lagos</span></div>
-        <div class="meta">Engagement: 2023–2024</div>
+        <div><span class="tag">Agriculture &amp; Real Estate · Lagos and Oyo</span></div>
+        <div class="meta">Landberry and GLI Farms · Chapter one · <span class="vlabel verified">Verified</span></div>
       </div>
-      <h2 class="case-title">How we built a <em>2,000-realtor army</em> for a major Lagos developer in 6 months.</h2>
+      <h2 class="case-title">How a farmland investment offer produced <em>4,579 leads</em> at a verified cost per lead as low as ₦171.</h2>
 
-      <div class="case-grid">
+      <p class="case-sum">Farmland investment offers sold through webinars rather than hard-sell ads. 4,579 leads, at a verified cost per lead as low as ₦171.</p>
+
+      <div class="num-row">
+          <div class="case-num">
+            <div class="big">4,579</div>
+            <div class="lbl">Verified form leads</div>
+          </div>
+          <div class="case-num">
+            <div class="big">₦171</div>
+            <div class="lbl">Lowest verified cost per lead</div>
+          </div>
+          <div class="case-num">
+            <div class="big">3,744</div>
+            <div class="lbl">Unique deduplicated contacts</div>
+          </div>
+      </div>
+
+      <details class="case-more">
+        <summary>Read the full story</summary>
+
         <div class="case-body">
-          <p><strong>The situation:</strong> A Lagos developer with serious inventory was relying entirely on direct ads to sell. Cost per acquisition was painful, scaling was difficult, and they had no leverage when Meta's algorithms shifted.</p>
-          <p><strong>What we did:</strong> We architected a parallel realtor recruitment engine — recruitment ads, onboarding sequences, training content, a private community, and a commission system. Realtors became distributed salespeople, each selling to their own networks.</p>
-          <p><strong>The result:</strong> Within six months, the developer had over 2,000 active realtors promoting their projects. Net result: 10 acres of land sold through realtor-driven sales alone, plus a permanent distribution moat competitors couldn't replicate.</p>
+          <p><strong>The situation:</strong> Landberry and GLI Farms were selling farmland and plantation investments into a market that treats agriculture offers with suspicion, for good reason. Cold traffic does not hand over a phone number for a plantation unless the offer earns it first.</p>
+          <p><strong>What I did:</strong> I built a trust-first acquisition playbook rather than a hard-sell one. Webinar registration as the primary entry point, so prospects met the principals before being asked for money. Separate campaigns for separate readiness levels: beginner realtors, advanced realtors, network marketers, cold land buyers and the parents audience for the Coral Kids offer. Every registration flowed into a WhatsApp group where the offer was explained across days rather than in a single ad.</p>
+          <p><strong>The result:</strong> Across the campaigns visible in the screenshots below, 4,579 form leads at ₦2,105,187 in spend. The strongest cold-traffic campaign, Golden Acres in Obafemi Owode, delivered 372 leads at ₦197.62 each. The Golden Acres webinar campaign hit ₦170.59. The largest single campaign, the GLI realtor webinar, brought 1,742 leads at ₦448.43. Behind it all, three WhatsApp communities totalling 987 members, and a 22-file export pile consolidated down to 3,744 unique deduplicated contacts.</p>
         </div>
 
-        <div class="case-numbers">
-          <div class="case-num">
-            <div class="big">2,000<em>+</em></div>
-            <div class="lbl">Active realtors recruited</div>
-          </div>
-          <div class="case-num">
-            <div class="big">10 <em>acres</em></div>
-            <div class="lbl">Sold via realtor network</div>
-          </div>
-          <div class="case-num">
-            <div class="big">6 <em>months</em></div>
-            <div class="lbl">From zero to full network</div>
-          </div>
-        </div>
+
+      <div class="proof-grid">
+        <figure class="proof-fig">
+          <img src="assets/proof/golden-acres-cold-traffic.jpg" alt="Ads Manager results for the Golden Acres Obafemi Owode cold traffic campaign" loading="lazy" width="1200" height="675">
+          <figcaption>Golden Acres Obafemi Owode, cold traffic: 372 leads, ₦197.62 cost per lead</figcaption>
+        </figure>
+        <figure class="proof-fig">
+          <img src="assets/proof/gli-realtor-webinar.jpg" alt="Ads Manager results for the GLI realtor webinar campaign" loading="lazy" width="1200" height="675">
+          <figcaption>GLI Realtor Webinar: 1,742 leads, ₦448.43 cost per lead</figcaption>
+        </figure>
+        <figure class="proof-fig">
+          <img src="assets/proof/smart-farmer-leads.jpg" alt="Ads Manager results for the smart farmer leads campaign" loading="lazy" width="1200" height="675">
+          <figcaption>Smart farmer leads: 744 leads, ₦260.98 cost per lead</figcaption>
+        </figure>
+        <figure class="proof-fig">
+          <img src="assets/proof/coral-kids-webinar.jpg" alt="Ads Manager results for the Coral Kids webinar campaign" loading="lazy" width="1200" height="675">
+          <figcaption>Coral Kids webinar: 170 leads, ₦507.50 cost per lead</figcaption>
+        </figure>
+        <figure class="proof-fig">
+          <img src="assets/proof/golden-acres-webinar.jpg" alt="Ads Manager results for the Golden Acres webinar campaign" loading="lazy" width="1200" height="675">
+          <figcaption>Golden Acres webinar: 168 leads, ₦170.59 cost per lead</figcaption>
+        </figure>
+        <figure class="proof-fig">
+          <img src="assets/proof/agro-millionaire-whatsapp-group.jpg" alt="WhatsApp group information screen showing member count" loading="lazy" width="1200" height="675">
+          <figcaption>Agro Millionaire Webinar WhatsApp group: 729 members</figcaption>
+        </figure>
       </div>
+
+      <p class="case-note">Lead volume is mine to prove and I have proved it. Conversion from lead to closed sale sat with the client's sales team and their CRM, so I am not publishing a revenue figure for this engagement.</p>
+      </details>
     </div>
 
     <!-- CASE 3 -->
-    <div class="case-story reveal">
+    <div id="case-3" class="case-story reveal">
       <div class="case-head">
-        <div><span class="tag">Real Estate · Benin City</span></div>
-        <div class="meta">Engagement: 2023</div>
+        <div><span class="tag">Real Estate · Lagos</span></div>
+        <div class="meta">Landberry · Chapter two · <span class="vlabel attested">Client-attested</span></div>
       </div>
-      <h2 class="case-title">How a Benin City developer generated <em>hundreds of millions in sales</em> from a new market.</h2>
+      <h2 class="case-title">Building a <em>2,000-realtor distribution network</em> so the client stopped renting every buyer from Meta.</h2>
 
-      <div class="case-grid">
+      <p class="case-sum">Built the same client a realtor network so they stopped buying every single buyer from Meta.</p>
+
+      <div class="num-row">
+          <div class="case-num">
+            <div class="big">2,000<em>+</em></div>
+            <div class="lbl">Realtors recruited (client-attested)</div>
+          </div>
+          <div class="case-num">
+            <div class="big">10 <em>acres</em></div>
+            <div class="lbl">Sold via the network (client-attested)</div>
+          </div>
+          <div class="case-num">
+            <div class="big">504</div>
+            <div class="lbl">Realtor recruitment leads, verified in screenshots</div>
+          </div>
+      </div>
+
+      <details class="case-more">
+        <summary>Read the full story</summary>
+
         <div class="case-body">
-          <p><strong>The situation:</strong> A Benin-based real estate developer wanted to scale beyond word-of-mouth referrals. The Lagos-style marketing playbooks they'd seen online didn't translate to the Benin buyer — different psychology, different price sensitivity, different objections.</p>
-          <p><strong>What we did:</strong> We built a Benin-specific campaign architecture. Local language nuances in copy, locally relevant social proof, lower-friction lead capture, and a phone-first (not WhatsApp-first) follow-up system.</p>
-          <p><strong>The result:</strong> Hundreds of millions of Naira in property sales over the engagement period. New buyer demographics opened up. The developer became one of the most recognised names in their market.</p>
+          <p><strong>The situation:</strong> The same client was buying every single buyer through paid ads. That works until costs rise or an algorithm shifts, and then the pipeline is gone. There was no owned distribution.</p>
+          <p><strong>What I did:</strong> I ran a parallel recruitment engine alongside the buyer campaigns: recruitment ads segmented by experience level, onboarding sequences, training content, a private community and a commission structure. The screenshots in chapter one show those recruitment campaigns by name, including the beginner and advanced realtor funnels.</p>
+          <p><strong>The result:</strong> The client reports a network of over 2,000 realtors and 10 acres of land sold through realtor-driven sales. I generated and can prove the recruitment leads. The network size and the acreage are the client's figures, from the client's records.</p>
         </div>
 
-        <div class="case-numbers">
-          <div class="case-num">
-            <div class="big">100s<em> of ₦M</em></div>
-            <div class="lbl">In property sales</div>
-          </div>
-          <div class="case-num">
-            <div class="big">New <em>market</em></div>
-            <div class="lbl">Successfully opened</div>
-          </div>
-          <div class="case-num">
-            <div class="big">Top 3<em></em></div>
-            <div class="lbl">Brand recognition locally</div>
-          </div>
-        </div>
-      </div>
+      <p class="case-note">Recruitment lead volume: verified. Network size and sales: client-attested.</p>
+      </details>
     </div>
 
     <!-- CASE 4 -->
-    <div class="case-story dark reveal">
+    <div id="case-4" class="case-story dark reveal">
+      <div class="case-head">
+        <div><span class="tag">Real Estate · Lagos and diaspora</span></div>
+        <div class="meta">Lagos waterfront developer · Chapter one · <span class="vlabel">Verified</span></div>
+      </div>
+      <h2 class="case-title">Two buyers, two funnels: <em>segmenting diaspora from local</em> instead of averaging them.</h2>
+
+      <p class="case-sum">A Lagos professional and a Nigerian abroad are not the same buyer. Two separate funnels, 937 leads, every local campaign under its cost benchmark.</p>
+
+      <div class="num-row">
+          <div class="case-num">
+            <div class="big">784</div>
+            <div class="lbl">Local buyer leads, verified</div>
+          </div>
+          <div class="case-num">
+            <div class="big">153</div>
+            <div class="lbl">Diaspora buyer leads, verified</div>
+          </div>
+          <div class="case-num">
+            <div class="big">₦362</div>
+            <div class="lbl">Lowest verified local cost per lead</div>
+          </div>
+      </div>
+
+      <details class="case-more">
+        <summary>Read the full story</summary>
+
+        <div class="case-body">
+          <p><strong>The situation:</strong> A Lagos developer was marketing waterfront plots to two buyers who share almost nothing. A Lagos professional with ₦5M and a Nigerian abroad with a currency advantage do not respond to the same page, the same proof, or the same price anchor. Averaging them loses both.</p>
+          <p><strong>What I did:</strong> Built two complete paths. Separate ad angles, opt-in pages, lead magnets, sales page copy and objection handling. The diaspora path led on verification, remote inspection and documented title, because the buyer's real fear is being defrauded from four thousand miles away. The local path led on the infrastructure corridor and the entry price. Benchmarks were set and reported separately per audience, because a ₦20,000 diaspora lead and a ₦2,000 local lead are not comparable and should never be averaged into one number.</p>
+          <p><strong>The result:</strong> Across the buyer campaigns visible in the dashboard below, 784 local leads and 153 diaspora leads. Every local campaign came in under the agreed ₦2,000 benchmark, the cheapest at ₦362. Three of the four diaspora campaigns came in under the agreed ₦20,000 benchmark, the cheapest at ₦6,091.</p>
+        </div>
+
+
+      <div class="proof-grid">
+        <figure class="proof-fig">
+          <img src="assets/proof/dev-campaigns-lifetime.jpg" alt="Meta Ads Manager showing local, diaspora and realtor campaign results with campaign names redacted" loading="lazy">
+          <figcaption>Campaign results to date. Client name and estate names redacted at the client's request.</figcaption>
+        </figure>
+        <figure class="proof-fig">
+          <img src="assets/proof/dev-campaigns-30day.jpg" alt="The same Ads Manager account filtered to the last thirty days" loading="lazy">
+          <figcaption>The same account over thirty days, showing the campaigns are live rather than historical.</figcaption>
+        </figure>
+      </div>
+
+      <p class="case-note">One diaspora campaign was running above its benchmark at the time of these screenshots and was rebuilt with new creatives rather than left to spend. I would rather show that row than crop it out.</p>
+      </details>
+    </div>
+
+    <!-- CASE 5 -->
+    <div id="case-5" class="case-story reveal">
       <div class="case-head">
         <div><span class="tag">Real Estate · Lagos</span></div>
-        <div class="meta">Engagement: 2024</div>
+        <div class="meta">Same developer · Chapter two · <span class="vlabel">Verified</span></div>
       </div>
-      <h2 class="case-title">How a solo Lagos realtor sold <em>3 lands</em> from a campaign that cost less than her phone bill.</h2>
+      <h2 class="case-title">Four estate offers, a realtor engine, <em>one tracking spine.</em></h2>
 
-      <div class="case-grid">
+      <p class="case-sum">Four estate funnels on one tracking spine, plus a recruitment engine that has registered 1,065 realtors at ₦413 each.</p>
+
+      <div class="num-row">
+          <div class="case-num">
+            <div class="big">1,065</div>
+            <div class="lbl">Realtor registrations, verified</div>
+          </div>
+          <div class="case-num">
+            <div class="big">₦413</div>
+            <div class="lbl">Cost per registration against a ₦1,000 benchmark</div>
+          </div>
+          <div class="case-num">
+            <div class="big">22</div>
+            <div class="lbl">Campaigns running in the account</div>
+          </div>
+      </div>
+
+      <details class="case-more">
+        <summary>Read the full story</summary>
+
         <div class="case-body">
-          <p><strong>The situation:</strong> An independent realtor had a small marketing budget (under ₦100k/month) and was competing against firms spending 10x more. She needed an asymmetric edge.</p>
-          <p><strong>What we did:</strong> We focused entirely on direct-response, highly targeted micro-campaigns aimed at very specific buyer profiles. Tight audience, sharp copy, no wasted spend. Plus a simple WhatsApp follow-up sequence she could run herself.</p>
-          <p><strong>The result:</strong> Three lands sold within the campaign period. Her cost per closed sale was roughly ₦25,000 — a number most agencies would call impossible in Nigerian real estate.</p>
+          <p><strong>The situation:</strong> Three further estate offers needed to go live inside a fixed window, each with a different buyer, price point and qualifying question. One was a mortgage product rather than an outright sale. Alongside them, the developer needed a sales force, not just buyers.</p>
+          <p><strong>What I did:</strong> Built each offer as a complete funnel rather than a landing page: opt-in, lead magnet, sales page, ad sets and nurture. The mortgage offer was built as a qualification path rather than a sales path, because that product should ask whether the buyer qualifies before it asks for a deposit. Conversion tracking ran server-side into the client's CRM so lead source stayed attached to the record instead of dying at the form. A separate recruitment campaign ran in parallel to build the realtor base.</p>
+          <p><strong>The result:</strong> The recruitment campaign has produced 1,065 completed realtor registrations at ₦412.56 each, against an agreed benchmark of ₦1,000. It is the highest-volume campaign in an account currently running 22 campaigns. Two things I declined to publish along the way: a brochure claim of guaranteed annual returns, and celebrity imagery without written usage rights.</p>
         </div>
 
-        <div class="case-numbers">
+      <p class="case-note">Registration counts and costs are visible in the screenshots above. What happens after registration sits in the client's sales records, so no closing figures are claimed here.</p>
+      </details>
+    </div>
+
+    <!-- CASE 6 -->
+    <div id="case-6" class="case-story dark reveal">
+      <div class="case-head">
+        <div><span class="tag">Real Estate · Asaba, Delta State</span></div>
+        <div class="meta">CPAL · Live site · <span class="vlabel">Verified</span></div>
+      </div>
+      <h2 class="case-title">A website, a realtor engine and the ads to feed them, <em>built as one system.</em></h2>
+
+      <p class="case-sum">Website, realtor engine, tracking and ads built as one system rather than four separate jobs.</p>
+
+      <div class="num-row">
           <div class="case-num">
-            <div class="big">3 <em>lands</em></div>
-            <div class="lbl">Sold from one campaign</div>
+            <div class="big">47</div>
+            <div class="lbl">Realtor registrations at ₦343 each</div>
           </div>
           <div class="case-num">
-            <div class="big">~₦25k<em></em></div>
-            <div class="lbl">Cost per closed sale</div>
+            <div class="big">27</div>
+            <div class="lbl">Buyer leads, verified</div>
           </div>
           <div class="case-num">
-            <div class="big">Under <em>₦100k</em></div>
-            <div class="lbl">Monthly ad budget</div>
+            <div class="big">12</div>
+            <div class="lbl">Pages, custom built</div>
           </div>
+      </div>
+
+      <details class="case-more">
+        <summary>Read the full story</summary>
+
+        <div class="case-body">
+          <p><strong>The situation:</strong> Chuks Properties Academy Limited sells land in Asaba and needed more than a brochure site. They needed a way for realtors to sell on their behalf and a way for buyers to arrive already warm, with both measured properly.</p>
+          <p><strong>What I did:</strong> Built the twelve-page site end to end, including a plot availability board, self-hosted fonts and WhatsApp-first calls to action throughout. Then the engine: a Realtor Hub where realtors generate their own buyer referral links and pull sales materials, and a recruitment landing page with a two-step form that drops new realtors straight into the CPAL community group.</p>
+          <p>Tracking runs on Meta Pixel plus the Conversions API through a serverless function that hashes buyer details, formats Nigerian phone numbers correctly and deduplicates against the browser pixel, with realtor registrations kept as a separate event from buyer leads so the two are never confused. I also produced the buyer and realtor ad creatives, video scripts and ad copy, then ran the campaigns.</p>
+          <p><strong>The result:</strong> 47 realtor registrations at ₦343.14 each and 27 buyer leads, from ₦70,400 in spend. Hosting, domain and buyer data sit in the client's own accounts, not mine, so they own the asset outright.</p>
         </div>
+
+
+      <div class="proof-grid">
+        <figure class="proof-fig">
+          <img src="assets/proof/cpal-campaigns.jpg" alt="Meta Ads Manager showing the CPAL realtor and buyer lead campaigns with cost per result" loading="lazy">
+          <figcaption>Realtor and buyer campaigns, run from the Swellbridge ad account.</figcaption>
+        </figure>
+      </div>
+
+      <p class="case-note">Live at <a href="https://cpalgroup.com" target="_blank" rel="noopener">cpalgroup.com</a>, with the realtor engine at <a href="https://cpalgroup.com/realtor-hub/" target="_blank" rel="noopener">cpalgroup.com/realtor-hub</a>. Swellbridge is credited in the footer.</p>
+      </details>
+    </div>
+
+    <!-- CASE 7 -->
+    <div id="case-7" class="case-story reveal">
+      <div class="case-head">
+        <div><span class="tag">Construction &amp; Logistics · Benin City</span></div>
+        <div class="meta">TONDIV Group · <span class="vlabel">Live site</span></div>
+      </div>
+      <h2 class="case-title">One holding company, two divisions, <em>one standard of trust.</em></h2>
+
+      <p class="case-sum">One holding company, two unrelated divisions, one site that puts each visitor in the right world within a second.</p>
+
+      <div class="num-row">
+          <div class="case-num">
+            <div class="big">2</div>
+            <div class="lbl">Divisions, one identity</div>
+          </div>
+          <div class="case-num">
+            <div class="big">6</div>
+            <div class="lbl">Pages</div>
+          </div>
+          <div class="case-num">
+            <div class="big">Live</div>
+            <div class="lbl"><a href="https://tondivgroup.com" target="_blank" rel="noopener">tondivgroup.com</a></div>
+          </div>
+      </div>
+
+      <details class="case-more">
+        <summary>Read the full story</summary>
+
+        <div class="case-body">
+          <p><strong>The situation:</strong> TONDIV Group runs two businesses that share nothing operationally. TONDIV Construction does architecture, civil and structural engineering, real estate development and project supervision. TK Ventures moves people, parcels and freight between Nigeria and the Republic of Benin, plus hotel and vacation arrangements. Anthony needed to send a construction client and a transport client to the same company without either feeling they had landed in the wrong place.</p>
+          <p><strong>What I did:</strong> Built a multi-page site where each division owns its own deep page and its own colour zone, navy and gold for construction, navy and green for TK Ventures, so a shared link lands the visitor inside their world immediately.</p>
+          <p>The trust architecture was built on things that can be checked. Building since 2008. Four years of study, practical training and site work in Türkiye, covering structural method, interior finishing, security systems, joinery and flooring. Five named projects with real addresses. Direct access to the principal engineer, stated plainly, because in this market that is the actual differentiator.</p>
+          <p>Two project photographs showed visible stop-work markings. I excluded them and told the client why. Every enquiry form, construction, transport and general, delivers a pre-formatted WhatsApp message rather than an email that waits in an inbox.</p>
+          <p><strong>The result:</strong> Live at tondivgroup.com, deployed through GitHub and Netlify with DNS pointed and HTTPS provisioned. Swellbridge is credited in the footer.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- CASE 8 -->
+    <div id="case-8" class="case-story dark reveal">
+      <div class="case-head">
+        <div><span class="tag">Travel &amp; Tourism · Lagos</span></div>
+        <div class="meta">Betini Trips &amp; Tours Services Ltd · Full build · <span class="vlabel">Live site</span></div>
+      </div>
+      <h2 class="case-title">Selling a Nigerian travel agency <em>on verifiable credentials,</em> not stock photos of beaches.</h2>
+
+      <p class="case-sum">A 15-page travel site built on credentials a stranger can verify, instead of the stock beach photography every competitor uses.</p>
+
+      <div class="num-row">
+          <div class="case-num">
+            <div class="big">15</div>
+            <div class="lbl">Pages, custom built</div>
+          </div>
+          <div class="case-num">
+            <div class="big">5</div>
+            <div class="lbl">Verifiable credentials, structured into the site</div>
+          </div>
+          <div class="case-num">
+            <div class="big">8</div>
+            <div class="lbl">Context-aware WhatsApp entry points</div>
+          </div>
+      </div>
+
+      <details class="case-more">
+        <summary>Read the full story</summary>
+
+        <div class="case-body">
+          <p><strong>The situation:</strong> Mrs Demi James runs Betini Trips &amp; Tours Services Ltd, an outbound travel operator in Lagos handling visas, flights, tours, faith journeys, study and medical travel, and corporate groups. Her market is crowded with operators who look identical online and a minority who take deposits and disappear. Every competitor uses the same beach photography. None of it answers the only question a Nigerian traveller is actually asking, which is whether this company will still exist after the money leaves the account.</p>
+          <p><strong>What I did:</strong> Full build, brand identity through to live deployment. I took the positioning from her own words: travel project managers, not travel agents.</p>
+          <p>Then I built the whole site around credentials a stranger can verify independently. NATOP membership, signed July 2025. CAC incorporation, RC 2000269, registered 16 November 2022. Akwaaba African Travel Market attendance. VIP Buyer accreditation at an international trade fair. Participation in a Turkey operator workshop.</p>
+          <p>One decision mattered more than any design choice. Her CAC certificate showed her Tax Identification Number. Publishing the image would have exposed it permanently, so I put the RC number on the page as plain text with a link to the public CAC register instead. Same proof, no exposure. Trust evidence that leaks the client's data is not trust evidence.</p>
+          <p>Fifteen pages: home, a services hub with six service detail pages, destinations, about, journeys, FAQ, contact, thank you, privacy and terms. Eight WhatsApp deep links placed by context, each pre-filling a message specific to the page it sits on, so she knows what the enquiry is about before she reads a word. The contact form uses a honeypot rather than a CAPTCHA, a deliberate choice, since CAPTCHA on Nigerian mobile is a conversion tax. WhatsApp taps fire a tracked event labelled by placement, so within a fortnight she can see which of the eight buttons is earning its place.</p>
+          <p>Typography carries the voice: Sora for structure, Inter for body, and Fraunces reserved only for her own quoted words and one emphasis word in the hero.</p>
+          <p><strong>The result:</strong> Live at betinitrips.com, deployed through GitHub and Netlify with clean URL routing across all fifteen pages and the apex redirected to www so search authority is not split. Swellbridge is credited in the footer.</p>
+        </div>
+      </details>
+    </div>
+
+  </div>
+    <!-- CASE 9 -->
+    <div id="case-9" class="case-story case-lite reveal">
+      <div class="case-head">
+        <div><span class="tag">Real Estate · Benin City</span></div>
+        <div class="meta">Benthess · <span class="vlabel">Scope of work</span></div>
+      </div>
+      <h2 class="case-title">A 44-page sales proposal, <em>built to be read on a phone.</em></h2>
+      <p>Produced a 44-page sales proposal and an accompanying funnel plan for a Benin City property business, designed mobile-first on the assumption the decision-maker would read it on a phone rather than at a desk. Published here as scope of work. No outcome is claimed.</p>
+    </div>
+
+</section>
+
+<section class="section-pad section-cream">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">In their words</span>
+      <h2 class="mt-sm">What clients have said <em>where anyone can read it.</em></h2>
+    </div>
+
+    <div class="grid grid-3 mt-lg reveal">
+      <div class="card">
+        <p class="case-quote" style="margin-top:0; padding-top:0; border-top:none; font-size:1.1rem;">"Working with you Emmanuel was a game-changer! The deal did not come easy, but your expert guidance and well-structured ads brought in the right leads. With consistent follow-ups, we closed it. Real estate business owners who want real results should definitely connect with you. Emmanuel understands the market, and it shows in the journey and result he got for Natweng Realtors. Thank you for all lessons learnt!"</p>
+        <p class="case-quote-author">Iyabode Abiola, Natweng Realtors. Public Facebook comment, 2025. Screenshot published with case three above.</p>
+      </div>
+      <div class="card">
+        <p class="case-quote" style="margin-top:0; padding-top:0; border-top:none; font-size:1.1rem;">"Emmanuel A. is highly skilful, creative and very efficient in handling my job assignments to him. I recommend him to anyone who desires prompt services and customised dynamism to his brand, and growth approach. He is very result oriented. You will enjoy working with him."</p>
+        <p class="case-quote-author">Ucheka A., sales funnel consultation, September 2022. Verified platform review, quoted verbatim.</p>
+        <figure class="proof-fig natural">
+          <img src="assets/proof/ucheka-verified-review.jpg" alt="Verified platform review from Ucheka A., dated September 2022" loading="lazy">
+        </figure>
+      </div>
+      <div class="card">
+        <h3>Partners signed from our ads, payment in progress</h3>
+        <p class="mt-sm">A client running a partnership offer at ₦500,000 messaged to say two partners had signed from the campaign, one in Abuja and one in Delta, and noted at the time that payment had not yet come through. A later message reported another Abuja signing and asked to shift spend away from Abuja toward Lagos and Port Harcourt.</p>
+        <p>I am publishing this as what it is: signed partners with payment in progress, and a client asking to redirect budget because the campaign was working in the wrong cities. It is not a closed-revenue figure and I will not present it as one. The reason it is here is that "please move my budget, this city is converting too well" is a specific kind of signal you cannot fake.</p>
+        <figure class="proof-fig natural">
+          <img src="assets/proof/partners-signed-whatsapp.jpg" alt="Client WhatsApp message reporting partners signed from the campaign, with payment pending at the time" loading="lazy">
+          <figcaption>Client message reporting partners signed, payment pending at the time of writing.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Selected writing</span>
+      <h2 class="mt-sm">Copy, and <em>the job each piece was doing.</em></h2>
+    </div>
+
+    <div class="grid grid-2 mt-lg reveal">
+      <div class="card copy-item">
+        <h3>Waterfront estate sales page</h3>
+        <p>Opened on the fact that Lagos has exactly two coastlines. Purpose: replace a generic scarcity claim with a geographic one the buyer can verify, so scarcity stops sounding like sales pressure.</p>
+      </div>
+      <div class="card copy-item">
+        <h3>Strategic partnership proposal, 12 pages</h3>
+        <p>Purpose: win a large engagement while correcting the client's own targets. Their lead volume goal required roughly nine times the ad budget they had, so I repositioned diaspora as a revenue ambition rather than a volume one. Telling a prospect their number is wrong, in the document that asks for their money.</p>
+      </div>
+      <div class="card copy-item">
+        <h3>The Trust Test, lead magnet</h3>
+        <p>Purpose: give developers a way to audit their own online credibility, so the diagnosis arrived before the pitch.</p>
+      </div>
+      <div class="card copy-item">
+        <h3>Sixteen-email nurture sequence</h3>
+        <p>Written for warm web design leads. Purpose: recover enquiries that went quiet without discounting.</p>
+      </div>
+      <div class="card copy-item">
+        <h3>TONDIV Group site copy</h3>
+        <p>"Building Nigeria. Connecting West Africa." Purpose: one line that legitimately holds two unrelated divisions together.</p>
+      </div>
+      <div class="card copy-item">
+        <h3>Betini Trips site copy</h3>
+        <p>"Travel project managers, not travel agents." Purpose: her own words, promoted into positioning, which is almost always better than an agency invention.</p>
+      </div>
+      <div class="card copy-item">
+        <h3>How Much?, a PDF on the free-consultation trap</h3>
+        <p>Purpose: help travel and relocation consultants qualify enquiries before giving away the consultation.</p>
+      </div>
+      <div class="card copy-item">
+        <h3>Ad Budget Reality Check, interactive calculator</h3>
+        <p>Purpose: let a prospect discover their own budget shortfall by moving a slider, rather than being told.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad section-dark">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Creative strategy</span>
+      <h2 class="mt-sm">Six steps, <em>in this order, every time.</em></h2>
+    </div>
+
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-n">01</div>
+        <h3>Find the real objection</h3>
+        <p>Not the demographic. The specific sentence running through the buyer's head at the moment they hesitate. For diaspora property it is fear of fraud at distance. For farmland it is suspicion of the whole category. Everything downstream is built on getting this right.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <h3>Make the offer answer it</h3>
+        <p>If the objection is fear of fraud, the offer leads with verification. Better copy cannot rescue an offer aimed at the wrong fear.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <h3>Name the mechanism</h3>
+        <p>A reason this works that the prospect has not heard before, stated plainly enough to repeat to a spouse.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <h3>Build the whole path</h3>
+        <p>Ad, opt-in, magnet, sales page, nurture, tracking. A great ad pointed at a broken page is wasted money, and it is usually the page that is broken.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">05</div>
+        <h3>Split the audiences properly</h3>
+        <p>Separate campaigns, separate benchmarks, separate reporting. Averaged cost per lead across unlike audiences is a number that hides the truth.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">06</div>
+        <h3>Report the number that governs the decision</h3>
+        <p>Cost per qualified lead by audience. Not reach, not impressions, not engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <h2>What I can <em>take off your desk.</em></h2>
+    </div>
+
+    <div class="grid grid-2 mt-lg reveal">
+      <div class="card">
+        <h3>Paid media</h3>
+        <p>Meta campaign strategy, audience research, creative direction, lead form design, retargeting, budget allocation, cost-per-lead optimisation, server-side conversion tracking.</p>
+      </div>
+      <div class="card">
+        <h3>Funnels and copy</h3>
+        <p>Opt-in pages, sales pages, lead magnets, email sequences, WhatsApp flows, sales scripts, proposals, ad copy in volume.</p>
+      </div>
+      <div class="card">
+        <h3>Build and deploy</h3>
+        <p>Custom-coded multi-page sites, mobile-first, clean URL routing, schema markup, GitHub and Netlify deployment, DNS and HTTPS, Meta Pixel, CAPI and GA4, CRM integration.</p>
+      </div>
+      <div class="card">
+        <h3>Systems and data</h3>
+        <p>CRM configuration, lead deduplication and consolidation at scale, community building on WhatsApp, realtor recruitment and enablement, reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad section-warm">
+  <div class="container">
+    <div class="reveal">
+      <h2>Live work, <em>open in a new tab.</em></h2>
+    </div>
+
+    <div class="mt-lg reveal">
+      <div class="link-row">
+        <a href="https://betinitrips.com" target="_blank" rel="noopener">betinitrips.com</a>
+        <span>Travel operator, 15 pages. Full build: brand identity, copy, site, deployment.</span>
+      </div>
+      <div class="link-row">
+        <a href="https://cpalgroup.com" target="_blank" rel="noopener">cpalgroup.com</a>
+        <span>Asaba developer, 12 pages. Site, realtor hub, tracking, creatives and campaigns.</span>
+      </div>
+      <div class="link-row">
+        <a href="https://cpalgroup.com/realtor-hub/" target="_blank" rel="noopener">cpalgroup.com/realtor-hub</a>
+        <span>The realtor engine: referral link generator and sales material library.</span>
+      </div>
+      <div class="link-row">
+        <a href="https://tondivgroup.com" target="_blank" rel="noopener">tondivgroup.com</a>
+        <span>Construction and cross-border logistics holding company, two divisions. Full build.</span>
+      </div>
+      <div class="link-row">
+        <a href="index.html">swellbridgedigital.com</a>
+        <span>My own site. Copy, design, build, deployment.</span>
       </div>
     </div>
   </div>
@@ -312,10 +982,11 @@
 
 <section class="section-pad section-cream">
   <div class="container-narrow text-center reveal">
-    <span class="eyebrow center">What's Possible For You</span>
-    <h2 class="mt-sm">Your business <em>deserves results like these.</em></h2>
-    <p class="lead mt-md">Every case study started with a discovery call. Yours can too. Tell us about your business and we'll honestly assess whether we're a fit — and what's possible.</p>
-    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20book%20a%20discovery%20call." class="btn btn-primary btn-lg mt-md">Book a Discovery Call →</a>
+    <span class="eyebrow center">Work with me</span>
+    <h2 class="mt-sm">If you want the same <em>discipline</em> applied to your numbers.</h2>
+    <p class="lead mt-md">Tell me what you are selling and who is failing to buy it. I will tell you plainly whether paid acquisition is the right lever, and if it is not, I will say that too.</p>
+    <a href="https://wa.me/2348064158087?text=I%27d%20like%20to%20talk%20about%20my%20numbers." class="btn btn-whatsapp btn-lg mt-md">Message me on WhatsApp</a>
+    <a href="contact.html" class="btn btn-ghost btn-lg mt-md">Book a call</a>
   </div>
 </section>
 
